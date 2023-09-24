@@ -27,8 +27,8 @@
 	Each user type's features serve to enrich the user experience and provide practical insights into agile methodologies, teamwork, and project management.
 
 ------------------------------------------------------------------------------------------------------
-# Rule	Responsibilities	Assigned Team Members
-	##Team Leader: Kumai Alabbas - ID: 40175088
+# Rules & Responsibilities
+	## Team Leader: Kumai Alabbas - ID: 40175088
 		1.	Identifying programing methodology to be used
 		2.	Dividing tasks 
 		3.	Providing resources
