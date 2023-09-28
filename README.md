@@ -29,7 +29,7 @@
 ------------------------------------------------------------------------------------------------------
 # Rules & Responsibilities
 	## Team Leader: Kumai Alabbas - ID: 40175088
-		1.	Identifying programing methodology to be used
+		1.	Identifying programming methodology to be used
 		2.	Dividing tasks 
 		3.	Providing resources
 		4.	Peer reviewing 
