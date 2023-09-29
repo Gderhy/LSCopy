@@ -1,4 +1,4 @@
-#### Team: LuckySeven - SPRINT 1:
+#### Team: LuckySeven - SPRINT 1
 
 # Project Description
 	In the realm of software development and agile methodologies, our project embarks on the journey to create a fully functional Real Estate Web Application. 
@@ -10,7 +10,8 @@
 		Save Favorites: Users can curate a list of their favorite properties for easy access and comparison.
 		Request Property Visits: Interested homebuyers can seamlessly schedule property viewing appointments through the system.
 		Broker Discovery: The application facilitates the search for real estate brokers to assist in the buying process.
-		Mortgage Calculator: A mortgage calculator feature aids homebuyers in estimating monthly payments based on loan amount and interest rate. This feature is not applicable for the properties posted to rent.
+		Mortgage Calculator: A mortgage calculator feature aids homebuyers in estimating monthly payments based on loan amount and interest rate.
+		This feature is not applicable for the properties posted to rent.
 	## Broker
 		Submit Offers: Brokers have the ability to submit purchase offers on behalf of their clients and monitor the status of these offers.
 		Request Property Visits: Brokers can schedule property visits on behalf of their clients.
@@ -29,7 +30,7 @@
 ------------------------------------------------------------------------------------------------------
 # Rules & Responsibilities
 	## Team Leader: Kumai Alabbas - ID: 40175088
-		1.	Identifying programming methodology to be used
+		1.	Identifying programing methodology to be used
 		2.	Dividing tasks 
 		3.	Providing resources
 		4.	Peer reviewing 
@@ -54,9 +55,25 @@
 # Project Approach and Technology 
 	In our project, we're taking a step-by-step approach to make sure our web application meets the provided requirements. 
 	First, we carefully analyzed the customers’ needs to decide on the webpages we have to create. For this project, the following technologies will be used:
-	•	MySQL will be used for creating the database structure and writing the needed SQL queries.
-	•	HTML, CSS and Bootstrap will be used for the static front-end elements.
-	•	JavaScript and React will be used for the dynamic front-end elements.
-	•	PHP will be used to communicate with the server. Mainly for posting and extracting data from the database. 
+	
+	• MySQL will be used for creating the database structure and writing the necessary SQL queries. 
+		Microsoft SQL has a more professional and reliable syntax. However, MySQL is simpler and more suitable for our project. 
+		Although other technologies like MariaDB have better performance and more features, MySQL is much more popular and has much better support.
+		
+	• HTML, CSS, and Bootstrap will be used for the static front-end elements.
+		JavaScript and React will be used for the dynamic front-end elements.
+		The reason for choosing React instead of AngularJS is because we are more familiar with React and because React is a faster framework.
+		React is also known for its scalability; it is more scalable than other frameworks like Vue.js.
+		
+	• PHP will be used to communicate with the server.
+		Other languages like Java are generally better as they support more features and provide access to a wide range of libraries.
+		In addition, languages like Node.js have simpler syntax and offer better support.
+		However, PHP will primarily be used for posting and extracting data from the database, 
+		as one of the team members already has a lot of experience with database communication using PHP.
+		
 	The above list of technologies covers all our needs to build the required web application. 
 ------------------------------------------------------------------------------------------------------
+# Refrences to Important Documents
+	1. User Stories and work breakdown structure: https://github.com/Gderhy/LuckySeven/blob/main/Documentation/Sprit%201/SOEN-341%20%E2%80%93%20Project%20Description%20and%20Tasks%20Division.pdf
+	2. Team Log: https://github.com/Gderhy/LuckySeven/blob/main/Documentation/Team%20Log.xlsx
+	3. Planning wiki: https://github.com/Gderhy/LuckySeven/blob/main/Documentation/Planning.xlsx
