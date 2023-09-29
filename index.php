@@ -9,8 +9,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <title></title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        Hello World!
+        
+        Your Setup is done Correctly!
     </body>
 </html>
