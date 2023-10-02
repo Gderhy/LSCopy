@@ -1,0 +1,96 @@
+
+
+You can copy past the following code to create the needed tables in your database:
+
+
+
+CREATE TABLE `luckyseven`.`tbl_property`
+        (
+                `PROPERTY_ID`   INT        ,
+                `BROKER_ID`     INT        ,
+                `COVER_IMG_ID`  INT        ,
+                `DESCRIPTION`   TEXT       ,
+                `AREA_ID`       INT        ,
+                `ADDRESS`       VARCHAR(45),
+                `POSTAL`        VARCHAR(45),
+                `YEAR`          INT        ,
+                `PARKING_COUNT` INT        ,
+                `BATH_COUNT`    FLOAT      ,
+                `ROOMS_COUNT`   INT        ,
+                `TYPE_ID`       INT        ,
+                `PRICE`         FLOAT      ,
+                `IS_FOR_SALE`   INT        ,
+                `STATUS`        INT        ,
+                PRIMARY KEY (`PROPERTY_ID`)
+        )
+;
+CREATE TABLE `luckyseven`.`tbl_property_visit`
+        (
+                `REQUEST_ID`     INT     ,
+                `REQUESTED_DATE` DATETIME,
+                `CLIENT_ID`      INT     ,
+                `PROPERTY_ID`    INT     ,
+                `STATUS`         INT     ,
+                `SCHEDULED_DATE` DATETIME,
+                PRIMARY KEY (`REQUEST_ID`)
+        )
+;
+CREATE TABLE `luckyseven`.`tbl_client_favorite`
+        (
+                `FAVORITE_ID` INT          ,
+                `CLIENT_ID`   INT          ,
+                `PROPERTY_ID` INT          ,
+                `STATUS_ID`   INT          ,
+                PRIMARY KEY (`FAVORITE_ID`),
+                KEY `NN` (`CLIENT_ID`, `PROPERTY_ID`, `STATUS_ID`)
+        )
+;
+CREATE TABLE `luckyseven`.`tbl_property_offer`
+        (
+                `OFFER_ID`       INT ,
+                `FROM_BROKER_ID` INT ,
+                `PROPERTY_ID`    INT ,
+                `NOTE`           TEXT,
+                PRIMARY KEY (`OFFER_ID`)
+        )
+;
+CREATE TABLE `luckyseven`.`tbl_user`
+        (
+                `USER_ID`    INT        ,
+                `FIRST_NAME` VARCHAR(45),
+                `LAST_NAME`  VARCHAR(45),
+                `PHONE_NUM`  VARCHAR(45),
+                `EMAIL`      VARCHAR(45),
+                `USER_NAME`  VARCHAR(45),
+                `PASSWORD`   VARCHAR(45),
+                `ROLE_ID`    INT        ,
+                `STATUS`     INT        ,
+                PRIMARY KEY (`USER_ID`)
+        )
+;
+CREATE TABLE `luckyseven`.`tbl_property_type`
+        (
+                `TYPE_ID` INT          ,
+                `NAME`    INT          ,
+                PRIMARY KEY (`TYPE_ID`),
+                KEY `NN` (`NAME`)
+        )
+;
+CREATE TABLE `luckyseven`.`tbl_location`
+        (
+                `AREA_ID`  INT        ,
+                `NAME`     VARCHAR(45),
+                `CITY`     VARCHAR(45),
+                `PROVINCE` VARCHAR(45),
+                `COUNTRY`  VARCHAR(45),
+                PRIMARY KEY (`AREA_ID`)
+        )
+;
+CREATE TABLE `luckyseven`.`tbl_property_img`
+        (
+                `IMG_ID` INT     ,
+                `IMG` BLOB       ,
+                `PROPERTY_ID` INT,
+                PRIMARY KEY (`IMG_ID`)
+        )
+;
