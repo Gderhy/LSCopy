@@ -1,13 +1,13 @@
-//performTest();
+performTest();
 
 function performTest() {
     let recipe = 'test';
     let values = null;
-    let data = sqlHandeler(recipe, values);
+    let data = sqlHandler(recipe, values);
     console.log(eval(data));
 }
 
-function sqlHandeler(recipe, values) {
+function sqlHandler(recipe, values) {
     let tempData;
     $.ajax({url: 'general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
