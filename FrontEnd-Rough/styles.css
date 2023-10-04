@@ -1,0 +1,351 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a background color and font styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Style the header with a navigation bar */
+header {
+    background-color: #292b2c;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo img {
+    height: 40px;
+}
+
+header ul {
+    list-style: none;
+}
+
+header ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header ul li:last-child {
+    margin-right: 0;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Style the hero section with a slideshow */
+.hero {
+    background-color: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Property search bar */
+.search-bar {
+    background-color: #292b2c;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.search-container form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input,
+.search-container select,
+.search-container button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%; /* Make inputs and select full width on mobile */
+}
+
+.search-container button {
+    background-color: #ff6600;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #ff5500;
+}
+
+/* Style the featured listings */
+.featured-listings {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.featured-listings h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.listing {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.listing img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.listing h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.listing p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.listing a {
+    background-color: #292b2c;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.listing a:hover {
+    background-color: #555;
+}
+
+/* Style the testimonials section */
+.testimonials {
+    background-color: #f5f5f5;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.client {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* CONTACT */
+
+/* Style the contact section */
+.contact {
+    background-color: #f5f5f5;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column; /* Stack content vertically on mobile */
+    align-items: center; /* Center content horizontally on mobile */
+}
+
+.contact-form {
+    max-width: 600px;
+    width: 100%; /* Make the form full width on mobile */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px; /* Add some space between form and contact info */
+}
+
+.contact-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #292b2c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+.contact-info {
+    max-width: 600px;
+    width: 100%; /* Make the contact info full width on mobile */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/* Listing */
+
+/* ... (Existing styles) ... */
+
+/* Style the listings section */
+/* ... (Existing styles) ... */
+
+/* Style the listings section */
+.listings {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Added padding to center-align content */
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping for responsive layout */
+    justify-content: space-between; /* Distribute listings evenly */
+}
+
+.listing {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    flex-basis: calc(50% - 20px); /* Responsive layout for 2 listings per row */
+    margin-right: 20px; /* Add margin between listings */
+    box-sizing: border-box; /* Include padding in the flex-basis calculation */
+}
+
+.listing img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Space between image and listing details */
+}
+
+.listing h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.listing p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.listing a {
+    background-color: #292b2c;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.listing a:hover {
+    background-color: #555;
+}
+
+/* Responsive layout adjustments */
+@media screen and (max-width: 768px) {
+    .listings {
+        justify-content: center; /* Center-align listings on smaller screens */
+    }
+
+    .listing {
+        flex-basis: calc(50% - 20px); /* 2 listings per row on smaller screens */
+    }
+    
+    /* For screens smaller than 480px (typical smartphone width) */
+    @media screen and (max-width: 480px) {
+        .listing {
+            flex-basis: calc(100% - 20px); /* 1 listing per row on very small screens */
+            margin-right: 0; /* Remove margin to make listings full width */
+        }
+    }
+}
