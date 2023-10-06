@@ -1,8 +1,19 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/javascript.js to edit this template
+/**
+ * This function takes a username and passowrd and return the associated user
+ * info if they exists in the DB
+ * 
+ * @param {str} username
+ * @param {str} password
+ * @returns {json} user info
  */
-
+export function getUserInfo(username, password) {
+    let recipe = 'getUserInfo';
+    let values = [username, password];
+    
+    let jsonUserInfo = sqlHandler(recipe, values);
+    
+    return eval(jsonUserInfo)[0];
+}
 
 function sqlHandler(recipe, values) {
     let tempData;
