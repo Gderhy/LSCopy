@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Property Details - Your Real Estate</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Your Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="account-dropdown">Account</a>
+                    <div class="dropdown-content">
+                        <a href="#">Login/Register</a>
+                        <a href="#">Broker Login</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="property-details">
+        <div class="property-image">
+            <img src="/Users/stevenzrihen/Documents/VS CODE/copper-accent-wall.jpg" alt="Property Image">
+        </div>
+        <div class="property-info">
+            <h1>Modern Luxury Villa <span id="calculator-icon" onclick="toggleCalculator()">🧮</span></h1>
+            <p><strong>Location:</strong> City, State</p>
+            <p><strong>Price:</strong> $1,000,000</p>
+            <p><strong>Property Type:</strong> Single Family Home</p>
+            <p><strong>Bedrooms:</strong> 4</p>
+            <p><strong>Bathrooms:</strong> 3</p>
+            <p><strong>Square Footage:</strong> 2,500 sq. ft.</p>
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non dolor et nisl venenatis dictum vel et nunc.</p>
+        </div>
+    </section>
+
+    <!-- Rest of your content -->
+
+    <footer>
+        <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
+    </footer>
+
+    <div class="mortgage-calculator-popup" id="mortgage-calculator-popup">
+        <div class="calculator-content">
+            <span class="close-button" onclick="toggleCalculator()">&times;</span>
+            <h2>Mortgage Calculator</h2>
+            <label for="property-amount">Property Amount:</label>
+            <input type="number" id="property-amount" placeholder="$">
+            <label for="down-payment">Down Payment:</label>
+            <input type="number" id="down-payment" placeholder="$">
+            <label for="annual-interest-rate">Annual Interest Rate (%):</label>
+            <input type="number" id="annual-interest-rate" placeholder="%">
+            <label for="amortization-period">Amortization Period (Years):</label>
+            <input type="number" id="amortization-period" placeholder="Years">
+            <button onclick="calculateMonthlyPayment()">Calculate</button>
+            <div id="monthly-payment-result"></div>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
