@@ -4,7 +4,7 @@
  */
 
 
-function sqlHandler(recipe, values) {
+export default function sqlHandler(recipe, values) {
     let tempData;
     $.ajax({url: '../general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
@@ -15,3 +15,5 @@ function sqlHandler(recipe, values) {
     });
     return tempData;
 }
+
+
