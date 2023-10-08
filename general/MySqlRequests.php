@@ -1,7 +1,41 @@
 <?php
 $RECIPES = [
+    /*
+     * USER QUERRIES HERE
+     */
    'test' => "SELECT * FROM luckyseven.tbl_user;",
-   'test2' => "SELECT * FROM TEST WHERE USER_ID = '?-?'"
+    /*
+     * admin QUERRIES HERE
+     */
+   'getAllBrokers' => "SELECT 
+                        USER_ID,
+                        FIRST_NAME,
+                        LAST_NAME,
+                        PHONE_NUM,
+                        EMAIL,
+                        USER_NAME,
+                        PASSWORD,
+                        CASE WHEN STATUS = 1 THEN 'ACTIVE'
+                        WHEN STATUS = 2 THEN 'SUSPENDED'
+                        WHEN STATUS = 3 THEN 'DELETED' END AS STATUS
+                        FROM luckyseven.tbl_user
+                 WHERE ROLE_ID = 2",
+    'insertNewBroker' => "INSERT INTO luckyseven.tbl_user (USER_ID, FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, ROLE_ID, STATUS)
+                            SELECT IFNULL(MAX(USER_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 1, 1
+                            FROM luckyseven.tbl_user;",
+    
+    'updateBroker' => "UPDATE luckyseven.tbl_user
+                        SET FIRST_NAME = '?-?',
+                            LAST_NAME = '?-?',
+                            PHONE_NUM = '?-?',
+                            EMAIL = '?-?',
+                            USER_NAME = '?-?',
+                            PASSWORD = '?-?',
+                            STATUS = '?-?'
+                        WHERE USER_ID = '?-?';",
+    'updateBrokerStatus' => "UPDATE luckyseven.tbl_user
+                            SET STATUS = '?-?'
+                            WHERE USER_ID = '?-?';"
 ];
 
 $importedRecipeKey = $_POST['recipeKey']; //the key of the SQL recipe
