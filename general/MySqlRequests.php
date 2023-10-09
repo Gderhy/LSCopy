@@ -21,7 +21,7 @@ $RECIPES = [
                         FROM luckyseven.tbl_user
                  WHERE ROLE_ID = 2",
     'insertNewBroker' => "INSERT INTO luckyseven.tbl_user (USER_ID, FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, ROLE_ID, STATUS)
-                            SELECT IFNULL(MAX(USER_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 1, 1
+                            SELECT IFNULL(MAX(USER_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 2, 1
                             FROM luckyseven.tbl_user;",
     
     'updateBroker' => "UPDATE luckyseven.tbl_user
