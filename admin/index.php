@@ -45,7 +45,7 @@
 <!--        Find a way to make this fetch data from data base and display respectively -->
 <!--        The broker's name should be a link to a page where the user can edit the broker-->
             <h1 class="h1-exting-brokers">Active brokers </h1>
-            <h4 class="h4-exting-brokers">Click on name to edit</h4>
+            <h4 class="h4-exting-brokers">Click on cell to edit</h4>
             <div class="dashboard-existing-brokers">
                 <table class="dashboard-table" id="table-exiting-brokers">
                     <thead class="dashboard-thead">
@@ -60,6 +60,8 @@
                             <th class="dashboard-th">Role ID</th>
                             <th class="dashboard-th">Status</th>
                             <th class="dashboard-th">Delete broker</th>
+                            <th class="dashboard-th">Update broker</th>
+
     <!--                        For the delete, make js confirm to make sure they want to proceed-->
                         </tr>
                     </thead>
