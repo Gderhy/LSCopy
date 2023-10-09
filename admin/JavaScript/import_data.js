@@ -9,7 +9,7 @@ console.log(suspendBroker(999));
 
 /**
  * This is the function that you will need to import.
- * Please respect the importatio syntax:
+ * Please respect the importation syntax:
  * import {getAllBrokers} from './import_data.js';
  * Make sure all your js files are of type module in your index.php
  * @returns {data}

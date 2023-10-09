@@ -72,6 +72,8 @@
                             <!-- Button will confirm with user if they want to proceed -->
                             <!-- After confirmation, the function will remove Broker from data by sending a request-->
                         </tr>
+
+
                     </tbody>
                 </table>
             </div>
@@ -110,11 +112,14 @@
                 </form>
             </div>
         </div>
-        <script src="JavaScript/Exiting-Brokers.js"></script>
+<!--    Java script import-->
+<!--        <script src="JavaScript/Exiting-Brokers.js" type="module"></script>-->
+        <script src="JavaScript/PopulateTable.js" ></script>
+
     </body>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="main.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--<script src="main.js"></script>-->
 
 
 <!--Admin page is used to control the brokers meaning to view all
