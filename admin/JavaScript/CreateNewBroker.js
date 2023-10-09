@@ -1,6 +1,6 @@
 import {addNewBroker} from "./import_data.js";
 
-// NEED TO TEST IF DB RECEIVES NEW BROKER
+// Function works
 
 
 const form = document.getElementById("form-create-broker");
@@ -20,6 +20,11 @@ form.addEventListener("submit", (event) =>{
     // console.log(FIRST_NAME);
     // console.log(FIRST_NAME, LAST_NAME, PHONE_NUM,EMAIL, USER_NAME, PASSWORD); They work !!
 
-    addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM,EMAIL, USER_NAME, PASSWORD); // NEED TO TEST IF THIS WORK !!
+
+    // Function works !
+    addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM,EMAIL, USER_NAME, PASSWORD);
+
+
+    window.location.reload();
 });
 
