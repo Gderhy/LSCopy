@@ -12,12 +12,24 @@
             <div class="logo">
                 <img src="logo.png" alt="Your Logo">
             </div>
-            <ul>
+            <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Listings</a></li>
-              
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="account-dropdown">Account</a>
+                    <div class="dropdown-content">
+                        <a href="#">Login/Register</a>
+                        <a href="#">Broker Login</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -80,6 +92,8 @@
     </footer>
 
     <!-- JavaScript for the slideshow -->
+    <script src="script.js"></script>
     <script src="slideshow.js"></script>
+    
 </body>
 </html>

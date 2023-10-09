@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Listings - Your Real Estate</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Your Logo">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="listings.html">Listings</a></li>
+            
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="search-bar">
+        <div class="search-container">
+            <h1>Find Your Ideal Broker</h1>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="price-range">Price Range:</label>
+                    <select id="price-range" name="price-range">
+                        <option value="">Any</option>
+                        <option value="100000">$100,000</option>
+                        <option value="200000">$200,000</option>
+                        <option value="300000">$300,000</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="listings">
+        <div class="listing">
+            <img src="https://www.rate-my-agent.com/upload/Asal-Jami-Montreal-Real-Estate-Agent.webp" alt="Property 1">
+            <h3>Modern Apartment in the City</h3>
+            <p>Location: Downtown</p>
+            <p>Price: $250,000</p>
+            <a href="#">View Details</a>
+        </div>
+        <!-- Add more listings here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
+    </footer>
+</body>
+</html>

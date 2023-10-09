@@ -1,7 +1,14 @@
 <?php
 $RECIPES = [
-   'test' => "SELECT * FROM luckyseven.tbl_user;",
-   'test2' => "SELECT * FROM TEST WHERE USER_ID = '?-?'"
+   'getUserInfo' => "SELECT FIRST_NAME,
+                     USER_ID,
+                     LAST_NAME,
+                     PHONE_NUM,
+                     EMAIL,
+                     ROLE_ID,
+                     STATUS
+              FROM luckyseven.tbl_user
+              WHERE USER_NAME = '?-?' AND PASSWORD = '?-?';",
 ];
 
 $importedRecipeKey = $_POST['recipeKey']; //the key of the SQL recipe
