@@ -4,7 +4,7 @@
  * @returns {array of jsons}
  */
 
-//console.log(getAllBrokers()); //uncomment to test data importation
+console.log(getAllBrokers()); //uncomment to test data importation
 console.log(suspendBroker(999));
 
 /**
@@ -22,12 +22,13 @@ export function getAllBrokers() {
     return brokers;
 }
 
+
+// Function to add a new broker
 export function addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD) {
     let recipe = 'insertNewBroker';
     let values = [FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD];
     
     return sqlHandler(recipe, values);
-    
 }
 
 /**
@@ -40,6 +41,8 @@ export function addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME,
  * @param {str} STATUS DELETED SUSPENDED OR ACTIVE
  * @param {int} USER_ID
  */
+
+// Edit broker
 export function updateBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, STATUS, USER_ID) {
     let recipe = 'updateBroker';
     switch (STATUS) {
@@ -63,6 +66,9 @@ export function updateBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME,
  * @param {int} USER_ID //you should have it from getAllBrokers function
  * @returns {data}
  */
+
+
+// Delete broker
 export function deleteBroker(USER_ID) {
     let recipe = 'updateBrokerStatus';
     let values = [3, USER_ID]; //3 int code for deleted
@@ -74,6 +80,8 @@ export function deleteBroker(USER_ID) {
  * @param {int} USER_ID //you should have it from getAllBrokers function
  * @returns {data}
  */
+
+// Suspend user from access
 export function suspendBroker(USER_ID) {
     let recipe = 'updateBrokerStatus';
     let values = [2, USER_ID]; //2 int code for suspended

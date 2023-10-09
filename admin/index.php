@@ -50,30 +50,21 @@
                 <table class="dashboard-table" id="table-exiting-brokers">
                     <thead class="dashboard-thead">
                         <tr class="dashboard-row">
-                            <th class="dashboard-th">Broker ID</th>
-                            <th class="dashboard-th">Broker Name</th>
-                            <th class="dashboard-th">Number of listings</th>
+                            <th class="dashboard-th">User ID</th>
+                            <th class="dashboard-th">Username</th>
+                            <th class="dashboard-th">First name</th>
+                            <th class="dashboard-th">Last name</th>
                             <th class="dashboard-th">Email</th>
                             <th class="dashboard-th">Phone Number</th>
-                            <th class="dashboard-th">Company</th>
+                            <th class="dashboard-th">Password</th>
+                            <th class="dashboard-th">Role ID</th>
+                            <th class="dashboard-th">Status</th>
                             <th class="dashboard-th">Delete broker</th>
     <!--                        For the delete, make js confirm to make sure they want to proceed-->
                         </tr>
                     </thead>
                     <tbody id="tbody-existing-brokers">
-                        <tr class="dashboard-row">
-                            <td class="dashboard-td">00000000</td>
-                            <td class="dashboard-td"><a href="#">Fake broker</a></td>
-                            <td class="dashboard-td">1000</td>
-                            <td class="dashboard-td">fake@gmail.com</td>
-                            <td class="dashboard-td">514-000-0000</td>
-                            <td class="dashboard-td">Fake company</td>
-                            <td class="dashboard-td"><button>Delete (Maybe put an icon)</button></td>
-                            <!-- Button will confirm with user if they want to proceed -->
-                            <!-- After confirmation, the function will remove Broker from data by sending a request-->
-                        </tr>
-
-
+<!--                    PopulateTable.js handles filling this table-->
                     </tbody>
                 </table>
             </div>
@@ -82,30 +73,38 @@
 
                 <h3>Add new broker</h3>
 
-<!--            Have to link the submit to send the data to the database-->
-                <form class="form-create-broker" onsubmit="">
+<!--            Calls function that handles creating new broker and sending to db-->
+                <form class="form-create-broker" id="form-create-broker">
 <!--                    action="process_broker.php" method="post"-->
                     <span class="labels-same-line">
-                        <!-- First Name -->
-                        <label for="first_name">First name: </label>
-                        <input type="text" id="first_name" name="first_name" required>
+<!--                        USER_NAME-->
+                        <label for="USER_NAME">Username: </label>
+                        <input type="text" id="USER_NAME" name="USER_NAME" required>
 
-                        <!-- Last Name -->
-                        <label for="last_name">Last name: </label>
-                        <input type="text" id="last_name" name="last_name" required>
-
-                        <!-- Company -->
-                        <label for="company">Company: </label>
-                        <input type="text" id="company" name="company" required>
+                        <!-- PASSWORD -->
+                        <label for="PASSWORD">Password: </label>
+                        <input type="text" id="PASSWORD" name="PASSWORD" required><br>
                     </span>
 
-                    <!-- Phone Number -->
-                    <br><label for="phone_number">Phone Number:</label>
-                    <input type="tel" id="phone_number" name="phone_number" required>
+                    <span class="labels-same-line">
+                        <!-- First Name -->
+                        <label for="FIRST_NAME">First name: </label>
+                        <input type="text" id="FIRST_NAME" name="FIRST_NAME" required>
 
-                    <!-- Email -->
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                        <!-- Last Name -->
+                        <label for="LAST_NAME">Last name: </label>
+                        <input type="text" id="LAST_NAME" name="LAST_NAME" required>
+                    </span>
+
+                    <span class="labels-same-line">
+                        <!-- Phone Number -->
+                    <br><label for="PHONE_NUM">Phone Number:</label>
+                    <input type="tel" id="PHONE_NUM" name="PHONE_NUM" required>
+
+                        <!-- Email -->
+                    <label for="EMAIL">Email:</label>
+                    <input type="email" id="EMAIL" name="EMAIL" required><br>
+                    </span>
 
                     <!-- Submit Button -->
                     <input type="submit" value="Create Broker">
@@ -113,13 +112,12 @@
             </div>
         </div>
 <!--    Java script import-->
-<!--        <script src="JavaScript/Exiting-Brokers.js" type="module"></script>-->
-        <script src="JavaScript/PopulateTable.js" ></script>
-
+        <script src="JavaScript/PopulateTable.js" type="module"></script>
+        <script src="JavaScript/import_data.js" type="module"></script>
+        <script src="JavaScript/CreateNewBroker.js" type="module"></script>
     </body>
 </html>
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
-<!--<script src="main.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 <!--Admin page is used to control the brokers meaning to view all
