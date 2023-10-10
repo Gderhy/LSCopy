@@ -184,7 +184,7 @@ function str_replace_first($search, $replace, $subject) {
  * JS. 
  */
 function executeQuery($recipe) {
-    $serverName = "localhost"; // Change this to your MySQL server name
+    $serverName = "127.0.0.1"; // Change this to your MySQL server name
     $userName = "root"; // Change this to your MySQL username
     $password = "luckyseven"; // Change this to your MySQL password
     $dbName = "luckyseven"; // Change this to your MySQL database name
