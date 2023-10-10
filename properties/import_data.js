@@ -1,9 +1,11 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/javascript.js to edit this template
- */
+getProperties(2, 6000, 0);
 
-
+function getProperties(area, maxPrice, isForSale) {
+    let recipe = 'getProperties';
+    let values = [area, area, maxPrice, maxPrice, isForSale, isForSale];
+    
+    console.log(sqlHandler(recipe, values));
+}
 function sqlHandler(recipe, values) {
     let tempData;
     $.ajax({url: '../general/MySqlRequests.php', method: 'POST', async: false,
