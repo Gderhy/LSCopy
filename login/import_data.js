@@ -12,7 +12,12 @@ export function getUserInfo(username, password) {
     
     let jsonUserInfo = sqlHandler(recipe, values);
     
-    return eval(jsonUserInfo)[0];
+    let evaluatedData = eval(jsonUserInfo);
+    if (evaluatedData && Array.isArray(evaluatedData) && evaluatedData.length > 0) {
+        return evaluatedData[0];
+    } else {
+        return null;
+    }
 }
 
 function sqlHandler(recipe, values) {
