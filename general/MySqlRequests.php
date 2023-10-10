@@ -1,5 +1,6 @@
 <?php
 $RECIPES = [
+<<<<<<< HEAD
    'getUserInfo' => "SELECT FIRST_NAME,
                      USER_ID,
                      LAST_NAME,
@@ -9,6 +10,44 @@ $RECIPES = [
                      STATUS
               FROM luckyseven.tbl_user
               WHERE USER_NAME = '?-?' AND PASSWORD = '?-?';",
+=======
+    /*
+     * USER QUERRIES HERE
+     */
+   'test' => "SELECT * FROM luckyseven.tbl_user;",
+    /*
+     * admin QUERRIES HERE
+     */
+   'getAllBrokers' => "SELECT 
+                        USER_ID,
+                        FIRST_NAME,
+                        LAST_NAME,
+                        PHONE_NUM,
+                        EMAIL,
+                        USER_NAME,
+                        PASSWORD,
+                        CASE WHEN STATUS = 1 THEN 'ACTIVE'
+                        WHEN STATUS = 2 THEN 'SUSPENDED'
+                        WHEN STATUS = 3 THEN 'DELETED' END AS STATUS
+                        FROM luckyseven.tbl_user
+                 WHERE ROLE_ID = 2",
+    'insertNewBroker' => "INSERT INTO luckyseven.tbl_user (USER_ID, FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, ROLE_ID, STATUS)
+                            SELECT IFNULL(MAX(USER_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 2, 1
+                            FROM luckyseven.tbl_user;",
+    
+    'updateBroker' => "UPDATE luckyseven.tbl_user
+                        SET FIRST_NAME = '?-?',
+                            LAST_NAME = '?-?',
+                            PHONE_NUM = '?-?',
+                            EMAIL = '?-?',
+                            USER_NAME = '?-?',
+                            PASSWORD = '?-?',
+                            STATUS = '?-?'
+                        WHERE USER_ID = '?-?';",
+    'updateBrokerStatus' => "UPDATE luckyseven.tbl_user
+                            SET STATUS = '?-?'
+                            WHERE USER_ID = '?-?';"
+>>>>>>> Admin
 ];
 
 $importedRecipeKey = $_POST['recipeKey']; //the key of the SQL recipe

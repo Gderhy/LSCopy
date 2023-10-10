@@ -1,0 +1,71 @@
+/* Styles for h3 in the div with class "div-to-create-broker" */
+div.div-create-broker h3 {
+    padding: 40px;
+
+}
+
+/* form.form-create-broker styles */
+.form-create-broker{
+
+    font-size: 12px;
+    padding: 20px;
+    width: 80%;
+    border-collapse: collapse;
+    border: 2px solid #ccc;
+}
+
+form.form-create-broker form {
+    max-width: 400px; /* Adjust the form.form-create-broker width as needed */
+    margin: 0 auto;  /* Center the form.form-create-broker horizontally */
+}
+
+/* form.form-create-broker field label styles */
+form.form-create-broker label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: inline-block;
+    color: #333; /* Text color for labels */
+
+    font-size: 1.2em;
+
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+/* Input field styles */
+form.form-create-broker input[type="text"],
+form.form-create-broker input[type="tel"],
+form.form-create-broker input[type="email"] {
+    width: 20%;
+    height: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form.form-create-broker input[type="tel"] {
+
+    height: 1.3em;
+}
+
+/* Submit button styles */
+form.form-create-broker input[type="submit"] {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 1em;
+    border: black solid 1px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    margin-left: 5em;
+}
+
+/* form.form-create-broker field label styles for specific fields */
+form.form-create-broker label{
+
+}
+
+span.labels-same-line{
+
+    width: 100%;
+}
+

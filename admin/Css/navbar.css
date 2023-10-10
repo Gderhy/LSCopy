@@ -1,0 +1,678 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a background color and font styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header with a navigation bar */
+
+/* NAVIGATION BAR!!!*/
+/* ... (Existing styles) ... */
+
+/* Style the mobile menu icon */
+.mobile-menu-icon {
+    display: none; /* Initially hidden on larger screens */
+    cursor: pointer;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Style the navigation links */
+.nav-links {
+    list-style: none;
+    z-index: 2;
+}
+
+.nav-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-links li:last-child {
+    margin-right: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff6600;
+}
+
+/* Show/hide the navigation links on small screens */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #292b2c;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 2;
+    }
+
+    .bar.active1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .bar.active2 {
+        opacity: 0;
+    }
+
+    .bar.active3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+
+
+/* Style the dropdown menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.account-dropdown {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #292b2c;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header {
+    background-color: #292b2c;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+}
+
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+header .logo img {
+    height: 40px;
+}
+
+header ul {
+    list-style: none;
+}
+
+header ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header ul li:last-child {
+    margin-right: 0;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Style the hero section with a slideshow */
+.hero {
+    background-color: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Property search bar */
+.search-bar {
+    background-color: #292b2c;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.search-container form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input,
+.search-container select,
+.search-container button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%; /* Make inputs and select full width on mobile */
+}
+
+.search-container button {
+    background-color: #ff6600;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #ff5500;
+}
+
+/* Style the featured listings */
+.featured-listings {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.featured-listings h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.listing {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.listing img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.listing h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.listing p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.listing a {
+    background-color: #292b2c;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.listing a:hover {
+    background-color: #555;
+}
+
+/* Style the testimonials section */
+.testimonials {
+    background-color: #f5f5f5;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.client {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* CONTACT */
+
+/* Style the contact section */
+.contact {
+    background-color: #f5f5f5;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column; /* Stack content vertically on mobile */
+    align-items: center; /* Center content horizontally on mobile */
+}
+
+.contact-form {
+    max-width: 600px;
+    width: 100%; /* Make the form full width on mobile */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px; /* Add some space between form and contact info */
+}
+
+.contact-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #292b2c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+.contact-info {
+    max-width: 600px;
+    width: 100%; /* Make the contact info full width on mobile */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/* Listing */
+
+/* ... (Existing styles) ... */
+
+/* Style the listings section */
+/* ... (Existing styles) ... */
+
+/* Style the listings section */
+.listings {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Added padding to center-align content */
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping for responsive layout */
+    justify-content: space-between; /* Distribute listings evenly */
+}
+
+.listing {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    flex-basis: calc(50% - 20px); /* Responsive layout for 2 listings per row */
+    margin-right: 20px; /* Add margin between listings */
+    box-sizing: border-box; /* Include padding in the flex-basis calculation */
+}
+
+.listing img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Space between image and listing details */
+}
+
+.listing h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.listing p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.listing a {
+    background-color: #292b2c;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.listing a:hover {
+    background-color: #555;
+}
+
+
+
+
+/* LOGINn */
+
+/* Style the login/register section */
+.login-register {
+    max-width: 100%; /* Full screen width */
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.options-table {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.login-register .option {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #292b2c;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.login-register .option:hover {
+    background-color: #555;
+}
+
+.login-register .forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-register .form {
+    display: none;
+    width: 100%; /* Full width for both forms */
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.login-register .form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-register .form .form-group {
+    margin-bottom: 20px;
+}
+
+.login-register .form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-register .form input[type="text"],
+.login-register .form input[type="password"],
+.login-register .form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-register .form button {
+    background-color: #292b2c;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-register .form button:hover {
+    background-color: #555;
+}
+
+/* Responsive layout adjustments */
+@media screen and (max-width: 768px) {
+    .login-register .forms {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+
+
+/* Responsive layout adjustments */
+@media screen and (max-width: 768px) {
+    .listings {
+        justify-content: center; /* Center-align listings on smaller screens */
+    }
+
+    .listing {
+        flex-basis: calc(50% - 20px); /* 2 listings per row on smaller screens */
+    }
+
+    /* For screens smaller than 480px (typical smartphone width) */
+    @media screen and (max-width: 480px) {
+        .listing {
+            flex-basis: calc(100% - 20px); /* 1 listing per row on very small screens */
+            margin-right: 0; /* Remove margin to make listings full width */
+        }
+    }
+}
+
+
+
+
+
+
+
+
+/* Style the property details page layout */
+.property-details {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.property-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.property-info {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.property-info h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.property-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.property-info strong {
+    font-weight: bold;
+}
+
+
+
+/* ... (Existing styles) ... */
+
+/* Style the calculator emoji */
+/* ... (Existing styles) ... */
+
+/* Style the small calculator button */
+#calculator-icon {
+    cursor: pointer;
+    margin-left: 10px; /* Adjust spacing as needed */
+}
+
+/* Style the calculator popup */
+/* ... (Previous CSS styles) ... */
+/* ... (Previous CSS styles) ... */
+
+/* Style the calculator popup */
+.mortgage-calculator-popup {
+    display: none;
+    position: fixed;
+    top: 50%; /* Vertically center the popup at 50% of the viewport height */
+    left: 50%; /* Horizontally center the popup at 50% of the viewport width */
+    transform: translate(-50%, -50%); /* Adjust for its own width and height */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999; /* Ensure it's above other content */
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    max-width: 400px; /* Set the maximum width for the calculator */
+    width: 100%; /* Make it responsive */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ... (Rest of your CSS styles) ... */
+
