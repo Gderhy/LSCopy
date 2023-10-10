@@ -1,6 +1,5 @@
 <?php
 $RECIPES = [
-<<<<<<< HEAD
    'getUserInfo' => "SELECT FIRST_NAME,
                      USER_ID,
                      LAST_NAME,
@@ -10,7 +9,6 @@ $RECIPES = [
                      STATUS
               FROM luckyseven.tbl_user
               WHERE USER_NAME = '?-?' AND PASSWORD = '?-?';",
-=======
     /*
      * USER QUERRIES HERE
      */
@@ -47,7 +45,6 @@ $RECIPES = [
     'updateBrokerStatus' => "UPDATE luckyseven.tbl_user
                             SET STATUS = '?-?'
                             WHERE USER_ID = '?-?';"
->>>>>>> Admin
 ];
 
 $importedRecipeKey = $_POST['recipeKey']; //the key of the SQL recipe
