@@ -8,6 +8,7 @@
     <form id="propertySearchForm">
     <!-- Area Input -->
     <select name="area" id="area">
+        <option value="-1">Quebec</option>
     </select>
 
     <!-- Max Price Input -->
