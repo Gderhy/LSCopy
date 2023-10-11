@@ -19,6 +19,13 @@ export function getUserInfo(username, password) {
         return null;
     }
 }
+// Function to add a new user
+export function addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD) {
+    let recipe = 'insertNewUser';
+    let values = [FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD];
+    
+    return sqlHandler(recipe, values);
+}
 
 function sqlHandler(recipe, values) {
     let tempData;

@@ -12,7 +12,9 @@ $RECIPES = [
     /*
      * USER QUERRIES HERE
      */
-   'test' => "SELECT * FROM luckyseven.tbl_user;",
+   'insertNewUser' => "INSERT INTO luckyseven.tbl_user (USER_ID, FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, ROLE_ID, STATUS)
+                            SELECT IFNULL(MAX(USER_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 3, 1
+                            FROM luckyseven.tbl_user;",
     /*
      * admin QUERRIES HERE
      */
@@ -112,7 +114,8 @@ $RECIPES = [
     
     'insertNewProperty' => "INSERT INTO luckyseven.tbl_property (PROPERTY_ID, BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
             PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS)
-            VALUES (SELECT IFNULL(MAX(PROPERTY_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 1);",
+            SELECT IFNULL(MAX(PROPERTY_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 1
+            FROM luckyseven.tbl_property;",
     
     'updateProperty' => "UPDATE luckyseven.tbl_property
                             SET
@@ -132,7 +135,8 @@ $RECIPES = [
                             WHERE
                                 PROPERTY_ID = '?-?';",
     'linkImageToProperty' => "INSERT INTO luckyseven.tbl_property_img (IMG_ID, IMG, PROPERTY_ID)
-                                VALUES (SELECT IFNULL(MAX(IMG_ID), 0) + 1, '?-?', '?-?');",
+                                SELECT IFNULL(MAX(IMG_ID), 0) + 1, '?-?', '?-?'
+                                FROM luckyseven.tbl_property_img;",
     'getPropertyImages' => "SELECT IMG_ID, IMG
                             FROM tbl_property_img
                             WHERE PROPERTY_ID = '?-?';"
