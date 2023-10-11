@@ -26,3 +26,5 @@ let user = getUserInfo(username, password);
     alert('Username or password is incorrect');
 }
 });  
+
+console.log('login.js loaded');
