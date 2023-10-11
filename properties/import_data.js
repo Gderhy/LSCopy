@@ -1,10 +1,33 @@
-getProperties(2, 6000, 0);
+/**
+ * return all locations 
+ * @returns {json array}
+ */
+export function getLocations() {
+    let recipe = 'getLocations';
+    let values = null;
 
-function getProperties(area, maxPrice, isForSale) {
+    let locations = sqlHandler(recipe, values);
+    return eval(locations);
+}
+/**
+ * Return images URL for a certain propertyID
+ * @param {type} PROPERTY_ID
+ * @returns {json array}
+ */
+export function getPropertyImages(PROPERTY_ID) {
+    let recipe = 'getPropertyImages';
+    let values = [PROPERTY_ID];
+    
+    let propetyImages = sqlHandler(recipe, values);
+    return eval(propetyImages);
+}
+
+export function getProperties(area, maxPrice, isForSale) {
     let recipe = 'getProperties';
     let values = [area, area, maxPrice, maxPrice, isForSale, isForSale];
     
-    console.log(sqlHandler(recipe, values));
+     let properties = sqlHandler(recipe, values);
+     return eval(properties);
 }
 function sqlHandler(recipe, values) {
     let tempData;
@@ -17,3 +40,4 @@ function sqlHandler(recipe, values) {
     });
     return tempData;
 }
+
