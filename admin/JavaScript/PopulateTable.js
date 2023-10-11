@@ -51,7 +51,6 @@ function populateTable(brokers){
 }
 
 
-
 // returns a <tr> element with all the appropriate data
 function getTableRow(broker) {
 
@@ -70,7 +69,6 @@ function getTableRow(broker) {
     const tr = document.createElement("tr");
     tr.className = "dashboard-row";
     tr.id = "row-" + broker.USER_ID;
-
 
 
     // Create and append the table data cells to the table row

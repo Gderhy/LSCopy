@@ -6,8 +6,8 @@
         <title></title>
     </head>
     <body>
-        Hello World!
+        Hello World! bruh
     </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="main.js"></script>
+<script src="import_data.js"></script>

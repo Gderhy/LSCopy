@@ -1,6 +1,5 @@
 <?php
 $RECIPES = [
-<<<<<<< HEAD
    'getUserInfo' => "SELECT FIRST_NAME,
                      USER_ID,
                      LAST_NAME,
@@ -10,11 +9,12 @@ $RECIPES = [
                      STATUS
               FROM luckyseven.tbl_user
               WHERE USER_NAME = '?-?' AND PASSWORD = '?-?';",
-=======
     /*
      * USER QUERRIES HERE
      */
-   'test' => "SELECT * FROM luckyseven.tbl_user;",
+   'insertNewUser' => "INSERT INTO luckyseven.tbl_user (USER_ID, FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, ROLE_ID, STATUS)
+                            SELECT IFNULL(MAX(USER_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 3, 1
+                            FROM luckyseven.tbl_user;",
     /*
      * admin QUERRIES HERE
      */
@@ -44,10 +44,102 @@ $RECIPES = [
                             PASSWORD = '?-?',
                             STATUS = '?-?'
                         WHERE USER_ID = '?-?';",
+    
     'updateBrokerStatus' => "UPDATE luckyseven.tbl_user
                             SET STATUS = '?-?'
-                            WHERE USER_ID = '?-?';"
->>>>>>> Admin
+                            WHERE USER_ID = '?-?';",
+    /*
+     * Properties Mangement
+     */
+        'getBrokerProperties' => "
+        SELECT
+		P.PROPERTY_ID,
+		PT.NAME AS PROPERTY_TYPE,
+		L.NAME AS LOCATION_NAME,
+		L.CITY AS LOCATION_CITY,
+		L.PROVINCE AS LOCATION_PROVINCE,
+		L.COUNTRY AS LOCATION_COUNTRY,
+		P.DESCRIPTION,
+		P.ADDRESS,
+		P.YEAR,
+		P.PARKING_COUNT,
+		P.BATH_COUNT,
+		P.ROOMS_COUNT,
+		P.PRICE,
+		PI.IMG AS COVER_IMAGE,
+		P.IS_FOR_SALE
+	FROM
+		luckyseven.tbl_property P
+	LEFT JOIN
+		luckyseven.tbl_property_type PT ON P.TYPE_ID = PT.TYPE_ID
+	LEFT JOIN
+		luckyseven.tbl_location L ON P.AREA_ID = L.AREA_ID
+	LEFT JOIN
+		luckyseven.tbl_property_img PI ON P.COVER_IMG_ID = PI.IMG_ID
+	WHERE BROKER_ID = '?-?';",
+    /*
+     * Properties Search
+     */
+    'getProperties' => "
+        SELECT
+		P.PROPERTY_ID,
+		PT.NAME AS PROPERTY_TYPE,
+		L.NAME AS LOCATION_NAME,
+		L.CITY AS LOCATION_CITY,
+		L.PROVINCE AS LOCATION_PROVINCE,
+		L.COUNTRY AS LOCATION_COUNTRY,
+		P.DESCRIPTION,
+		P.ADDRESS,
+		P.YEAR,
+		P.PARKING_COUNT,
+		P.BATH_COUNT,
+		P.ROOMS_COUNT,
+		P.PRICE,
+		PI.IMG AS COVER_IMAGE,
+		P.IS_FOR_SALE
+	FROM
+		luckyseven.tbl_property P
+	LEFT JOIN
+		luckyseven.tbl_property_type PT ON P.TYPE_ID = PT.TYPE_ID
+	LEFT JOIN
+		luckyseven.tbl_location L ON P.AREA_ID = L.AREA_ID
+	LEFT JOIN
+		luckyseven.tbl_property_img PI ON P.COVER_IMG_ID = PI.IMG_ID
+	WHERE
+		(P.AREA_ID = '?-?' OR '?-?' = -1)
+		AND (P.PRICE <= '?-?' OR '?-?' = -1)
+		AND (P.IS_FOR_SALE = '?-?' OR '?-?' = -1);",
+    'getPropertyTypes' => 'SELECT * FROM luckyseven.tbl_property_type;',
+    'getLocations' => 'SELECT * FROM luckyseven.tbl_location',
+    
+    'insertNewProperty' => "INSERT INTO luckyseven.tbl_property (PROPERTY_ID, BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
+            PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS)
+            SELECT IFNULL(MAX(PROPERTY_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 1
+            FROM luckyseven.tbl_property;",
+    
+    'updateProperty' => "UPDATE luckyseven.tbl_property
+                            SET
+                                COVER_IMG_ID = '?-?',
+                                DESCRIPTION = '?-?',
+                                AREA_ID = '?-?',
+                                ADDRESS = '?-?',
+                                POSTAL = '?-?',
+                                YEAR = '?-?',
+                                PARKING_COUNT = '?-?',
+                                BATH_COUNT = '?-?',
+                                ROOMS_COUNT = '?-?',
+                                TYPE_ID = '?-?',
+                                PRICE = '?-?',
+                                IS_FOR_SALE = '?-?',
+                                STATUS = '?-?'
+                            WHERE
+                                PROPERTY_ID = '?-?';",
+    'linkImageToProperty' => "INSERT INTO luckyseven.tbl_property_img (IMG_ID, IMG, PROPERTY_ID)
+                                SELECT IFNULL(MAX(IMG_ID), 0) + 1, '?-?', '?-?'
+                                FROM luckyseven.tbl_property_img;",
+    'getPropertyImages' => "SELECT IMG_ID, IMG
+                            FROM tbl_property_img
+                            WHERE PROPERTY_ID = '?-?';"
 ];
 
 $importedRecipeKey = $_POST['recipeKey']; //the key of the SQL recipe
@@ -96,7 +188,7 @@ function str_replace_first($search, $replace, $subject) {
  * JS. 
  */
 function executeQuery($recipe) {
-    $serverName = "localhost"; // Change this to your MySQL server name
+    $serverName = "127.0.0.1"; // Change this to your MySQL server name
     $userName = "root"; // Change this to your MySQL username
     $password = "luckyseven"; // Change this to your MySQL password
     $dbName = "luckyseven"; // Change this to your MySQL database name

@@ -12,7 +12,19 @@ export function getUserInfo(username, password) {
     
     let jsonUserInfo = sqlHandler(recipe, values);
     
-    return eval(jsonUserInfo)[0];
+    let evaluatedData = eval(jsonUserInfo);
+    if (evaluatedData && Array.isArray(evaluatedData) && evaluatedData.length > 0) {
+        return evaluatedData[0];
+    } else {
+        return null;
+    }
+}
+// Function to add a new user
+export function addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD) {
+    let recipe = 'insertNewUser';
+    let values = [FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD];
+    
+    return sqlHandler(recipe, values);
 }
 
 function sqlHandler(recipe, values) {

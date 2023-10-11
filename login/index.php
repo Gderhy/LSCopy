@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label for="new-username">Username:</label>
-                        <input type="text" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                        <input type="text" id="newUser" name="newUser" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
                     </div>
 
                     <div class="form-group">
