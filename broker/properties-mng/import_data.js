@@ -9,7 +9,7 @@
  * @param {int} brokerID
  * @returns {json array}
  */
-function getBrokerProperties(brokerID) {
+export function getBrokerProperties(brokerID) {
     let recipe = 'getBrokerProperties';
     let values = [brokerID];
 
@@ -21,7 +21,7 @@ function getBrokerProperties(brokerID) {
  * return all property types (condo, house, etc)
  * @returns {json array}
  */
-function getPropertyTypes() {
+export function getPropertyTypes() {
     let recipe = 'getPropertyTypes';
     let values = null;
 
@@ -33,7 +33,7 @@ function getPropertyTypes() {
  * return all locations 
  * @returns {json array}
  */
-function getLocations() {
+export function getLocations() {
     let recipe = 'getLocations';
     let values = null;
 
@@ -45,7 +45,7 @@ function getLocations() {
  * @param {type} PROPERTY_ID
  * @returns {json array}
  */
-function getPropertyImages(PROPERTY_ID) {
+export function getPropertyImages(PROPERTY_ID) {
     let recipe = 'getPropertyImages';
     let values = [PROPERTY_ID];
     
@@ -69,7 +69,7 @@ function getPropertyImages(PROPERTY_ID) {
  * @param {int} IS_FOR_SALE // 1 for true and 0 for false
  * @returns void
  */
-function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
+export function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE) {
 
     let recipe = 'insertNewProperty';
@@ -97,7 +97,7 @@ function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEA
  * @param {str} STATUS //SOLD, DELETED, ON HOLD ALL UPPERCASE
  * @returns {undefined}
  */
-function updateProperrty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
+export function updateProperrty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID) {
             
     switch (STATUS) {
@@ -127,14 +127,14 @@ function updateProperrty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YE
  * @param {int} PROPERTY_ID
  * @returns {undefined}
  */
-function linkImageToProperty(IMG_LINK, PROPERTY_ID) {
+export function linkImageToProperty(IMG_LINK, PROPERTY_ID) {
     let recipe = 'linkImageToProperty';
     let values = [IMG_LINK, PROPERTY_ID];
     
     sqlHandler(recipe, values);
 }
 
-function sqlHandler(recipe, values) {
+export function sqlHandler(recipe, values) {
     let tempData;
     $.ajax({url: '../../general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
