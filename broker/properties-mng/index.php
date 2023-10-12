@@ -2,7 +2,21 @@
 
 <html>
     <head>
+    <nav>
+    <div class="logo">
+    </div>
+    <ul>
+        <li><a href="../../admin">Admin</a></li>
+        <li><a href="../" class="active">Broker</a></li>
+         <li><a href="../FrontEnd-Rough">Home</a></li>
+        <li><a href="../../FrontEnd-Rough/listings.html">Listings</a></li>
+        <li><a href="../../FrontEnd-Rough/contact.html">Contact</a></li>
+        <li><a href="../../properties">Properties</a></li>
+        <li><a href="../../login">Login</a></li>
+    </ul>
+        </nav>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../navStyle.css">
         <title>Manage Properties</title>
     </head>
     <body>
@@ -51,7 +65,7 @@
         <option value="1">Yes</option>
         <option value="0">No</option>
     </select><br><br>
-
+    <br><br>
     <input type="submit" value="Insert Property">
 </form>
         

@@ -1,6 +1,12 @@
 import {getProperties, getLocations, getPropertyImages} from './import_data.js';
 
 document.addEventListener('DOMContentLoaded', function() {
+    let user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user || parseInt(user.ROLE_ID) !== 3) {
+        alert('Please log in first');
+        window.location.href = '../login/';
+    }
     let locations = getLocations();
     let selectElement = document.getElementById('area');
 
@@ -43,7 +49,7 @@ function displayProperties(properties) {
         
         let propertyImage = getPropertyImages(property.PROPERTY_ID);
 
-        let imageUrl = propertyImage && propertyImage.length > 0 ? propertyImage[0].link : 'COVER_IMAGE';
+        let imageUrl = propertyImage && propertyImage.length > 0 ? propertyImage[0].IMG : 'COVER_IMAGE';
 
         
         let propertyDiv = document.createElement('div');
