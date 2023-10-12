@@ -43,7 +43,7 @@ function displayProperties(properties) {
         
         let propertyImage = getPropertyImages(property.PROPERTY_ID);
 
-        let imageUrl = propertyImage && propertyImage.length > 0 ? propertyImage[0].link : 'COVER_IMAGE';
+        let imageUrl = propertyImage && propertyImage.length > 0 ? propertyImage[0].IMG     : 'COVER_IMAGE';
 
         
         let propertyDiv = document.createElement('div');

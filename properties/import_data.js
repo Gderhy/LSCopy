@@ -11,7 +11,7 @@ export function getLocations() {
 }
 /**
  * Return images URL for a certain propertyID
- * @param {type} PROPERTY_ID
+ * @param {int} PROPERTY_ID
  * @returns {json array}
  */
 export function getPropertyImages(PROPERTY_ID) {
