@@ -6,9 +6,9 @@
  * @param {str} password
  * @returns {json} user info
  */
-export function getUserInfo(username, password) {
+export function getUserInfo(USER_NAME, PASSWORD) {
     let recipe = 'getUserInfo';
-    let values = [username, password];
+    let values = [USER_NAME, PASSWORD];
     
     let jsonUserInfo = sqlHandler(recipe, values);
     

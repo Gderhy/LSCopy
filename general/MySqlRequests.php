@@ -96,7 +96,11 @@ $RECIPES = [
 		P.ROOMS_COUNT,
 		P.PRICE,
 		PI.IMG AS COVER_IMAGE,
-		P.IS_FOR_SALE
+		P.IS_FOR_SALE,
+                USR.FIRST_NAME,
+                USR.LAST_NAME,
+                USR.PHONE_NUM,
+                USR.EMAIL
 	FROM
 		luckyseven.tbl_property P
 	LEFT JOIN
@@ -105,6 +109,8 @@ $RECIPES = [
 		luckyseven.tbl_location L ON P.AREA_ID = L.AREA_ID
 	LEFT JOIN
 		luckyseven.tbl_property_img PI ON P.COVER_IMG_ID = PI.IMG_ID
+	LEFT JOIN
+		luckyseven.tbl_user USR ON USR.USER_ID = P.BROKER_ID
 	WHERE
 		(P.AREA_ID = '?-?' OR '?-?' = -1)
 		AND (P.PRICE <= '?-?' OR '?-?' = -1)
@@ -139,7 +145,49 @@ $RECIPES = [
                                 FROM luckyseven.tbl_property_img;",
     'getPropertyImages' => "SELECT IMG_ID, IMG
                             FROM tbl_property_img
-                            WHERE PROPERTY_ID = '?-?';"
+                            WHERE PROPERTY_ID = '?-?';",
+    'insertNewVisitRequest' => "INSERT INTO luckyseven.tbl_property_visit (REQUEST_ID, REQUESTED_DATE, CLIENT_ID, PROPERTY_ID, STATUS)
+                                SELECT IFNULL(MAX(REQUEST_ID), 0) + 1 , '?-?', '?-?', '?-?', 1
+                                FROM luckyseven.tbl_property_visit;",
+    'scheduleVisit' => "UPDATE luckyseven.tbl_property_visit
+                        SET STATUS = 2,
+                        SCHEDULED_DATE = '?-?'
+                        WHERE REQUEST_ID = '?-?';",
+    'getVisitsRequests' => "SELECT
+                        P.PROPERTY_ID,
+                        PT.NAME AS PROPERTY_TYPE,
+                        L.NAME AS LOCATION_NAME,
+                        L.CITY AS LOCATION_CITY,
+                        L.PROVINCE AS LOCATION_PROVINCE,
+                        L.COUNTRY AS LOCATION_COUNTRY,
+                        P.DESCRIPTION,
+                        P.ADDRESS,
+                        P.YEAR,
+                        P.PRICE,
+                        PI.IMG AS COVER_IMAGE,
+                        P.IS_FOR_SALE,
+                        V.REQUEST_ID,
+                        CASE WHEN V.STATUS = 1 THEN 'NEW'
+							WHEN V.STATUS = 2 THEN 'SCHEDULED'
+                            WHEN V.STATUS = 3 THEN 'DELETED'
+						END AS STATUS,
+                        V.REQUESTED_DATE,
+                        V.SCHEDULED_DATE,
+                        CONCAT(U.FIRST_NAME, ' ', U.LAST_NAME) AS CLIENT_NAME,
+                        U.PHONE_NUM AS CLIENT_PHONE,
+                        U.EMAIL AS CLIENT_EMAIL
+                FROM luckyseven.tbl_property_visit V
+                LEFT JOIN
+                        luckyseven.tbl_property P ON P.PROPERTY_ID = V.PROPERTY_ID
+                LEFT JOIN
+                        luckyseven.tbl_property_type PT ON P.TYPE_ID = PT.TYPE_ID
+                LEFT JOIN
+                        luckyseven.tbl_location L ON P.AREA_ID = L.AREA_ID
+                LEFT JOIN 
+                        luckyseven.tbl_property_img PI ON P.COVER_IMG_ID = PI.IMG_ID
+                LEFT JOIN
+                        luckyseven.tbl_user U ON U.USER_ID = V.CLIENT_ID
+                WHERE P.BROKER_ID = '?-?'"
 ];
 
 $importedRecipeKey = $_POST['recipeKey']; //the key of the SQL recipe
