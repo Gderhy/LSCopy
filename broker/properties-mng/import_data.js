@@ -9,9 +9,9 @@
  * @param {int} brokerID
  * @returns {json array}
  */
-export function getBrokerProperties(brokerID) {
+export function getBrokerProperties(BROKER_ID) {
     let recipe = 'getBrokerProperties';
-    let values = [brokerID];
+    let values = [BROKER_ID];
 
     let properties = sqlHandler(recipe, values);
     return eval(properties);
