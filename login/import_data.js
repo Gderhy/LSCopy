@@ -6,9 +6,9 @@
  * @param {str} password
  * @returns {json} user info
  */
-export function getUserInfo(username, password) {
+export function getUserInfo(USER_NAME, PASSWORD) {
     let recipe = 'getUserInfo';
-    let values = [username, password];
+    let values = [USER_NAME, PASSWORD];
     
     let jsonUserInfo = sqlHandler(recipe, values);
     
@@ -20,7 +20,7 @@ export function getUserInfo(username, password) {
     }
 }
 // Function to add a new user
-export function addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD) {
+export function addNewUser(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD) {
     let recipe = 'insertNewUser';
     let values = [FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD];
     

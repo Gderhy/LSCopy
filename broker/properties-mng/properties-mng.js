@@ -1,6 +1,12 @@
 import {getLocations, insertNewProperty} from './import_data.js';
 
 document.addEventListener('DOMContentLoaded', function() {
+    let user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user || parseInt(user.ROLE_ID) !== 2) {
+        alert('Access denied. Redirecting to homepage.');
+        window.location.href = '../../login/';
+    }
     let locations = getLocations();
     let selectElement = document.getElementById('AREA_ID');
 
@@ -13,10 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+
 document.getElementById('addProperty').addEventListener('submit', function(event) {
     event.preventDefault();
  
-        let BROKER_ID = document.getElementById('BROKER_ID').value;
+        let BROKER_ID = JSON.parse(localStorage.getItem('user')).ROLE_ID;
         let DESCRIPTION = document.getElementById('DESCRIPTION').value;
         let AREA_ID = document.getElementById('AREA_ID').value;
         let ADDRESS = document.getElementById('ADDRESS').value;

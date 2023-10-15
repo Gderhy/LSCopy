@@ -3,8 +3,26 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link rel="stylesheet" href="../navStyle.css">
+        <title>Property Search</title>
     </head>
+    <body>
+        <header>
+    <nav>
+    <div class="logo">
+    </div>
+    <ul>
+    <li><a href="../admin" >Admin</a></li>
+        <li><a href="../broker">Broker</a></li>
+         <li><a href="../FrontEnd-Rough">Home</a></li>
+        <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
+        <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
+        <li><a href="" class="active">Properties</a></li>
+        <li><a href="../login">Login</a></li>
+    </ul>
+        </nav>
+        </header>
+        <br><br><br><br><br>
     <form id="propertySearchForm">
     <!-- Area Input -->
     <select name="area" id="area">
@@ -22,6 +40,7 @@
     </select>
     <button type="submit">Search</button>
 </form>
+
 
 <div id="searchResults">
 </div>

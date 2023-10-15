@@ -9,35 +9,26 @@
         <link rel="stylesheet" href="Css/admin-content.css">
         <link rel="stylesheet" href="Css/Existing-brokers.css">
         <link rel="stylesheet" href="Css/Create-new-broker.css">
+        <link rel="stylesheet" href="../navStyle.css">
 
         <title>Your Real Estate</title>
+      
     </head>
     <body>
         <header>
 <!--        Nav bar taken from FrontEnd-Rough/index.html-->
-          <nav>
-            <div class="logo">
-                <img src="logo.png" alt="Your Logo">
-            </div>
-            <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="listings.html">Listings</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="account-dropdown">Account</a>
-                    <div class="dropdown-content">
-                        <a href="#">Login/Register</a>
-                        <a href="#">Broker Login</a>
-                    </div>
-                </li>
-            </ul>
+<nav>
+    <div class="logo">
+    </div>
+    <ul>
+        <li><a href="" class="active">Admin</a></li>
+        <li><a href="../broker">Broker</a></li>
+         <li><a href="../FrontEnd-Rough">Home</a></li>
+        <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
+        <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
+        <li><a href="../properties">Properties</a></li>
+        <li><a href="../login">Login</a></li>
+    </ul>
         </nav>
         </header>
         <div class="content-container">

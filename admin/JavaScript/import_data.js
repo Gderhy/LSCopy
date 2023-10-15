@@ -32,17 +32,17 @@ export function addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME,
 }
 
 /**
- * @param {str} FIRST_NAME
- * @param {str} LAST_NAME
- * @param {str} PHONE_NUM
- * @param {str} EMAIL
- * @param {str} USER_NAME
- * @param {str} PASSWORD
- * @param {str} STATUS DELETED SUSPENDED OR ACTIVE
- * @param {int} USER_ID
+ * 
+ * @param {type} FIRST_NAME
+ * @param {type} LAST_NAME
+ * @param {type} PHONE_NUM
+ * @param {type} EMAIL
+ * @param {type} USER_NAME
+ * @param {type} PASSWORD
+ * @param {type} STATUS
+ * @param {type} USER_ID
+ * @returns {undefined}
  */
-
-// Edit broker
 export function updateBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, STATUS, USER_ID) {
     let recipe = 'updateBroker';
     switch (STATUS) {
@@ -60,6 +60,7 @@ export function updateBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME,
     let values = [FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, STATUS, USER_ID];
 
     sqlHandler(recipe, values);
+    return 4;
 }
 
 /**
