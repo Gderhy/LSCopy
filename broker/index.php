@@ -20,8 +20,16 @@
         </nav>
     </head>
     <body>
-        Hello World! bruh
+        <div class="dropdown">
+    <button class="dropbtn">Choose Page</button>
+    <div class="dropdown-content">
+        <a href="visit-requests/index.php">Visit Requests</a>
+        <a href="properties-mng/index.php">Listed Properties</a>
+    </div>
+</div>
+
     </body>
+    
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="import_data.js"></script>

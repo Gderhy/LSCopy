@@ -20,9 +20,8 @@
         <title>Manage Properties</title>
     </head>
     <body>
+        <br><br><br><br><br>
        <form id="addProperty">
-    <label for="BROKER_ID">Broker ID:</label>
-    <input type="number" id="BROKER_ID" name="BROKER_ID" required><br><br>
 
     <label for="DESCRIPTION">Description:</label>
     <textarea id="DESCRIPTION" name="DESCRIPTION" required></textarea><br><br>
