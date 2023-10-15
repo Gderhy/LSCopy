@@ -17,18 +17,17 @@
     <body>
         <header>
 <!--        Nav bar taken from FrontEnd-Rough/index.html-->
-<nav>
-    <div class="logo">
-    </div>
-    <ul>
-        <li><a href="" class="active">Admin</a></li>
-        <li><a href="../broker">Broker</a></li>
-         <li><a href="../FrontEnd-Rough">Home</a></li>
-        <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
-        <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
-        <li><a href="../properties">Properties</a></li>
-        <li><a href="../login">Login</a></li>
-    </ul>
+        <nav>
+            <div class="logo"></div>
+            <ul>
+                <li><a href="" class="active">Admin</a></li>
+                <li><a href="../broker">Broker</a></li>
+                 <li><a href="../FrontEnd-Rough">Home</a></li>
+                <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
+                <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
+                <li><a href="../properties">Properties</a></li>
+                <li><a href="../login">Login</a></li>
+            </ul>
         </nav>
         </header>
         <div class="content-container">
@@ -37,7 +36,7 @@
 <!--        The broker's name should be a link to a page where the user can edit the broker-->
             <h1 class="h1-exting-brokers">Active brokers </h1>
             <h4 class="h4-exting-brokers">Click on cell to edit</h4>
-            <div class="dashboard-existing-brokers">
+            <div class="dashboard-listings">
                 <table class="dashboard-table" id="table-exiting-brokers">
                     <thead class="dashboard-thead">
                         <tr class="dashboard-row">

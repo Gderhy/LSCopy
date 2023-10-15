@@ -1,13 +1,8 @@
-/* Dashboard header styles */
-div.dashboard-listings h1 {
-    padding: 40px;
+div.My-listings {
+
+    padding: 30px;
 }
 
-div.dashboard-listings {
-
-    max-height: 250px; /* Adjust the height as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
 /* Dashboard table styles */
 table.dashboard-table {
     width: 100%;
@@ -46,9 +41,4 @@ tr.dashboard-tr:nth-child(even) {
 
 tr.dashboard-tr:hover {
     background-color: #e0e0e0; /* Highlight row on hover */
-}
-
-.h4-exting-brokers {
-
-    color: rgba(58,58,58,0.76);
 }

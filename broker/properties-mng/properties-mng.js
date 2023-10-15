@@ -1,7 +1,7 @@
 import {getLocations, insertNewProperty} from './import_data.js';
 
 document.addEventListener('DOMContentLoaded', function() {
-    let user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('user'));
 
     if (!user || parseInt(user.ROLE_ID) !== 2) {
         alert('Access denied. Redirecting to homepage.');
