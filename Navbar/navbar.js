@@ -14,7 +14,14 @@
 //             </ul>
 // </nav>
 
+const pathForHome = "../FrontEnd-Rough";
+
 const pathForAdmin = "admin/index.php";
+const pathForBroker = "broker/index.php";
+const pathForProperties = "properties/index.php";
+
+const pathForContact = "../FrontEnd-Rough/contact.html";
+const pathForLogin = "login/index.php";
 
 
 
@@ -27,6 +34,10 @@ function implementNavbar(){
     logo.className = "logo";
 
     const ul = document.createElement("ul");
+
+
+
+
 
 
 }
