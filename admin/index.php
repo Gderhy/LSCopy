@@ -5,30 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--        Css-->
-        <link rel="stylesheet" href="Css/navbar.css">
+
         <link rel="stylesheet" href="Css/admin-content.css">
         <link rel="stylesheet" href="Css/Existing-brokers.css">
         <link rel="stylesheet" href="Css/Create-new-broker.css">
-        <link rel="stylesheet" href="../Navbar/Css/navStyle.css">
+
 
         <title>Your Real Estate</title>
       
     </head>
     <body>
         <header>
-<!--        Nav bar taken from FrontEnd-Rough/index.html-->
-        <nav>
-            <div class="logo"></div>
-            <ul>
-                <li><a href="" class="active">Admin</a></li>
-                <li><a href="../broker">Broker</a></li>
-                 <li><a href="../FrontEnd-Rough">Home</a></li>
-                <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
-                <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
-                <li><a href="../properties">Properties</a></li>
-                <li><a href="../login">Login</a></li>
-            </ul>
-        </nav>
+           <nav id="navbar"></nav>
         </header>
         <div class="content-container">
 
@@ -107,6 +95,10 @@
         <script src="JavaScript/PopulateTable.js" type="module"></script>
         <script src="JavaScript/import_data.js" type="module"></script>
         <script src="JavaScript/CreateNewBroker.js" type="module"></script>
+
+        <script src="../Navbar/navbar.js"></script>
+        <script>implementNavbar("Admin")</script>
+
     </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
