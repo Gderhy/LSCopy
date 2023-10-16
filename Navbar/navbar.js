@@ -7,7 +7,7 @@
 
 
 // This will be a general navbar, include this in all ur html/php files in order to have one navbar
-// This navbar will handle all login, logout, and page routing. i.e Display Admin or Broker page respectively.
+// This navbar will handle all Login, logout, and page routing. i.e Display Admin or Broker page respectively.
 
 // <nav>
 //             <div class="logo"></div>
@@ -18,7 +18,7 @@
 //                 <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
 //                 <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
 //                 <li><a href="../properties">Properties</a></li>
-//                 <li><a href="../login">Login</a></li>
+//                 <li><a href="../Login">Login</a></li>
 //             </ul>
 // </nav>
 
@@ -26,15 +26,15 @@
 
 
 
-const pathForHome = "FrontEnd-rough/";
+const pathForHome = "/FrontEnd-rough/";
 
-const pathForAdmin = "admin/index.php";
-const pathForMyListings = "broker/my-listings.php";
-const pathForMyVisits = "broker/my-visits.php";
-const pathForPropertySearch = "properties/index.php";
+const pathForAdmin = "/admin/";
+const pathForMyListings = "/broker/my-listings.php";
+const pathForMyVisits = "/broker/my-visits.php";
+const pathForPropertySearch = "/properties/";
 
-const pathForContact = "FrontEnd-Rough/contact.html";
-const pathForLogin = "login/index.php";
+const pathForContact = "/FrontEnd-Rough/contact.html";
+const pathForLogin = "/Login/index.php";
 
 
 
@@ -46,7 +46,7 @@ const pathForLogin = "login/index.php";
  */
 function implementNavbar(activePage){
 
-    CssInHead();
+    // CssInHead();
 
     const navbar = document.getElementById("navbar");
 
@@ -87,8 +87,8 @@ function getUl(activePage){
 
         } else if (user?.ROLE_ID ==="2") {
 
-            const myLisitings = getLi(pathForMyListings, "My Listings", activePage);
-            ul.appendChild(myLisitings);
+            const myListings = getLi(pathForMyListings, "My Listings", activePage);
+            ul.appendChild(myListings);
 
             const myVisits = getLi(pathForMyVisits, "My Visits", activePage);
             ul.appendChild(myVisits);

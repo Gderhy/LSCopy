@@ -23,21 +23,29 @@
                 <thead class="dashboard-thead">
                 <tr class="dashboard-row">
                     <th class="dashboard-th">Property ID</th>
-                    <th class="dashboard-th">Property Name</th>
-                    <th class="dashboard-th">City</th>
-                    <th class="dashboard-th">Postal Code</th>
-                    <th class="dashboard-th">Address</th>
                     <th class="dashboard-th">Image</th>
                     <th class="dashboard-th">Description</th>
+<!--                    <th class="dashboard-th">Property Name</th>-->
+                    <th class="dashboard-th">Area ID</th>
+                    <th class="dashboard-th">Address</th>
+                    <th class="dashboard-th">Postal Code</th>
+                    <th class="dashboard-th">Year</th>
                     <th class="dashboard-th">Parking</th>
-
+                    <th class="dashboard-th">Baths</th>
+                    <th class="dashboard-th">Rooms</th>
+                    <th class="dashboard-th">Type ID</th>
+                    <th class="dashboard-th">Price</th>
+                    <th class="dashboard-th">For sale</th>
+                    <th class="dashboard-th">Status</th>
+                    <th class="dashboard-th">Delete</th>
+                    <th class="dashboard-th">Update</th>
 
 
                     <!--                        For the delete, make js confirm to make sure they want to proceed-->
                 </tr>
                 </thead>
-                <tbody id="tbody-existing-brokers">
-                <!--                    PopulateTable.js handles filling this table-->
+                <tbody id="tbody-my-listings">
+                <!--                    PopulateMyListingTable.js handles filling this table-->
                 </tbody>
             </table>
         </div>
@@ -49,5 +57,7 @@
 
     <script src="/Navbar/navbar.js"></script>
     <script>implementNavbar("My Listings")</script>
+
+    <script src="PopulateMyListingTable.js" type="module"></script>
     </body>
 </html>

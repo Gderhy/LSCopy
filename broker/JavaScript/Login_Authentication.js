@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded",
 
         // if (!user || parseInt(user.ROLE_ID) !== brokerRoleID) {
         //     alert('Access denied. Redirecting to homepage.');
-        //     window.location.href = '../login';
+        //     window.location.href = '../Login';
         // } else {
         //
         //     alert("User authorized.");

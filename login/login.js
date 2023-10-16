@@ -1,7 +1,7 @@
 import {getUserInfo, addNewUser} from './import_data.js';
 
 
-document.getElementById('login-form').addEventListener('submit', function(event) {
+document.getElementById('Login-form').addEventListener('submit', function(event) {
    event.preventDefault();
 
 let username = document.getElementById('username').value;

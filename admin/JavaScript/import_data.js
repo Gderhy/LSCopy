@@ -1,10 +1,10 @@
 
-const user = JSON.parse(localStorage.getItem('user'));
-if(user?.ROLE_ID !== "1"){
-
-    alert("Not authorized.")
-    window.location.href = "../FrontEnd-Rough/";
-}
+// const user = JSON.parse(localStorage.getItem('user'));
+// if(user?.ROLE_ID !== "1"){
+//
+//     alert("Not authorized.")
+//     window.location.href = "../FrontEnd-Rough/";
+// }
 
 
 

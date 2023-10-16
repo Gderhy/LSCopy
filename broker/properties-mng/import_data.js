@@ -97,7 +97,7 @@ export function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POST
  * @param {str} STATUS //SOLD, DELETED, ON HOLD ALL UPPERCASE
  * @returns {undefined}
  */
-export function updateProperrty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
+export function updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID) {
             
     switch (STATUS) {
@@ -136,7 +136,7 @@ export function linkImageToProperty(IMG_LINK, PROPERTY_ID) {
 
 export function sqlHandler(recipe, values) {
     let tempData;
-    $.ajax({url: '../../general/MySqlRequests.php', method: 'POST', async: false,
+    $.ajax({url: '/general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
         success: function (response) {
             let data = response;

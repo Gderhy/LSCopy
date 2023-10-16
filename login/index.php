@@ -2,24 +2,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../Navbar/Css/navStyle.css">
+
+        <link rel="stylesheet" type="text/css" href="/FrontEnd-Rough/styles.css">
+        <link rel="stylesheet" type="text/css" href="/Navbar/Css/navStyle.css">
+
         <title>Login/Register - Your Real Estate</title>
     </head>
     <body>
         <header>
-        <nav>
-    <div class="logo">
-    </div>
-    <ul>
-        <li><a href="../admin" >Admin</a></li>
-        <li><a href="../broker">Broker</a></li>
-         <li><a href="../FrontEnd-Rough">Home</a></li>
-        <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
-        <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
-        <li><a href="../properties">Properties</a></li>
-        <li><a href="" class="active">Login</a></li>
-    </ul>
-        </nav>
+            <nav id="navbar"></nav>
         </header>
 
         <div class = "content-wrap"> 
@@ -87,11 +78,16 @@
         <footer>
             <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
         </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="/FrontEnd-Rough/script.js" type="module"></script>
+
+        <script src="/login/import_data.js" type="module"></script>
+        <script src="/login/login.js" type="module"></script>
+
+        <script src="/Navbar/navbar.js"></script>
+        <script>implementNavbar("Login")</script>
     </body>
 </html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../FrontEnd-Rough/script.js" type="module"></script>
 
-<script src="import_data.js" type="module"></script>
-<script src="login.js" type="module"></script>

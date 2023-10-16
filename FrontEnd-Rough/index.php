@@ -10,8 +10,8 @@
 </head>
 <body>
 <header>
-    <nav id="navbar"></nav>
 </header>
+<nav id="navbar"></nav>
 
 <section class="hero">
     <!-- Slideshow of featured properties -->

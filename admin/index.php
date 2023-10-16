@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="Css/admin-content.css">
         <link rel="stylesheet" href="Css/Existing-brokers.css">
         <link rel="stylesheet" href="Css/Create-new-broker.css">
+        <link rel="stylesheet" href="/Navbar/Css/navStyle.css">
 
 
         <title>Your Real Estate</title>
