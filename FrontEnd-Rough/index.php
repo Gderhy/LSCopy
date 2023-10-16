@@ -4,23 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/Navbar/Css/navStyle.css">
     <title>Your Real Estate</title>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                 <li><a href="" class="active">Home</a></li>
-                 <li><a href="../admin">Admin</a></li>
-                 <li><a href="../broker">Broker</a></li>
-                 <li><a href="listings.html">Listings</a></li>
-                 <li><a href="">Contact</a></li>
-                 <li><a href="../properties">Properties</a></li>
-                 <li><a href="../login">Login</a></li>
-            </ul>
-                </nav>
-    </header>
 
+    </header>
+    <nav id="navbar"></nav>
     <section class="hero">
         <!-- Slideshow of featured properties -->
         <div class="slideshow-container">
@@ -81,6 +72,9 @@
     <!-- JavaScript for the slideshow -->
     <script src="script.js"></script>
     <script src="slideshow.js"></script>
+
+    <script src="/Navbar/navbar.js"></script>
+    <script>implementNavbar("Home")</script>
     
 </body>
 </html>
