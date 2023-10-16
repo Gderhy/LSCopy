@@ -158,6 +158,7 @@ function CssInHead(){
 
         const link = document.createElement("link");
         link.rel = "stylesheet";
+        link.type = "text/css";
         link.href = cssFileNameToCheck;
         document.head.appendChild(link);
     }
