@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="navStyle.css">
+        <link rel="stylesheet" href="Navbar/Css/navStyle.css">
         <nav>
     <div class="logo">
     </div>

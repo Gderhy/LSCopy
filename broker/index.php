@@ -4,27 +4,16 @@
     <head>
         <meta charset="UTF-8">
 
-        <link rel="stylesheet" href="../navStyle.css">
+        <link rel="stylesheet" href="../Navbar/Css/navStyle.css">
         <link rel="stylesheet" href="Css/Table.css">
         <link rel="stylesheet" href="Css/dashboard-listings.css">
-        <title></title>
+
+        <title>Broker</title>
     </head>
     <body>
 
     <header>
-        <!--        Nav bar taken from Admin -->
-        <nav>
-            <div class="logo"></div>
-            <ul>
-<!--                <li><a href="" >Admin</a></li>-->
-                <li><a href="../FrontEnd-Rough">Home</a></li>
-                <li><a href="../broker" class="active">Broker</a></li>
-                <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
-                <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
-                <li><a href="../properties">Properties</a></li>
-                <li><a href="../login">Login</a></li>
-            </ul>
-        </nav>
+        <nav id="navbar"></nav>
     </header>
 
 <!--        Make sure user is logged in and has role-->
@@ -55,9 +44,11 @@
         </div>
 
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="JavaScript/import_data.js"></script>
     <script src="JavaScript/Login_Authentication.js" type="module"></script>
+
+    <script src="../Navbar/navbar.js"></script>
+    <script>implementNavbar("Broker")</script>
     </body>
 </html>

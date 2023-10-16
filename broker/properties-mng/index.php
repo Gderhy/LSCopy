@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../navStyle.css">
+    <link rel="stylesheet" href="../../Navbar/Css/navStyle.css">
     <title>Manage Properties</title>
 </head>
 <body>
