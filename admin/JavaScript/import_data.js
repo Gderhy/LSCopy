@@ -1,11 +1,20 @@
 
+const user = JSON.parse(localStorage.getItem('user'));
+if(user?.ROLE_ID !== "1"){
+
+    alert("Not authorized.")
+    window.location.href = "../FrontEnd-Rough/";
+}
+
+
+
 /**
  * This function will return all the brokers
  * @returns {array of jsons}
  */
 
-console.log(getAllBrokers()); //uncomment to test data importation
-console.log(suspendBroker(999));
+// console.log(getAllBrokers()); //uncomment to test data importation
+// console.log(suspendBroker(999));
 
 /**
  * This is the function that you will need to import.
