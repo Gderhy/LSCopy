@@ -100,10 +100,8 @@ function getUl(activePage){
 
     } else{
 
-        const username = user.USER_NAME ?? "username";
-        const liUserName = document.createElement("li");
-        liUserName.textContent = username;
-        liUserName.className = "logout";
+        const username = getLi("#", user.USER_NAME, activePage) ?? getLi(pathForLogin, "Login", activePage)
+        ul.appendChild(username);
 
         // Have to add a hover dropdown menu that shows logout
 
