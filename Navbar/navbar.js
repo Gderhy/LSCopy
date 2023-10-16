@@ -1,5 +1,7 @@
 // Auto adds css
-CssInHead();
+
+
+
 
 
 
@@ -24,14 +26,15 @@ CssInHead();
 
 
 
-const pathForHome = "../FrontEnd-Rough";
+const pathForHome = "FrontEnd-rough/";
 
-const pathForAdmin = "../admin/index.php";
-const pathForBroker = "../broker/index.php";
-const pathForPropertySearch = "../properties/index.php";
+const pathForAdmin = "admin/index.php";
+const pathForMyListings = "broker/my-listings.php";
+const pathForMyVisits = "broker/my-visits.php";
+const pathForPropertySearch = "properties/index.php";
 
-const pathForContact = "../FrontEnd-Rough/contact.html";
-const pathForLogin = "../login/index.php";
+const pathForContact = "FrontEnd-Rough/contact.html";
+const pathForLogin = "login/index.php";
 
 
 
@@ -43,7 +46,7 @@ const pathForLogin = "../login/index.php";
  */
 function implementNavbar(activePage){
 
-
+    CssInHead();
 
     const navbar = document.getElementById("navbar");
 
@@ -66,7 +69,7 @@ function getUl(activePage){
     const home = getLi(pathForHome, "Home", activePage);
     ul.appendChild(home);
 
-    if(user == null){
+    if(!user){
 
         const propertySearch = getLi(pathForPropertySearch, "Search for a property", activePage);
         ul.appendChild(propertySearch);
@@ -77,30 +80,41 @@ function getUl(activePage){
         // 2 - Broker
         // 3 - Client
 
-        if(user.ROLE_ID === "1"){
+        if(user?.ROLE_ID === "1"){
 
             const admin = getLi(pathForAdmin, "Admin", activePage);
             ul.appendChild(admin)
 
+        } else if (user?.ROLE_ID ==="2") {
+
+            const myLisitings = getLi(pathForMyListings, "My Listings", activePage);
+            ul.appendChild(myLisitings);
+
+            const myVisits = getLi(pathForMyVisits, "My Visits", activePage);
+            ul.appendChild(myVisits);
         } else {
 
-            const broker = getLi(pathForBroker, "Broker", activePage);
-            ul.appendChild(broker);
+            const client = getLi(pathForPropertySearch, "Property Search", activePage);
+            ul.appendChild(client);
         }
     }
 
+    if(user?.ROLE_ID === "3"){
 
-    const contact = getLi(pathForContact, "Contact Us", activePage);
-    ul.appendChild(contact);
+        const contact = getLi(pathForContact, "Contact Us", activePage);
+        ul.appendChild(contact);
+    }
 
-    if(user == null){
+
+    if(!user){
 
         const login = getLi(pathForLogin, "Login", activePage);
         ul.appendChild(login);
 
     } else{
 
-        const username = getLi("#", user.USER_NAME, activePage) ?? getLi(pathForLogin, "Login", activePage)
+        const username = getLi("#", user.USER_NAME, activePage,
+            ()=>localStorage.removeItem('user'));
         ul.appendChild(username);
 
         // Have to add a hover dropdown menu that shows logout
@@ -110,12 +124,13 @@ function getUl(activePage){
     return ul;
 }
 
-function getLi(path, content, activePage){
+function getLi(path, content, activePage, onClickFunction = null){
     const li = document.createElement("li");
 
     const a = document.createElement("a");
     a.href = path;
     a.textContent = content;
+    if(onClickFunction) a.onclick = onClickFunction;
     if(content === activePage) a.className = "active";
 
     li.appendChild(a);
@@ -127,7 +142,7 @@ function getLi(path, content, activePage){
 
 function CssInHead(){
 
-    const cssFileNameToCheck = "../Navbar/Css/navStyle.css"; // Name of css file to check
+    const cssFileNameToCheck = "Navbar/Css/navStyle.css"; // Name of css file to check
 
     const cssLinks = document.querySelectorAll("head link[rel='stylesheet']");
     let isCssFileInHead = false;
@@ -147,7 +162,6 @@ function CssInHead(){
         document.head.appendChild(link);
     }
 }
-
 
 
 
