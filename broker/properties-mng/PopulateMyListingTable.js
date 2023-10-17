@@ -200,7 +200,7 @@ function getTableRow(listing){
 
     const td_IS_FOR_SALE = document.createElement("td");
     td_IS_FOR_SALE.id = `IS_FOR_SALE-${listing.PROPERTY_ID}`;
-    td_IS_FOR_SALE.textContent = listing.IS_FOR_SALE === 0 ? "No" : "Yes";
+    td_IS_FOR_SALE.textContent = listing.IS_FOR_SALE === "0" ? "No" : "Yes";
     td_IS_FOR_SALE.className = "dashboard-td";
     td_IS_FOR_SALE.contentEditable = true;
     row.appendChild(td_IS_FOR_SALE);
