@@ -23,20 +23,20 @@
                 <thead class="dashboard-thead">
                 <tr class="dashboard-row">
                     <th class="dashboard-th">Property ID</th>
-                    <th class="dashboard-th">Image</th>
+                    <th class="dashboard-th">Property name</th>
+                    <th class="dashboard-th">Property type</th>
+                    <th class="dashboard-th">Cover Image</th>
                     <th class="dashboard-th">Description</th>
-<!--                    <th class="dashboard-th">Property Name</th>-->
-                    <th class="dashboard-th">Area ID</th>
                     <th class="dashboard-th">Address</th>
-                    <th class="dashboard-th">Postal Code</th>
+                    <th class="dashboard-th">City</th>
+                    <th class="dashboard-th">Province</th>
+                    <th class="dashboard-th">Country</th>
                     <th class="dashboard-th">Year</th>
                     <th class="dashboard-th">Parking</th>
                     <th class="dashboard-th">Baths</th>
                     <th class="dashboard-th">Rooms</th>
-                    <th class="dashboard-th">Type ID</th>
                     <th class="dashboard-th">Price</th>
                     <th class="dashboard-th">For sale</th>
-                    <th class="dashboard-th">Status</th>
                     <th class="dashboard-th">Delete</th>
                     <th class="dashboard-th">Update</th>
 
@@ -52,7 +52,7 @@
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="import_data.js"></script>
+    <script src="import_data.js" type="module"></script>
     <script src="/broker/JavaScript/Login_Authentication.js" type="module"></script>
 
     <script src="/Navbar/navbar.js"></script>

@@ -1,6 +1,10 @@
+import {getBrokerProperties} from "./import_data.js";
+
+
+const user = localStorage.getItem('user');
 
 addEventListener("DOMContentLoaded",
-    ()=> populateMyListingTable(testingData)
+    ()=> populateMyListingTable(getBrokerProperties(101))
 );
 
 const testingData = [
@@ -83,15 +87,31 @@ function getTableRow(listing){
     row.appendChild(td_PROPERTY_ID);
 
 
+    const td_PROPERTY_NAME = document.createElement("td");
+    td_PROPERTY_NAME.id = `PROPERTY_NAME-${listing.PROPERTY_ID}`;
+    td_PROPERTY_NAME.textContent = `${listing.LOCATION_NAME}`;
+    td_PROPERTY_NAME.className = "dashboard-td";
+    row.appendChild(td_PROPERTY_NAME);
+
+
+    const td_PROPERTY_TYPE = document.createElement("td");
+    td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${listing.PROPERTY_ID}`;
+    td_PROPERTY_TYPE.textContent = `${listing.PROPERTY_TYPE}`;
+    td_PROPERTY_TYPE.className = "dashboard-td";
+    row.appendChild(td_PROPERTY_TYPE);
+
+
     const td_COVER_IMG_ID = document.createElement("td");
 
         const img = document.createElement("img");
-        img.src = ""; // What will this be?
+        img.className = "cover-img"
+        img.id = `img-${listing.COVER_IMG_ID}`
+        img.src = `${listing.COVER_IMAGE}`; // What will this be?
         img.alt = `Image-${listing.COVER_IMG_ID}`
 
     td_COVER_IMG_ID.id = `COVER_IMG_ID-${listing.PROPERTY_ID}`;
-    td_COVER_IMG_ID.appendChild(img);
     td_COVER_IMG_ID.className = "dashboard-td";
+    td_COVER_IMG_ID.appendChild(img);
     row.appendChild(td_COVER_IMG_ID);
 
 
@@ -102,13 +122,6 @@ function getTableRow(listing){
     row.appendChild(td_DESCRIPTION);
 
 
-    const td_AREA_ID = document.createElement("td");
-    td_AREA_ID.id = `AREA_ID-${listing.PROPERTY_ID}`;
-    td_AREA_ID.textContent = `${listing.AREA_ID}`;
-    td_AREA_ID.className = "dashboard-td";
-    row.appendChild(td_AREA_ID);
-
-
     const td_ADDRESS = document.createElement("td");
     td_ADDRESS.id = `ADDRESS-${listing.PROPERTY_ID}`;
     td_ADDRESS.textContent = `${listing.ADDRESS}`;
@@ -116,11 +129,25 @@ function getTableRow(listing){
     row.appendChild(td_ADDRESS);
 
 
-    const td_POSTAL = document.createElement("td");
-    td_POSTAL.id = `POSTAL-${listing.PROPERTY_ID}`;
-    td_POSTAL.textContent = `${listing.POSTAL}`;
-    td_POSTAL.className = "dashboard-td";
-    row.appendChild(td_POSTAL);
+    const td_LOCATION_CITY = document.createElement("td");
+    td_LOCATION_CITY.id = `LOCATION_CITY-${listing.PROPERTY_ID}`;
+    td_LOCATION_CITY.textContent = `${listing.LOCATION_CITY}`;
+    td_LOCATION_CITY.className = "dashboard-td";
+    row.appendChild(td_LOCATION_CITY);
+
+
+    const td_LOCATION_PROVINCE = document.createElement("td");
+    td_LOCATION_PROVINCE.id = `LOCATION_PROVINCE-${listing.PROPERTY_ID}`;
+    td_LOCATION_PROVINCE.textContent = `${listing.LOCATION_PROVINCE}`;
+    td_LOCATION_PROVINCE.className = "dashboard-td";
+    row.appendChild(td_LOCATION_PROVINCE);
+
+
+    const td_LOCATION_COUNTRY = document.createElement("td");
+    td_LOCATION_COUNTRY.id = `LOCATION_COUNTRY-${listing.PROPERTY_ID}`;
+    td_LOCATION_COUNTRY.textContent = `${listing.LOCATION_COUNTRY}`;
+    td_LOCATION_COUNTRY.className = "dashboard-td";
+    row.appendChild(td_LOCATION_COUNTRY);
 
 
     const td_YEAR = document.createElement("td");
@@ -150,16 +177,9 @@ function getTableRow(listing){
     row.appendChild(td_ROOMS_COUNT);
 
 
-    const td_TYPE_ID = document.createElement("td");
-    td_TYPE_ID.id = `TYPE_ID-${listing.PROPERTY_ID}`;
-    td_TYPE_ID.textContent = `${listing.TYPE_ID}`;
-    td_TYPE_ID.className = "dashboard-td";
-    row.appendChild(td_TYPE_ID);
-
-
     const td_PRICE = document.createElement("td");
     td_PRICE.id = `PRICE-${listing.PROPERTY_ID}`;
-    td_PRICE.textContent = `$${listing.PRICE.toFixed(2)}`;
+    td_PRICE.textContent = `$${listing.PRICE}`;
     td_PRICE.className = "dashboard-td";
     row.appendChild(td_PRICE);
 
@@ -169,13 +189,6 @@ function getTableRow(listing){
     td_IS_FOR_SALE.textContent = listing.IS_FOR_SALE === 0 ? "No" : "Yes";
     td_IS_FOR_SALE.className = "dashboard-td";
     row.appendChild(td_IS_FOR_SALE);
-
-
-    const td_STATUS = document.createElement("td");
-    td_STATUS.id = `STATUS-${listing.PROPERTY_ID}`;
-    td_STATUS.textContent = listing.STATUS;
-    td_STATUS.className = "dashboard-td";
-    row.appendChild(td_STATUS);
 
 
     // Functionality not completed

@@ -42,3 +42,8 @@ tr.dashboard-tr:nth-child(even) {
 tr.dashboard-tr:hover {
     background-color: #e0e0e0; /* Highlight row on hover */
 }
+
+td > img {
+    width: 100px;
+    height: auto;
+}

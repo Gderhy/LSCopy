@@ -4,6 +4,20 @@
  * @type js
  */
 
+// User authentication
+
+// const user = localStorage.getItem('user');
+// const pathForHome = "";
+// if(!user || user.ROLE_ID !== 2){
+//
+//     alert("You do not have access to this page.");
+//     location.href = pathForHome;
+// }
+
+
+
+console.log(getBrokerProperties(101))
+
 /**
  * Return the properties of a specific broker id
  * @param {int} brokerID
