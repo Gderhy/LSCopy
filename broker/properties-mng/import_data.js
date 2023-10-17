@@ -15,7 +15,7 @@
 // }
 
 
-
+console.log(getLocations())
 console.log(getBrokerProperties(101))
 
 /**

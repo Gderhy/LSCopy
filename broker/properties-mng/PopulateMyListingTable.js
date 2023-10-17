@@ -87,44 +87,43 @@ function getTableRow(listing){
     row.appendChild(td_PROPERTY_ID);
 
 
-    const td_PROPERTY_NAME = document.createElement("td");
-    td_PROPERTY_NAME.id = `PROPERTY_NAME-${listing.PROPERTY_ID}`;
-    td_PROPERTY_NAME.textContent = `${listing.LOCATION_NAME}`;
-    td_PROPERTY_NAME.className = "dashboard-td";
-    td_PROPERTY_NAME.contentEditable = true;
-    row.appendChild(td_PROPERTY_NAME);
-
-
     const td_PROPERTY_TYPE = document.createElement("td");
+
+
     td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${listing.PROPERTY_ID}`;
     td_PROPERTY_TYPE.textContent = `${listing.PROPERTY_TYPE}`;
     td_PROPERTY_TYPE.className = "dashboard-td";
     td_PROPERTY_TYPE.contentEditable = true;
     row.appendChild(td_PROPERTY_TYPE);
-
-
     // Will add editing to images later
-    const td_COVER_IMG_ID = document.createElement("td");
 
+
+    const td_COVER_IMG_ID = document.createElement("td");
         const img = document.createElement("img");
         img.className = "cover-img"
         img.id = `img-${listing.PROPERTY_ID}`
         img.src = `${listing.COVER_IMG_ID}`; // What will this be?
         img.alt = `Image-${listing.COVER_IMG_ID}`
-
     td_COVER_IMG_ID.id = `COVER_IMG_ID-${listing.PROPERTY_ID}`;
     td_COVER_IMG_ID.className = "dashboard-td";
     td_COVER_IMG_ID.appendChild(img);
     row.appendChild(td_COVER_IMG_ID);
-
-
-
     const td_DESCRIPTION = document.createElement("td");
+
+
     td_DESCRIPTION.id = `DESCRIPTION-${listing.PROPERTY_ID}`;
     td_DESCRIPTION.textContent = `${listing.DESCRIPTION}`;
     td_DESCRIPTION.className = "dashboard-td";
     td_DESCRIPTION.contentEditable = true;
     row.appendChild(td_DESCRIPTION);
+
+
+    const td_LOCATION_NAME = document.createElement("td");
+    td_LOCATION_NAME.id = `PROPERTY_NAME-${listing.PROPERTY_ID}`;
+    td_LOCATION_NAME.textContent = `${listing.LOCATION_NAME}`;
+    td_LOCATION_NAME.className = "dashboard-td";
+    td_LOCATION_NAME.contentEditable = true;
+    row.appendChild(td_LOCATION_NAME);
 
 
     const td_ADDRESS = document.createElement("td");
@@ -251,10 +250,10 @@ function getTableRow(listing){
             const BROKER_ID = parseInt(localStorage.getItem('user').USER_ID);
             const COVER_IMG_ID = document.getElementById(`img-${id}`).getAttribute('src'); // is this the source of the image?
             const DESCRIPTION = document.getElementById(`DESCRIPTION-${id}`).textContent;
-            // const AREA_ID = document.getElementById(); // ?
+            const AREA_ID = document.getElementById(); // ?
             const ADDRESS = document.getElementById(`ADDRESS-${id}`).textContent;
             const POSTAL = document.getElementById(`POSTAL-${id}`).textContent;
-            const YEAR = parseInt(document.getElementById(`YEAR-${id}`).textContent);
+            const YEAR = document.getElementById(`YEAR-${id}`).textContent;
             const PARKING_COUNT = parseInt(document.getElementById(`PARKING_COUNT-${id}`).textContent);
             const BATH_COUNT = parseInt(document.getElementById(`BATH_COUNT-${id}`).textContent);
             const ROOMS_COUNT = parseInt(document.getElementById(`ROOMS_COUNT-${id}`).textContent);

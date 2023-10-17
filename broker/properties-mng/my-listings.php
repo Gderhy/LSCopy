@@ -23,10 +23,10 @@
                 <thead class="dashboard-thead">
                 <tr class="dashboard-row">
                     <th class="dashboard-th">Property ID</th>
-                    <th class="dashboard-th">Property name</th>
                     <th class="dashboard-th">Property type</th>
                     <th class="dashboard-th">Cover Image</th>
                     <th class="dashboard-th">Description</th>
+                    <th class="dashboard-th">Property name</th>
                     <th class="dashboard-th">Address</th>
 <!--                    <th class="dashboard-th">Postal</th>-->
                     <th class="dashboard-th">City</th>
