@@ -1,0 +1,111 @@
+
+
+/* BROKER PAGE */
+
+
+.manage-visits h2 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.visits-table {
+    width: 100%; 
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.visits-table th, .visits-table td {
+    padding: 8px; 
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.visits-table th {
+    background-color: #292b2c;
+    color: #fff;
+}
+
+.visits-table th:first-child, .visits-table td:first-child {
+    text-align: left;
+}
+
+.visits-table button {
+    background-color: #555;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.visits-table button:hover {
+    background-color: #292b2c;
+}
+
+
+.submit-offers h2 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.submit-offers-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.submit-offers-form .form-group {
+    margin-bottom: 20px;
+}
+
+.submit-offers-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.submit-offers-form input[type="text"],
+.submit-offers-form input[type="date"],
+.submit-offers-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.manage-offers h2, .offer-management h2 {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.offers-table, .offer-management-table {
+    width: 100%; 
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.offers-table th, .offers-table td, .offer-management-table th, .offer-management-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.offers-table th, .offer-management-table th {
+    background-color: #292b2c;
+    color: #fff;
+}
+
+.offers-table th:first-child, .offers-table td:first-child, .offer-management-table th:first-child, .offer-management-table td:first-child {
+    text-align: left;
+}
+
+.offers-table button, .offer-management-table button {
+    background-color: #555;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.offers-table button:hover, .offer-management-table button:hover {
+    background-color: #292b2c;
+}
