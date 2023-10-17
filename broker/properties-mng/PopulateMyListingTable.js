@@ -74,6 +74,7 @@ function populateMyListingTable(listings){
 function getTableRow(listing){
 
     const row = document.createElement("tr");
+    row.id = `row-${listing.PROPERTY_ID}`
 
     const td_PROPERTY_ID = document.createElement("td");
     td_PROPERTY_ID.id = `PROPERTY_ID-${listing.PROPERTY_ID}`;
@@ -184,14 +185,21 @@ function getTableRow(listing){
         deleteButton.id = `DELETE_BUTTON-${listing.PROPERTY_ID}`; // Important for deleting users from db
         deleteButton.textContent = "Delete";
         deleteButton.addEventListener("click",
-            ()=>{
-                const confirm1 = confirm(`Are you sure you want to remove property: ${listing.PROPERTY_ID}`);
+            (event)=>{
+
+                const id = event.target.id.replace("DELETE_BUTTON-", "");
+
+                const confirm1 = confirm(`Are you sure you want to remove property: ${id}`);
 
                 if(!confirm1) return;
 
                 // Remove property ID
+                const row = document.getElementById(`row-${id}`);
+                const tableBody = document.getElementById("tbody-my-listings");
 
+                tableBody.removeChild(row);
 
+                location.reload();
             }
         )
     td_DELETE_BUTTON.appendChild(deleteButton);
