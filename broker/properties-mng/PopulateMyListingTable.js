@@ -108,8 +108,8 @@ function getTableRow(listing){
 
         const img = document.createElement("img");
         img.className = "cover-img"
-        img.id = `img-${listing.COVER_IMG_ID}`
-        img.src = `${listing.COVER_IMAGE}`; // What will this be?
+        img.id = `img-${listing.PROPERTY_ID}`
+        img.src = `${listing.COVER_IMG_ID}`; // What will this be?
         img.alt = `Image-${listing.COVER_IMG_ID}`
 
     td_COVER_IMG_ID.id = `COVER_IMG_ID-${listing.PROPERTY_ID}`;
@@ -248,24 +248,25 @@ function getTableRow(listing){
 
             if(!confirm1) return;
 
-            // Remove property ID
-            const COVER_IMG_ID = document.getElementById()
-            const DESCRIPTION = document.getElementById();
-            const AREA_ID = document.getElementById();
-            const ADDRESS = document.getElementById();
-            const POSTAL = document.getElementById();
-            const YEAR = document.getElementById();
-            const PARKING_COUNT = document.getElementById();
-            const BATH_COUNT = document.getElementById();
-            const ROOMS_COUNT = document.getElementById();
-            const TYPE_ID = document.getElementById();
-            const PRICE = document.getElementById();
-            const IS_FOR_SALE = document.getElementById();
-            const STATUS = document.getElementById();
-            const PROPERTY_ID = document.getElementById();
+            const BROKER_ID = parseInt(localStorage.getItem('user').USER_ID);
+            const COVER_IMG_ID = document.getElementById(`img-${id}`).getAttribute('src'); // is this the source of the image?
+            const DESCRIPTION = document.getElementById(`DESCRIPTION-${id}`).textContent;
+            // const AREA_ID = document.getElementById(); // ?
+            const ADDRESS = document.getElementById(`ADDRESS-${id}`).textContent;
+            const POSTAL = document.getElementById(`POSTAL-${id}`).textContent;
+            const YEAR = parseInt(document.getElementById(`YEAR-${id}`).textContent);
+            const PARKING_COUNT = parseInt(document.getElementById(`PARKING_COUNT-${id}`).textContent);
+            const BATH_COUNT = parseInt(document.getElementById(`BATH_COUNT-${id}`).textContent);
+            const ROOMS_COUNT = parseInt(document.getElementById(`ROOMS_COUNT-${id}`).textContent);
+            const TYPE_ID = parseInt(document.getElementById(`TYPE_ID-${id}`).textContent);
+            const PRICE = parseFloat(document.getElementById(`BATH_COUNT-${id}`).textContent.replace("$",""));
+            const IS_FOR_SALE = document.getElementById(`IS_FOR_SALE-${id}`).textContent === "Yes" ? 1 : 0;
+            // const STATUS = document.getElementById().value;
+            const PROPERTY_ID = parseInt(id);
 
 
-            updateProperty()
+            updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
+                PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID);
 
 
 

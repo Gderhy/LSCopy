@@ -97,18 +97,18 @@ export function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POST
  * 
  * @param {int} COVER_IMG_ID // you can get it after inserting image to property
  * see getPropertyImages and linkImageToProperty functions
- * @param {str} DESCRIPTION
+ * @param {string} DESCRIPTION
  * @param {int} AREA_ID
- * @param {str} ADDRESS
- * @param {str} POSTAL
- * @param {str} YEAR
+ * @param {string} ADDRESS
+ * @param {string} POSTAL
+ * @param {string} YEAR
  * @param {int} PARKING_COUNT
  * @param {int} BATH_COUNT
  * @param {int} ROOMS_COUNT
  * @param {int} TYPE_ID
  * @param {float} PRICE
  * @param {int} IS_FOR_SALE // 1 for true and 0 for false
- * @param {str} STATUS //SOLD, DELETED, ON HOLD ALL UPPERCASE
+ * @param {string} STATUS //SOLD, DELETED, ON HOLD ALL UPPERCASE
  * @returns {undefined}
  */
 export function updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
