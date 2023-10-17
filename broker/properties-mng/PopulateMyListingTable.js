@@ -1,4 +1,4 @@
-import {getBrokerProperties} from "./import_data.js";
+import {getBrokerProperties, updateProperty} from "./import_data.js";
 
 
 const user = localStorage.getItem('user');
@@ -219,13 +219,13 @@ function getTableRow(listing){
 
                 const confirm1 = confirm(`Are you sure you want to remove property: ${id}`);
 
-                if(!confirm1) return;
-
-                // Remove property ID
-                const row = document.getElementById(`row-${id}`);
-                const tableBody = document.getElementById("tbody-my-listings");
-
-                tableBody.removeChild(row);
+                // if(!confirm1) return;
+                //
+                // // Remove property ID
+                // const row = document.getElementById(`row-${id}`);
+                // const tableBody = document.getElementById("tbody-my-listings");
+                //
+                // tableBody.removeChild(row);
 
                 location.reload();
             }
@@ -241,12 +241,32 @@ function getTableRow(listing){
     updateButton.id = `UPDATE_BUTTON-${listing.PROPERTY_ID}`; // Important for deleting users from db
     updateButton.textContent = "Update";
     updateButton.addEventListener("click",
-        ()=>{
-            const confirm1 = confirm(`Are you sure you want to update property: ${listing.PROPERTY_ID}`);
+        (event)=>{
+
+            const id = event.target.id.replace("DELETE_BUTTON-", "");
+            const confirm1 = confirm(`Are you sure you want to update property: ${id}`);
 
             if(!confirm1) return;
 
             // Remove property ID
+            const COVER_IMG_ID = document.getElementById()
+            const DESCRIPTION = document.getElementById();
+            const AREA_ID = document.getElementById();
+            const ADDRESS = document.getElementById();
+            const POSTAL = document.getElementById();
+            const YEAR = document.getElementById();
+            const PARKING_COUNT = document.getElementById();
+            const BATH_COUNT = document.getElementById();
+            const ROOMS_COUNT = document.getElementById();
+            const TYPE_ID = document.getElementById();
+            const PRICE = document.getElementById();
+            const IS_FOR_SALE = document.getElementById();
+            const STATUS = document.getElementById();
+            const PROPERTY_ID = document.getElementById();
+
+
+            updateProperty()
+
 
 
         }

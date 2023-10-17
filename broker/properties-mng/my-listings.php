@@ -28,6 +28,7 @@
                     <th class="dashboard-th">Cover Image</th>
                     <th class="dashboard-th">Description</th>
                     <th class="dashboard-th">Address</th>
+<!--                    <th class="dashboard-th">Postal</th>-->
                     <th class="dashboard-th">City</th>
                     <th class="dashboard-th">Province</th>
                     <th class="dashboard-th">Country</th>
@@ -37,6 +38,7 @@
                     <th class="dashboard-th">Rooms</th>
                     <th class="dashboard-th">Price</th>
                     <th class="dashboard-th">For sale</th>
+<!--                    <th class="dashboard-th">Status</th>-->
                     <th class="dashboard-th">Delete</th>
                     <th class="dashboard-th">Update</th>
 
