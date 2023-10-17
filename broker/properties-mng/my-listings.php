@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
 
@@ -52,7 +52,7 @@
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/broker/JavaScript/import_data.js"></script>
+    <script src="import_data.js"></script>
     <script src="/broker/JavaScript/Login_Authentication.js" type="module"></script>
 
     <script src="/Navbar/navbar.js"></script>
