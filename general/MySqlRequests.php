@@ -68,9 +68,9 @@ $RECIPES = [
 		P.PRICE,
 		PI.IMG AS COVER_IMAGE,
 		P.IS_FOR_SALE,
-                P.AREA_ID,
-                P.POSTAL,
-                P.STATUS
+        P.AREA_ID,
+        P.POSTAL,
+        P.STATUS
 	FROM
 		luckyseven.tbl_property P
 	LEFT JOIN

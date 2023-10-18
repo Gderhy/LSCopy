@@ -1,4 +1,4 @@
-import {getBrokerProperties, getLocations, updateProperty} from "./import_data.js";
+import {getBrokerProperties, getLocations, getPropertyTypes, updateProperty} from "./import_data.js";
 
 
 const user = localStorage.getItem('user');
@@ -71,48 +71,59 @@ function populateMyListingTable(listings){
 
 
     const locations = getLocations();
+    const propertyTypes = getPropertyTypes();
 
     // Populate table
     listings.forEach(
-        (listing) => tableBody.appendChild(getTableRow(listing, locations))
+        (listing) => tableBody.appendChild(getTableRow(listing, locations, propertyTypes))
     );
 }
 
-function getTableRow(listing, locations){
+function getTableRow(listing, locations, propertyTypes){
+
+    const id = listing.PROPERTY_ID;
 
     const row = document.createElement("tr");
-    row.id = `row-${listing.PROPERTY_ID}`
+    row.id = `row-${id}`
 
     const td_PROPERTY_ID = document.createElement("td");
-    td_PROPERTY_ID.id = `PROPERTY_ID-${listing.PROPERTY_ID}`;
-    td_PROPERTY_ID.textContent = `${listing.PROPERTY_ID}`;
+    td_PROPERTY_ID.id = `PROPERTY_ID-${id}`;
+    td_PROPERTY_ID.textContent = `${id}`;
     td_PROPERTY_ID.className = "dashboard-td";
     row.appendChild(td_PROPERTY_ID);
 
 
     const td_PROPERTY_TYPE = document.createElement("td");
-    td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${listing.PROPERTY_ID}`;
-    td_PROPERTY_TYPE.textContent = `${listing.PROPERTY_TYPE}`;
-    td_PROPERTY_TYPE.className = "dashboard-td";
-    td_PROPERTY_TYPE.contentEditable = true;
+    const propertyTypeSelect = createPropertyTypeSelect(propertyTypes, id);
+    propertyTypeSelect.value = findTypeIdByPropertyType(propertyTypes, listing.PROPERTY_TYPE);
+    td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${id}`;
+    td_PROPERTY_TYPE.appendChild(propertyTypeSelect);
     row.appendChild(td_PROPERTY_TYPE);
+    
+
+    // const td_PROPERTY_TYPE = document.createElement("td");
+    // td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${id}`;
+    // td_PROPERTY_TYPE.textContent = `${listing.PROPERTY_TYPE}`;
+    // td_PROPERTY_TYPE.className = "dashboard-td";
+    // td_PROPERTY_TYPE.contentEditable = true;
+    // row.appendChild(td_PROPERTY_TYPE);
 
 
     // Will add editing to images later
     const td_COVER_IMG_ID = document.createElement("td");
         const img = document.createElement("img");
         img.className = "cover-img"
-        img.id = `img-${listing.PROPERTY_ID}`
-        img.src = `${listing.COVER_IMG_ID}`; // What will this be?
+        img.id = `img-${id}`
+        img.src = `${listing.COVER_IMAGE}`; // What will this be?
         img.alt = `Image-${listing.COVER_IMG_ID}`
-    td_COVER_IMG_ID.id = `COVER_IMG_ID-${listing.PROPERTY_ID}`;
+    td_COVER_IMG_ID.id = `COVER_IMG_ID-${id}`;
     td_COVER_IMG_ID.className = "dashboard-td";
     td_COVER_IMG_ID.appendChild(img);
     row.appendChild(td_COVER_IMG_ID);
 
 
     const td_DESCRIPTION = document.createElement("td");
-    td_DESCRIPTION.id = `DESCRIPTION-${listing.PROPERTY_ID}`;
+    td_DESCRIPTION.id = `DESCRIPTION-${id}`;
     td_DESCRIPTION.textContent = `${listing.DESCRIPTION}`;
     td_DESCRIPTION.className = "dashboard-td";
     td_DESCRIPTION.contentEditable = true;
@@ -120,7 +131,7 @@ function getTableRow(listing, locations){
 
 
     const td_ADDRESS = document.createElement("td");
-    td_ADDRESS.id = `ADDRESS-${listing.PROPERTY_ID}`;
+    td_ADDRESS.id = `ADDRESS-${id}`;
     td_ADDRESS.textContent = `${listing.ADDRESS}`;
     td_ADDRESS.className = "dashboard-td";
     td_ADDRESS.contentEditable = true;
@@ -128,26 +139,23 @@ function getTableRow(listing, locations){
 
 
     const td_POSTAL = document.createElement("td");
-    td_POSTAL.id = `POSTAL-${listing.PROPERTY_ID}`;
-    td_POSTAL.textContent = "POSTAL-PLACEHOLDER";
+    td_POSTAL.id = `POSTAL-${id}`;
+    td_POSTAL.textContent = listing.POSTAL;
     td_POSTAL.className = "dashboard-td";
     td_POSTAL.contentEditable = true;
     row.appendChild(td_POSTAL);
 
     const td_CITY_PROVINCE_COUNTRY = document.createElement("td");
-    td_CITY_PROVINCE_COUNTRY.id = `CITY_PROVINCE_COUNTRY-${listing.PROPERTY_ID}`;
-
-    // NEEDS WORK
-    const AREA_ID = getAreaID(locations, listing.LOCATION_NAME, listing.LOCATION_CITY, listing.LOCATION_PROVINCE, listing.LOCATION_COUNTRY) ?? "1";
-
-    const select = createLocationSelect(locations);
+    td_CITY_PROVINCE_COUNTRY.id = `CITY_PROVINCE_COUNTRY-${id}`;
+    const AREA_ID = listing.AREA_ID;
+    const select = createLocationSelect(locations, id);
     select.value = AREA_ID;
     td_CITY_PROVINCE_COUNTRY.appendChild(select);
     row.appendChild(select);
 
 
     //const td_LOCATION_NAME = document.createElement("td");
-    // td_LOCATION_NAME.id = `PROPERTY_NAME-${listing.PROPERTY_ID}`;
+    // td_LOCATION_NAME.id = `PROPERTY_NAME-${id}`;
     // td_LOCATION_NAME.textContent = `${listing.LOCATION_NAME}`;
     // td_LOCATION_NAME.className = "dashboard-td";
     // td_LOCATION_NAME.contentEditable = true;
@@ -155,7 +163,7 @@ function getTableRow(listing, locations){
 
 
     // const td_LOCATION_CITY = document.createElement("td");
-    // td_LOCATION_CITY.id = `LOCATION_CITY-${listing.PROPERTY_ID}`;
+    // td_LOCATION_CITY.id = `LOCATION_CITY-${id}`;
     // td_LOCATION_CITY.textContent = `${listing.LOCATION_CITY}`;
     // td_LOCATION_CITY.className = "dashboard-td";
     // td_LOCATION_CITY.contentEditable = true;
@@ -163,7 +171,7 @@ function getTableRow(listing, locations){
     //
     //
     // const td_LOCATION_PROVINCE = document.createElement("td");
-    // td_LOCATION_PROVINCE.id = `LOCATION_PROVINCE-${listing.PROPERTY_ID}`;
+    // td_LOCATION_PROVINCE.id = `LOCATION_PROVINCE-${id}`;
     // td_LOCATION_PROVINCE.textContent = `${listing.LOCATION_PROVINCE}`;
     // td_LOCATION_PROVINCE.className = "dashboard-td";
     // td_LOCATION_PROVINCE.contentEditable = true;
@@ -171,7 +179,7 @@ function getTableRow(listing, locations){
     //
     //
     // const td_LOCATION_COUNTRY = document.createElement("td");
-    // td_LOCATION_COUNTRY.id = `LOCATION_COUNTRY-${listing.PROPERTY_ID}`;
+    // td_LOCATION_COUNTRY.id = `LOCATION_COUNTRY-${id}`;
     // td_LOCATION_COUNTRY.textContent = `${listing.LOCATION_COUNTRY}`;
     // td_LOCATION_COUNTRY.className = "dashboard-td";
     // td_LOCATION_COUNTRY.contentEditable = true;
@@ -179,14 +187,14 @@ function getTableRow(listing, locations){
 
 
     const td_YEAR = document.createElement("td");
-    td_YEAR.id = `YEAR-${listing.PROPERTY_ID}`;
+    td_YEAR.id = `YEAR-${id}`;
     td_YEAR.textContent = `${listing.YEAR}`;
     td_YEAR.className = "dashboard-td";
     td_YEAR.contentEditable = true;
     row.appendChild(td_YEAR);
 
     const td_PARKING_COUNT = document.createElement("td");
-    td_PARKING_COUNT.id = `PARKING_COUNT-${listing.PROPERTY_ID}`;
+    td_PARKING_COUNT.id = `PARKING_COUNT-${id}`;
     td_PARKING_COUNT.textContent = `${listing.PARKING_COUNT}`;
     td_PARKING_COUNT.className = "dashboard-td";
     td_PARKING_COUNT.contentEditable = true;
@@ -194,7 +202,7 @@ function getTableRow(listing, locations){
 
 
     const td_BATH_COUNT = document.createElement("td");
-    td_BATH_COUNT.id = `BATH_COUNT-${listing.PROPERTY_ID}`;
+    td_BATH_COUNT.id = `BATH_COUNT-${id}`;
     td_BATH_COUNT.textContent = `${listing.BATH_COUNT}`;
     td_BATH_COUNT.className = "dashboard-td";
     td_BATH_COUNT.contentEditable = true;
@@ -202,7 +210,7 @@ function getTableRow(listing, locations){
 
 
     const td_ROOMS_COUNT = document.createElement("td");
-    td_ROOMS_COUNT.id = `ROOMS_COUNT-${listing.PROPERTY_ID}`;
+    td_ROOMS_COUNT.id = `ROOMS_COUNT-${id}`;
     td_ROOMS_COUNT.textContent = `${listing.ROOMS_COUNT}`;
     td_ROOMS_COUNT.className = "dashboard-td";
     td_ROOMS_COUNT.contentEditable = true;
@@ -210,7 +218,7 @@ function getTableRow(listing, locations){
 
 
     const td_PRICE = document.createElement("td");
-    td_PRICE.id = `PRICE-${listing.PROPERTY_ID}`;
+    td_PRICE.id = `PRICE-${id}`;
     td_PRICE.textContent = `$${listing.PRICE}`;
     td_PRICE.className = "dashboard-td";
     td_PRICE.contentEditable = true;
@@ -218,7 +226,7 @@ function getTableRow(listing, locations){
 
 
     const td_IS_FOR_SALE = document.createElement("td");
-    td_IS_FOR_SALE.id = `IS_FOR_SALE-${listing.PROPERTY_ID}`;
+    td_IS_FOR_SALE.id = `IS_FOR_SALE-${id}`;
     td_IS_FOR_SALE.textContent = listing.IS_FOR_SALE === "0" ? "No" : "Yes";
     td_IS_FOR_SALE.className = "dashboard-td";
     td_IS_FOR_SALE.contentEditable = true;
@@ -226,46 +234,19 @@ function getTableRow(listing, locations){
 
 
     const td_STATUS = document.createElement("td");
-    td_STATUS.id = `STATUS-${listing.PROPERTY_ID}`;
-    td_STATUS.textContent = "STATUS PLACEHOLDER";
+    td_STATUS.id = `STATUS-${id}`;
+    const selectStatus = createStatusSelect(id);
+    selectStatus.value = listing.STATUS;
+    td_STATUS.appendChild(selectStatus)
     td_STATUS.className = "dashboard-td";
-    td_STATUS.contentEditable = true;
     row.appendChild(td_STATUS);
-
-
-    // Functionality not completed
-    const td_DELETE_BUTTON = document.createElement("td");
-    td_DELETE_BUTTON.className = "dashboard-td";
-        const deleteButton = document.createElement("button");
-        deleteButton.id = `DELETE_BUTTON-${listing.PROPERTY_ID}`; // Important for deleting users from db
-        deleteButton.textContent = "Delete";
-        deleteButton.addEventListener("click",
-            (event)=>{
-
-                const id = event.target.id.replace("DELETE_BUTTON-", "");
-
-                const confirm1 = confirm(`Are you sure you want to remove property: ${id}`);
-
-                // if(!confirm1) return;
-                //
-                // // Remove property ID
-                // const row = document.getElementById(`row-${id}`);
-                // const tableBody = document.getElementById("tbody-my-listings");
-                //
-                // tableBody.removeChild(row);
-
-                location.reload();
-            }
-        )
-    td_DELETE_BUTTON.appendChild(deleteButton);
-    row.appendChild(td_DELETE_BUTTON);
 
 
     // Functionality not completed
     const td_UPDATE_BUTTON = document.createElement("td");
     td_UPDATE_BUTTON.className = "dashboard-td";
     const updateButton = document.createElement("button");
-    updateButton.id = `UPDATE_BUTTON-${listing.PROPERTY_ID}`; // Important for deleting users from db
+    updateButton.id = `UPDATE_BUTTON-${id}`; // Important for deleting users from db
     updateButton.textContent = "Update";
     updateButton.addEventListener("click",
         (event)=>{
@@ -275,27 +256,26 @@ function getTableRow(listing, locations){
 
             if(!confirm1) return;
 
-            const BROKER_ID = parseInt(localStorage.getItem('user').USER_ID);
             const COVER_IMG_ID = document.getElementById(`img-${id}`).getAttribute('src'); // is this the source of the image?
             const DESCRIPTION = document.getElementById(`DESCRIPTION-${id}`).textContent;
-            const AREA_ID = document.getElementById(); // ?
+            const AREA_ID = document.getElementById(`SELECT_CITY_PROVINCE_COUNTRY-${id}`).value;
             const ADDRESS = document.getElementById(`ADDRESS-${id}`).textContent;
             const POSTAL = document.getElementById(`POSTAL-${id}`).textContent;
             const YEAR = document.getElementById(`YEAR-${id}`).textContent;
             const PARKING_COUNT = parseInt(document.getElementById(`PARKING_COUNT-${id}`).textContent);
             const BATH_COUNT = parseInt(document.getElementById(`BATH_COUNT-${id}`).textContent);
             const ROOMS_COUNT = parseInt(document.getElementById(`ROOMS_COUNT-${id}`).textContent);
-            const TYPE_ID = parseInt(document.getElementById(`TYPE_ID-${id}`).textContent);
+            const TYPE_ID = document.getElementById(`PROPERTY_TYPE_SELECT-${id}`).value;
             const PRICE = parseFloat(document.getElementById(`BATH_COUNT-${id}`).textContent.replace("$",""));
             const IS_FOR_SALE = document.getElementById(`IS_FOR_SALE-${id}`).textContent === "Yes" ? 1 : 0;
-            // const STATUS = document.getElementById().value;
-            const PROPERTY_ID = parseInt(id);
+            const STATUS = document.getElementById(`STATUS-${id}`).value;
+            const PROPERTY_ID = id;
 
+            console.log(TYPE_ID)
 
-            updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
-                PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID);
+            updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID);
 
-
+            // location.reload();
 
         }
     )
@@ -310,12 +290,12 @@ function getTableRow(listing, locations){
 /**
  *
  * @param {Array of objs} locations
- * @param {string} AREA_ID
+ * @param id
  * @returns {HTMLSelectElement}
  */
-function createLocationSelect(locations) {
+function createLocationSelect(locations, id) {
     const select = document.createElement("select");
-    select.id = 'SELECT_CITY_PROVINCE_COUNTRY';
+    select.id = `SELECT_CITY_PROVINCE_COUNTRY-${id}`;
 
     locations.forEach(location => {
         const option = document.createElement('option');
@@ -330,25 +310,52 @@ function createLocationSelect(locations) {
 
 /**
  *
- * @param {array of locations}locations
- * @param {string} NAME
- * @param {string} CITY
- * @param {string} PROVINCE
- * @param {string} COUNTRY
+ * @param {number} id
+ * @returns {HTMLSelectElement}
  */
+function createStatusSelect(id){
 
-function getAreaID(locations, NAME, CITY, PROVINCE, COUNTRY){
+    const select = document.createElement("select");
+    select.id = `STATUS_SELECT-${id}`;
 
-    locations.forEach(
-        (location)=>{
+    const status = ['ACTIVE', 'ON HOLD', 'DELETED', 'SOLD'];
 
-            if(location.NAME === NAME && location.CITY === CITY && location.PROVINCE === PROVINCE && location.COUNTRY === COUNTRY){
+    status.forEach(
+        (s, index) => {
+            const option = document.createElement('option');
+            option.value = index+1;
+            option.textContent = s;
 
-                return location.AREA_ID
-            }
+            select.appendChild(option);
+        }
+    )
+    return select;
+}
+
+
+
+function createPropertyTypeSelect(propertyTypes, id){
+
+    const select = document.createElement('select');
+    select.id = `PROPERTY_TYPE_SELECT-${id}`;
+
+    propertyTypes.forEach(
+        (type)=>{
+
+            const option = document.createElement('option');
+            option.value = type.TYPE_ID;
+            option.textContent = type.NAME;
+
+            select.appendChild(option);
         }
     )
 
-    return undefined;
+    return select;
 }
+
+function findTypeIdByPropertyType(propertyTypes, PROPERTY_TYPE) {
+    const foundType = propertyTypes.find(type => type.NAME === PROPERTY_TYPE);
+    return foundType ? foundType.TYPE_ID : null;
+}
+
 

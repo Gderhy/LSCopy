@@ -40,7 +40,7 @@
                     <th class="dashboard-th">Price</th>
                     <th class="dashboard-th">For sale</th>
                     <th class="dashboard-th">Status</th>
-                    <th class="dashboard-th">Delete</th>
+<!--                    <th class="dashboard-th">Delete</th>-->
                     <th class="dashboard-th">Update</th>
 
 

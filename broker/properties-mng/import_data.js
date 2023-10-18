@@ -17,6 +17,7 @@
 
 console.log(getLocations())
 console.log(getBrokerProperties(101))
+console.log(getPropertyTypes())
 
 /**
  * Return the properties of a specific broker id
