@@ -57,6 +57,10 @@
             <h3>Add a listing</h3>
 
             <form class="listingForm" id="listingForm">
+
+                <label for="cover-image">Cover image: </label>
+                <input type="file" id="imageInput" accept="image/jpeg, image/png, image/gif">
+
                 <label for="description">Description:</label>
                 <input type="text" id="description" name="description" required><br><br>
 

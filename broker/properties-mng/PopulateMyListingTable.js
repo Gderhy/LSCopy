@@ -256,7 +256,7 @@ function getTableRow(listing, locations, propertyTypes){
 
             if(!confirm1) return;
 
-            const COVER_IMG_ID = document.getElementById(`img-${id}`).getAttribute('src'); // is this the source of the image?
+            const COVER_IMG_ID = 1; // is this the source of the image?
             const DESCRIPTION = document.getElementById(`DESCRIPTION-${id}`).textContent;
             const AREA_ID = document.getElementById(`SELECT_CITY_PROVINCE_COUNTRY-${id}`).value;
             const ADDRESS = document.getElementById(`ADDRESS-${id}`).textContent;
@@ -275,7 +275,7 @@ function getTableRow(listing, locations, propertyTypes){
 
             updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID);
 
-            // location.reload();
+            location.reload();
 
         }
     )
