@@ -114,26 +114,13 @@ export function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POST
  */
 export function updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID) {
-            
-    switch (STATUS) {
-        case 'SOLD':
-            STATUS = 4;
-        case 'DELETED':
-            STATUS = 3; 
-            break;
-        case 'ON HOLD':
-            STATUS = 2;
-            break;
-        default:
-            STATUS = 1;
-            break;
-    }
+
     
     let recipe = 'updateProperty';
     let values = [COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID];
     
-    sqlHandler(recipe, values);
+    console.log(sqlHandler(recipe, values));
 }
 
 /**

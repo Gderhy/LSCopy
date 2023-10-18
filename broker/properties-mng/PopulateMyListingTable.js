@@ -268,10 +268,10 @@ function getTableRow(listing, locations, propertyTypes){
             const TYPE_ID = document.getElementById(`PROPERTY_TYPE_SELECT-${id}`).value;
             const PRICE = parseFloat(document.getElementById(`BATH_COUNT-${id}`).textContent.replace("$",""));
             const IS_FOR_SALE = document.getElementById(`IS_FOR_SALE-${id}`).textContent === "Yes" ? 1 : 0;
-            const STATUS = document.getElementById(`STATUS-${id}`).value;
+            const STATUS = document.getElementById(`STATUS_SELECT-${id}`).value; // str
             const PROPERTY_ID = id;
 
-            console.log(TYPE_ID)
+            console.log(STATUS)
 
             updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID);
 
