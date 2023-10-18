@@ -26,12 +26,13 @@
                     <th class="dashboard-th">Property type</th>
                     <th class="dashboard-th">Cover Image</th>
                     <th class="dashboard-th">Description</th>
-                    <th class="dashboard-th">Property name</th>
                     <th class="dashboard-th">Address</th>
+<!--                    <th class="dashboard-th">Property name</th>-->
 <!--                    <th class="dashboard-th">Postal</th>-->
-                    <th class="dashboard-th">City</th>
-                    <th class="dashboard-th">Province</th>
-                    <th class="dashboard-th">Country</th>
+<!--                    <th class="dashboard-th">City</th>-->
+<!--                    <th class="dashboard-th">Province</th>-->
+<!--                    <th class="dashboard-th">Country</th>-->
+                    <th class="dashboard-th">Property Name, City, Province, Country</th>
                     <th class="dashboard-th">Year</th>
                     <th class="dashboard-th">Parking</th>
                     <th class="dashboard-th">Baths</th>

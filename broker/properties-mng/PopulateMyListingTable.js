@@ -1,4 +1,4 @@
-import {getBrokerProperties, updateProperty} from "./import_data.js";
+import {getBrokerProperties, getLocations, updateProperty} from "./import_data.js";
 
 
 const user = localStorage.getItem('user');
@@ -69,13 +69,16 @@ function populateMyListingTable(listings){
         tableBody.removeChild(tableBody.firstChild);
     }
 
+
+    const locations = getLocations();
+
     // Populate table
     listings.forEach(
-        (listing) => tableBody.appendChild(getTableRow(listing))
+        (listing) => tableBody.appendChild(getTableRow(listing, locations))
     );
 }
 
-function getTableRow(listing){
+function getTableRow(listing, locations){
 
     const row = document.createElement("tr");
     row.id = `row-${listing.PROPERTY_ID}`
@@ -88,16 +91,14 @@ function getTableRow(listing){
 
 
     const td_PROPERTY_TYPE = document.createElement("td");
-
-
     td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${listing.PROPERTY_ID}`;
     td_PROPERTY_TYPE.textContent = `${listing.PROPERTY_TYPE}`;
     td_PROPERTY_TYPE.className = "dashboard-td";
     td_PROPERTY_TYPE.contentEditable = true;
     row.appendChild(td_PROPERTY_TYPE);
+
+
     // Will add editing to images later
-
-
     const td_COVER_IMG_ID = document.createElement("td");
         const img = document.createElement("img");
         img.className = "cover-img"
@@ -108,9 +109,9 @@ function getTableRow(listing){
     td_COVER_IMG_ID.className = "dashboard-td";
     td_COVER_IMG_ID.appendChild(img);
     row.appendChild(td_COVER_IMG_ID);
+
+
     const td_DESCRIPTION = document.createElement("td");
-
-
     td_DESCRIPTION.id = `DESCRIPTION-${listing.PROPERTY_ID}`;
     td_DESCRIPTION.textContent = `${listing.DESCRIPTION}`;
     td_DESCRIPTION.className = "dashboard-td";
@@ -118,12 +119,7 @@ function getTableRow(listing){
     row.appendChild(td_DESCRIPTION);
 
 
-    const td_LOCATION_NAME = document.createElement("td");
-    td_LOCATION_NAME.id = `PROPERTY_NAME-${listing.PROPERTY_ID}`;
-    td_LOCATION_NAME.textContent = `${listing.LOCATION_NAME}`;
-    td_LOCATION_NAME.className = "dashboard-td";
-    td_LOCATION_NAME.contentEditable = true;
-    row.appendChild(td_LOCATION_NAME);
+
 
 
     const td_ADDRESS = document.createElement("td");
@@ -134,28 +130,48 @@ function getTableRow(listing){
     row.appendChild(td_ADDRESS);
 
 
-    const td_LOCATION_CITY = document.createElement("td");
-    td_LOCATION_CITY.id = `LOCATION_CITY-${listing.PROPERTY_ID}`;
-    td_LOCATION_CITY.textContent = `${listing.LOCATION_CITY}`;
-    td_LOCATION_CITY.className = "dashboard-td";
-    td_LOCATION_CITY.contentEditable = true;
-    row.appendChild(td_LOCATION_CITY);
+    const td_CITY_PROVINCE_COUNTRY = document.createElement("td");
+    td_CITY_PROVINCE_COUNTRY.id = `CITY_PROVINCE_COUNTRY-${listing.PROPERTY_ID}`;
+
+    // NEEDS WORK
+    const AREA_ID = getAreaID(locations, listing.LOCATION_NAME, listing.LOCATION_CITY, listing.LOCATION_PROVINCE, listing.LOCATION_COUNTRY) ?? "1";
+
+    const select = createLocationSelect(locations);
+    select.value = AREA_ID;
+    td_CITY_PROVINCE_COUNTRY.appendChild(select);
+    row.appendChild(select);
 
 
-    const td_LOCATION_PROVINCE = document.createElement("td");
-    td_LOCATION_PROVINCE.id = `LOCATION_PROVINCE-${listing.PROPERTY_ID}`;
-    td_LOCATION_PROVINCE.textContent = `${listing.LOCATION_PROVINCE}`;
-    td_LOCATION_PROVINCE.className = "dashboard-td";
-    td_LOCATION_PROVINCE.contentEditable = true;
-    row.appendChild(td_LOCATION_PROVINCE);
+    //const td_LOCATION_NAME = document.createElement("td");
+    // td_LOCATION_NAME.id = `PROPERTY_NAME-${listing.PROPERTY_ID}`;
+    // td_LOCATION_NAME.textContent = `${listing.LOCATION_NAME}`;
+    // td_LOCATION_NAME.className = "dashboard-td";
+    // td_LOCATION_NAME.contentEditable = true;
+    // row.appendChild(td_LOCATION_NAME);
 
 
-    const td_LOCATION_COUNTRY = document.createElement("td");
-    td_LOCATION_COUNTRY.id = `LOCATION_COUNTRY-${listing.PROPERTY_ID}`;
-    td_LOCATION_COUNTRY.textContent = `${listing.LOCATION_COUNTRY}`;
-    td_LOCATION_COUNTRY.className = "dashboard-td";
-    td_LOCATION_COUNTRY.contentEditable = true;
-    row.appendChild(td_LOCATION_COUNTRY);
+    // const td_LOCATION_CITY = document.createElement("td");
+    // td_LOCATION_CITY.id = `LOCATION_CITY-${listing.PROPERTY_ID}`;
+    // td_LOCATION_CITY.textContent = `${listing.LOCATION_CITY}`;
+    // td_LOCATION_CITY.className = "dashboard-td";
+    // td_LOCATION_CITY.contentEditable = true;
+    // row.appendChild(td_LOCATION_CITY);
+    //
+    //
+    // const td_LOCATION_PROVINCE = document.createElement("td");
+    // td_LOCATION_PROVINCE.id = `LOCATION_PROVINCE-${listing.PROPERTY_ID}`;
+    // td_LOCATION_PROVINCE.textContent = `${listing.LOCATION_PROVINCE}`;
+    // td_LOCATION_PROVINCE.className = "dashboard-td";
+    // td_LOCATION_PROVINCE.contentEditable = true;
+    // row.appendChild(td_LOCATION_PROVINCE);
+    //
+    //
+    // const td_LOCATION_COUNTRY = document.createElement("td");
+    // td_LOCATION_COUNTRY.id = `LOCATION_COUNTRY-${listing.PROPERTY_ID}`;
+    // td_LOCATION_COUNTRY.textContent = `${listing.LOCATION_COUNTRY}`;
+    // td_LOCATION_COUNTRY.className = "dashboard-td";
+    // td_LOCATION_COUNTRY.contentEditable = true;
+    // row.appendChild(td_LOCATION_COUNTRY);
 
 
     const td_YEAR = document.createElement("td");
@@ -277,3 +293,50 @@ function getTableRow(listing){
 
     return row;
 }
+
+
+/**
+ *
+ * @param {Array of objs} locations
+ * @param {string} AREA_ID
+ * @returns {HTMLSelectElement}
+ */
+function createLocationSelect(locations) {
+    const select = document.createElement("select");
+    select.id = 'SELECT_CITY_PROVINCE_COUNTRY';
+
+    locations.forEach(location => {
+        const option = document.createElement('option');
+        option.value = location.AREA_ID;
+        option.textContent = `${location.NAME}, ${location.CITY}, ${location.PROVINCE}, ${location.COUNTRY}`;
+        select.appendChild(option);
+    });
+
+    return select;
+}
+
+
+/**
+ *
+ * @param {array of locations}locations
+ * @param {string} NAME
+ * @param {string} CITY
+ * @param {string} PROVINCE
+ * @param {string} COUNTRY
+ */
+
+function getAreaID(locations, NAME, CITY, PROVINCE, COUNTRY){
+
+    locations.forEach(
+        (location)=>{
+
+            if(location.NAME === NAME && location.CITY === CITY && location.PROVINCE === PROVINCE && location.COUNTRY === COUNTRY){
+
+                return location.AREA_ID
+            }
+        }
+    )
+
+    return undefined;
+}
+
