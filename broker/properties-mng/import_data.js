@@ -118,7 +118,7 @@ export function updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POST
         case 'SOLD':
             STATUS = 4;
         case 'DELETED':
-            STATUS = 3;
+            STATUS = 3; 
             break;
         case 'ON HOLD':
             STATUS = 2;

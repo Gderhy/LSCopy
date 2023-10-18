@@ -27,8 +27,8 @@
                     <th class="dashboard-th">Cover Image</th>
                     <th class="dashboard-th">Description</th>
                     <th class="dashboard-th">Address</th>
+                    <th class="dashboard-th">Postal</th>
 <!--                    <th class="dashboard-th">Property name</th>-->
-<!--                    <th class="dashboard-th">Postal</th>-->
 <!--                    <th class="dashboard-th">City</th>-->
 <!--                    <th class="dashboard-th">Province</th>-->
 <!--                    <th class="dashboard-th">Country</th>-->
@@ -39,7 +39,7 @@
                     <th class="dashboard-th">Rooms</th>
                     <th class="dashboard-th">Price</th>
                     <th class="dashboard-th">For sale</th>
-<!--                    <th class="dashboard-th">Status</th>-->
+                    <th class="dashboard-th">Status</th>
                     <th class="dashboard-th">Delete</th>
                     <th class="dashboard-th">Update</th>
 
@@ -53,6 +53,40 @@
             </table>
         </div>
 
+        <div class="add-listing">
+            <h3>Add a listing</h3>
+
+            <form class="listingForm" id="listingForm">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required><br><br>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required><br><br>
+
+                <label for="postal">Postal Code:</label>
+                <input type="text" id="postal" name="postal" required><br><br>
+
+                <label for="year">Year Built:</label>
+                <input type="number" id="year" name="year" required><br><br>
+
+                <label for="parkingCount">Parking Count:</label>
+                <input type="number" id="parkingCount" name="parkingCount" required><br><br>
+
+                <label for="bathCount">Bathrooms:</label>
+                <input type="number" id="bathCount" name="bathCount" required><br><br>
+
+                <label for="roomsCount">Rooms:</label>
+                <input type="number" id="roomsCount" name="roomsCount" required><br><br>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required><br><br>
+
+                <label for="isForSale">Is it for sale?</label>
+                <input type="checkbox" id="isForSale" name="isForSale"><br><br>
+
+                <input type="submit" value="Create Listing">
+            </form>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="import_data.js" type="module"></script>

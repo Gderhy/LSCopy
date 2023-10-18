@@ -54,9 +54,9 @@
 
                 <h3>Add new broker</h3>
 
-<!--            Calls function that handles creating new broker and sending to db-->
+                <!--            Calls function that handles creating new broker and sending to db-->
                 <form class="form-create-broker" id="form-create-broker">
-<!--                    action="process_broker.php" method="post"-->
+                    <!--                    action="process_broker.php" method="post"-->
                     <span class="labels-same-line">
 <!--                        USER_NAME-->
                         <label for="USER_NAME">Username: </label>

@@ -119,9 +119,6 @@ function getTableRow(listing, locations){
     row.appendChild(td_DESCRIPTION);
 
 
-
-
-
     const td_ADDRESS = document.createElement("td");
     td_ADDRESS.id = `ADDRESS-${listing.PROPERTY_ID}`;
     td_ADDRESS.textContent = `${listing.ADDRESS}`;
@@ -129,6 +126,13 @@ function getTableRow(listing, locations){
     td_ADDRESS.contentEditable = true;
     row.appendChild(td_ADDRESS);
 
+
+    const td_POSTAL = document.createElement("td");
+    td_POSTAL.id = `POSTAL-${listing.PROPERTY_ID}`;
+    td_POSTAL.textContent = "POSTAL-PLACEHOLDER";
+    td_POSTAL.className = "dashboard-td";
+    td_POSTAL.contentEditable = true;
+    row.appendChild(td_POSTAL);
 
     const td_CITY_PROVINCE_COUNTRY = document.createElement("td");
     td_CITY_PROVINCE_COUNTRY.id = `CITY_PROVINCE_COUNTRY-${listing.PROPERTY_ID}`;
@@ -219,6 +223,14 @@ function getTableRow(listing, locations){
     td_IS_FOR_SALE.className = "dashboard-td";
     td_IS_FOR_SALE.contentEditable = true;
     row.appendChild(td_IS_FOR_SALE);
+
+
+    const td_STATUS = document.createElement("td");
+    td_STATUS.id = `STATUS-${listing.PROPERTY_ID}`;
+    td_STATUS.textContent = "STATUS PLACEHOLDER";
+    td_STATUS.className = "dashboard-td";
+    td_STATUS.contentEditable = true;
+    row.appendChild(td_STATUS);
 
 
     // Functionality not completed
