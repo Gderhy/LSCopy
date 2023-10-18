@@ -258,7 +258,7 @@ function getTableRow(listing, locations){
     updateButton.addEventListener("click",
         (event)=>{
 
-            const id = event.target.id.replace("DELETE_BUTTON-", "");
+            const id = event.target.id.replace("UPDATE_BUTTON-", "");
             const confirm1 = confirm(`Are you sure you want to update property: ${id}`);
 
             if(!confirm1) return;
