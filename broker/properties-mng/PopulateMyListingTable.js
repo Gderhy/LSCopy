@@ -2,9 +2,15 @@ import {getBrokerProperties, getLocations, getPropertyTypes, updateProperty} fro
 
 
 const user = localStorage.getItem('user');
+const locations = getLocations();
+const propertyTypes = getPropertyTypes();
 
 addEventListener("DOMContentLoaded",
-    ()=> populateMyListingTable(getBrokerProperties(101))
+    ()=> {
+
+        populateMyListingTable(getBrokerProperties(101));
+        addAreaIDToForm();
+    }
 );
 
 const testingData = [
@@ -70,8 +76,7 @@ function populateMyListingTable(listings){
     }
 
 
-    const locations = getLocations();
-    const propertyTypes = getPropertyTypes();
+
 
     // Populate table
     listings.forEach(
@@ -357,5 +362,39 @@ function findTypeIdByPropertyType(propertyTypes, PROPERTY_TYPE) {
     const foundType = propertyTypes.find(type => type.NAME === PROPERTY_TYPE);
     return foundType ? foundType.TYPE_ID : null;
 }
+
+function addAreaIDToForm(){
+
+
+    const select = document.getElementById('select_area_id');
+
+    locations.forEach(location => {
+        const option = document.createElement('option');
+        option.value = location.AREA_ID;
+        option.textContent = `${location.NAME}, ${location.CITY}, ${location.PROVINCE}, ${location.COUNTRY}`;
+        select.appendChild(option);
+    });
+
+
+}
+
+// function createNewListing(){
+//
+//     const BROKER_ID = user.USER_ID;
+//     const DESCRIPTION = document.getElementById("description").value;
+//     const AREA_ID =
+//     const ADDRESS
+//     const POSTAL
+//     const YEAR
+//     const PARKING_COUNT
+//     const BATH_COUNT
+//     const ROOMS_COUNT
+//     const TYPE_ID
+//     const PRICE
+//     const IS_FOR_SALE
+//
+// }
+
+
 
 
