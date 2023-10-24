@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="/Navbar/Css/navStyle.css">
         <link rel="stylesheet" href="/broker/Css/Table.css">
         <link rel="stylesheet" href="/broker/Css/dashboard-listings.css">
+        <link rel="stylesheet" href="/broker/Css/dashboard-create-new.css">
 
         <title>My Listings  </title>
     </head>
@@ -56,13 +57,12 @@
         <div class="add-listing">
             <h3>Add a listing</h3>
 
-            <form class="listingForm" id="listingForm">
-
-                <label for="cover-image">Cover image: </label>
-                <input type="file" id="imageInput" accept="image/jpeg, image/png, image/gif">
-
+            <form class="form-create-new" id="form-create-new-listing" onsubmit="createNewListing()">
                 <label for="description">Description:</label>
                 <input type="text" id="description" name="description" required><br><br>
+
+                <label for="area_id">Area ID:</label>
+                <select id="select_area_id"></select>
 
                 <label for="address">Address:</label>
                 <input type="text" id="address" name="address" required><br><br>
