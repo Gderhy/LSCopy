@@ -10,6 +10,7 @@ addEventListener("DOMContentLoaded",
 
         populateMyListingTable(getBrokerProperties(101));
         addAreaIDToForm();
+        addTypeIDtoForm();
     }
 );
 
@@ -378,22 +379,38 @@ function addAreaIDToForm(){
 
 }
 
-// function createNewListing(){
-//
-//     const BROKER_ID = user.USER_ID;
-//     const DESCRIPTION = document.getElementById("description").value;
-//     const AREA_ID =
-//     const ADDRESS
-//     const POSTAL
-//     const YEAR
-//     const PARKING_COUNT
-//     const BATH_COUNT
-//     const ROOMS_COUNT
-//     const TYPE_ID
-//     const PRICE
-//     const IS_FOR_SALE
-//
-// }
+function addTypeIDToForm(){
+
+    const select = document.getElementById("select_type_id");
+    propertyTypes.forEach(type => {
+
+            const option = document.createElement('option');
+            option.value = type.TYPE_ID;
+            option.textContent = type.NAME;
+            select.appendChild(option);
+        }
+    );
+
+}
+
+function createNewListing(){
+
+    const BROKER_ID = 101; // have to check this
+    const DESCRIPTION = document.getElementById("description").value;
+    const AREA_ID = document.getElementById("select_area_id").value;
+    const ADDRESS = document.getElementById("address").value;
+    const POSTAL = document.getElementById("postal").value;
+    const YEAR = document.getElementById("year").value;
+    const PARKING_COUNT = document.getElementById("parkingCount").value;
+    const BATH_COUNT = document.getElementById("bathCount").value;
+    const ROOMS_COUNT = document.getElementById("roomsCount").value;
+    const TYPE_ID = document.getElementById("typeID").value;
+    const PRICE = document.getElementById("price").value;
+    const IS_FOR_SALE = document.getElementById("isForSale").checked ? 1 : 0;
+
+
+    insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE);
+}
 
 
 
