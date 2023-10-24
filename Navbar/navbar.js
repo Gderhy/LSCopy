@@ -22,8 +22,24 @@
 //             </ul>
 // </nav>
 
+//fake user
+function addFakeUserToLocaleStorage(){
+    const fake_user = {
+        'USER_ID' : 11,
+        'FIRST_NAME' : 'Carmelo',
+        'LAST_NAME' : 'Farrell',
+        'PHONE_NUM' : '(119)681-5239',
+        'EMAIL' : 'nsimonis@example.com',
+        'USER_NAME' : 'linnea.boyer',
+        'PASSWORD' : 'dolore',
+        'ROLE_ID' : 3,
+        'STATUS' : 2
+    }
 
+    localStorage.setItem('user', JSON.stringify(fake_user));
 
+    return 'user'
+}
 
 
 const pathForHome = "/FrontEnd-rough/";
@@ -61,7 +77,7 @@ function implementNavbar(activePage){
 
 function getUl(activePage){
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('user') ?? localStorage.getItem(addFakeUserToLocaleStorage()));
 
 
     const ul = document.createElement("ul");

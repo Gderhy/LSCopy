@@ -1,4 +1,4 @@
-import {getBrokerProperties, getLocations, getPropertyTypes, updateProperty} from "./import_data.js";
+import {getBrokerProperties, getLocations, getPropertyTypes, insertNewProperty, updateProperty} from "./import_data.js";
 
 
 const user = localStorage.getItem('user');
@@ -10,9 +10,11 @@ addEventListener("DOMContentLoaded",
 
         populateMyListingTable(getBrokerProperties(101));
         addAreaIDToForm();
-        addTypeIDtoForm();
+        addTypeIDToForm();
     }
 );
+
+
 
 const testingData = [
     {
@@ -391,26 +393,35 @@ function addTypeIDToForm(){
         }
     );
 
+    return select;
+
 }
 
-function createNewListing(){
 
-    const BROKER_ID = 101; // have to check this
-    const DESCRIPTION = document.getElementById("description").value;
-    const AREA_ID = document.getElementById("select_area_id").value;
-    const ADDRESS = document.getElementById("address").value;
-    const POSTAL = document.getElementById("postal").value;
-    const YEAR = document.getElementById("year").value;
-    const PARKING_COUNT = document.getElementById("parkingCount").value;
-    const BATH_COUNT = document.getElementById("bathCount").value;
-    const ROOMS_COUNT = document.getElementById("roomsCount").value;
-    const TYPE_ID = document.getElementById("typeID").value;
-    const PRICE = document.getElementById("price").value;
-    const IS_FOR_SALE = document.getElementById("isForSale").checked ? 1 : 0;
+const form_create_new_listing = document.getElementById("form-create-new-listing");
+form_create_new_listing.addEventListener("submit",
+    (event) =>{
+
+        event.preventDefault();
+
+        const BROKER_ID = 101; // have to check this
+        const DESCRIPTION = document.getElementById("description").value;
+        const AREA_ID = document.getElementById("select_area_id").value;
+        const ADDRESS = document.getElementById("address").value;
+        const POSTAL = document.getElementById("postal").value;
+        const YEAR = document.getElementById("year").value;
+        const PARKING_COUNT = document.getElementById("parkingCount").value;
+        const BATH_COUNT = document.getElementById("bathCount").value;
+        const ROOMS_COUNT = document.getElementById("roomsCount").value;
+        const TYPE_ID = document.getElementById("select_type_id").value;
+        const PRICE = document.getElementById("price").value;
+        const IS_FOR_SALE = document.getElementById("isForSale").checked ? 1 : 0;
 
 
-    insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE);
-}
+        insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE);
+
+        location.reload();
+    });
 
 
 

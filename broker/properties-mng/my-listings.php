@@ -92,7 +92,7 @@
             <label for="isForSale">Is it for sale?</label>
             <input type="checkbox" id="isForSale" name="isForSale"><br><br>
 
-            <input type="submit" value="Create Listing">
+            <button type="submit">Create new listing</button>
         </form>
     </div>
 </div>
