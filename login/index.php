@@ -3,8 +3,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" type="text/css" href="/FrontEnd-Rough/styles.css">
-        <link rel="stylesheet" type="text/css" href="/Navbar/Css/navStyle.css">
+        <link rel="stylesheet" type="text/css" href="/LuckySeven/FrontEnd-Rough/styles.css">
+        <link rel="stylesheet" type="text/css" href="/LuckySeven/Navbar/Css/navStyle.css">
 
         <title>Login/Register - Your Real Estate</title>
     </head>
@@ -80,12 +80,12 @@
         </footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="/FrontEnd-Rough/script.js" type="module"></script>
+        <script src="/LuckySeven/FrontEnd-Rough/script.js" type="module"></script>
 
-        <script src="/login/import_data.js" type="module"></script>
-        <script src="/login/login.js" type="module"></script>
+        <script src="/LuckySeven/login/import_data.js" type="module"></script>
+        <script src="/LuckySeven/login/login.js" type="module"></script>
 
-        <script src="/Navbar/navbar.js"></script>
+        <script src="/LuckySeven/Navbar/navbar.js"></script>
         <script>implementNavbar("Login")</script>
     </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="/Navbar/Css/navStyle.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
     <title>Broker Page - Your Real Estate</title>
 </head>
 <body>
@@ -192,10 +192,8 @@
 <footer>
     <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
 </footer>
-<script src="script.js"></script>
-
-<!--<script src="/Navbar/navbar.js"></script>-->
-<!--<script>implementNavbar("My Visits")</script>-->
+<script src="import_data.js"></script>
+<script src="visit_requests.js"></script>
 
 </body>
 </html>
