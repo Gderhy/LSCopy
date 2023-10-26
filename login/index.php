@@ -21,7 +21,7 @@
             </div>
             <ul class="nav-links" id="nav-links">
         
-                <li><a href="/LuckySeven/FrontEnd-Rough/listings.html">Listings</a></li>
+                <li><a href="/LuckySeven/properties">Properties</a></li>
                 <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
                 <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
                 <li class="dropdown">

@@ -4,20 +4,13 @@
  * @type js
  */
 
-// User authentication
+ const user = JSON.parse(localStorage.getItem('user'));
+ 
+ if(user?.ROLE_ID !== "2"){
 
-// const user = localStorage.getItem('user');
-// const pathForHome = "";
-// if(!user || user.ROLE_ID !== 2){
-//
-//     alert("You do not have access to this page.");
-//     location.href = pathForHome;
-// }
-
-
-// console.log(getLocations())
-// console.log(getBrokerProperties(101))
-// console.log(getPropertyTypes())
+     alert("Not authorized.")
+     window.location.href = "/LuckySeven/login";
+ }
 
 /**
  * Return the properties of a specific broker id

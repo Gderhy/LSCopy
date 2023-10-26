@@ -4,6 +4,13 @@
  * @type js
  */
 
+ const user = JSON.parse(localStorage.getItem('user'));
+ 
+ if(user?.ROLE_ID !== "2"){
+
+     alert("Not authorized.")
+     window.location.href = "/LuckySeven/login";
+ }
 /**
  * Return the visits requests for the properties posted by a certain broker
  * @param {int} brokerID

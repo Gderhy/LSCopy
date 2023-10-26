@@ -150,8 +150,13 @@ $RECIPES = [
                             FROM tbl_property_img
                             WHERE PROPERTY_ID = '?-?';",
     'insertNewVisitRequest' => "INSERT INTO luckyseven.tbl_property_visit (REQUEST_ID, REQUESTED_DATE, CLIENT_ID, PROPERTY_ID, STATUS)
-                                SELECT IFNULL(MAX(REQUEST_ID), 0) + 1 , '?-?', '?-?', '?-?', 1
-                                FROM luckyseven.tbl_property_visit;",
+                                SELECT IFNULL(MAX(REQUEST_ID), 0) + 1, '?-?', '?-?', '?-?', 1
+                                FROM luckyseven.tbl_property_visit
+                                WHERE NOT EXISTS (
+                                    SELECT 1
+                                    FROM luckyseven.tbl_property_visit
+                                    WHERE CLIENT_ID = '?-?' AND PROPERTY_ID = '?-?'
+                                );",
     'scheduleVisit' => "UPDATE luckyseven.tbl_property_visit
                         SET STATUS = 2,
                         SCHEDULED_DATE = '?-?'

@@ -1,3 +1,6 @@
+import {implementNavbar} from '/LuckySeven/NavBar/navBar.js'
+
+implementNavbar('Property Search');
 /**
  * return all locations 
  * @returns {json array}
@@ -45,9 +48,9 @@ export function getProperties(AREA_ID, MAX_PRICE, IS_FOR_SALE) {
  * @param {int} PROPERTY_ID
  * @returns {json array}
  */
-export function requestVisitToProperty(REQUEST_ID, REQUESTED_DATE, CLIENT_ID, PROPERTY_ID) {
+export function requestVisitToProperty(REQUESTED_DATE, CLIENT_ID, PROPERTY_ID) {
     let recipe = 'insertNewVisitRequest';
-    let values = [REQUEST_ID, REQUESTED_DATE, CLIENT_ID, PROPERTY_ID];
+    let values = [REQUESTED_DATE, CLIENT_ID, PROPERTY_ID, CLIENT_ID, PROPERTY_ID];
     
     sqlHandler(recipe, values);
 }
