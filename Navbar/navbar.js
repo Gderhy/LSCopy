@@ -60,7 +60,7 @@ const pathForLogin = "/LuckySeven/Login/index.php";
  *
  * @param {string} activePage
  */
-function implementNavbar(activePage){
+export function implementNavbar(activePage){
 
     // CssInHead();
 

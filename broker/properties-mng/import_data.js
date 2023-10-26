@@ -131,7 +131,7 @@ export function linkImageToProperty(IMG_LINK, PROPERTY_ID) {
 
 export function sqlHandler(recipe, values) {
     let tempData;
-    $.ajax({url: '/general/MySqlRequests.php', method: 'POST', async: false,
+    $.ajax({url: '../../general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
         success: function (response) {
             let data = response;

@@ -3,7 +3,6 @@
  * page
  * @type js
  */
-
  const user = JSON.parse(localStorage.getItem('user'));
  
  if(user?.ROLE_ID !== "2"){

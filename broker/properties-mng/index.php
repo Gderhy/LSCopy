@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="/Navbar/Css/navStyle.css">
-    <link rel="stylesheet" href="/broker/Css/Table.css">
-    <link rel="stylesheet" href="/broker/Css/dashboard-listings.css">
-    <link rel="stylesheet" href="/broker/Css/dashboard-create-new.css">
+    <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
+    <link rel="stylesheet" href="/LuckySeven/broker/Css/Table.css">
+    <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-listings.css">
+    <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-create-new.css">
 
     <title>My Listings </title>
 </head>
@@ -100,12 +100,8 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/LuckySeven/Navbar/navbar.js" type="module"></script>
 <script src="import_data.js" type="module"></script>
-<script src="/broker/JavaScript/Login_Authentication.js" type="module"></script>
-
-<script src="/Navbar/navbar.js"></script>
-<script>implementNavbar("My Listings")</script>
-
 <script src="PopulateMyListingTable.js" type="module"></script>
 </body>
 </html>

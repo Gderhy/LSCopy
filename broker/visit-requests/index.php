@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="/Navbar/Css/navStyle.css">
+    <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
     <title>Broker Page - Your Real Estate</title>
 </head>
 <body>
@@ -166,12 +166,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="import_data.js" type="module"></script>
-<script src="/LuckySeven/broker/JavaScript/Login_Authentication.js" type="module"></script>
 
 <script src="populateVisitsTable.js" type="module"></script>
-
-<!--<script src="/Navbar/navbar.js"></script>-->
-<!--<script>implementNavbar("My Visits")</script>-->
 
 </body>
 </html>
