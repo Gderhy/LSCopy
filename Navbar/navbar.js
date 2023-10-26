@@ -42,15 +42,15 @@ function addFakeUserToLocaleStorage(){
 }
 
 
-const pathForHome = "/FrontEnd-rough/";
+const pathForHome = "/LuckySeven/FrontEnd-rough/";
 
-const pathForAdmin = "/admin/";
-const pathForMyListings = "/broker/my-listings.php";
-const pathForMyVisits = "/broker/my-visits.php";
-const pathForPropertySearch = "/properties/";
+const pathForAdmin = "/LuckySeven/admin/";
+const pathForMyListings = "/LuckySeven/broker/properties-mng";
+const pathForMyVisits = "/LuckySeven/broker/visit-requests";
+const pathForPropertySearch = "/LuckySeven/properties/";
 
-const pathForContact = "/FrontEnd-Rough/contact.html";
-const pathForLogin = "/Login/index.php";
+const pathForContact = "/LuckySeven/FrontEnd-Rough/contact.html";
+const pathForLogin = "/LuckySeven/Login/index.php";
 
 
 
@@ -60,7 +60,7 @@ const pathForLogin = "/Login/index.php";
  *
  * @param {string} activePage
  */
-function implementNavbar(activePage){
+export function implementNavbar(activePage){
 
     // CssInHead();
 

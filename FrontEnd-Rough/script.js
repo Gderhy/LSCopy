@@ -1,8 +1,8 @@
 // JavaScript for showing/hiding Login and registration forms
 
-const loginOption = document.getElementById("Login-option");
+const loginOption = document.getElementById("login-option");
 const registerOption = document.getElementById("register-option");
-const loginForm = document.getElementById("Login-form");
+const loginForm = document.getElementById("login-form");
 const registerForm = document.getElementById("register-form");
 
 loginOption.addEventListener("click", () => {

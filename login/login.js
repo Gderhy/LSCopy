@@ -1,13 +1,12 @@
 import {getUserInfo, addNewUser} from './import_data.js';
 
 
-document.getElementById('Login-form').addEventListener('submit', function(event) {
+document.getElementById('login-form').addEventListener('submit', function(event) {
    event.preventDefault();
 
 let username = document.getElementById('username').value;
 let password = document.getElementById('password').value;
 let user = getUserInfo(username, password);
-user.USER_NAME = username;
 
    if (user) {
       localStorage.setItem('user', JSON.stringify(user));

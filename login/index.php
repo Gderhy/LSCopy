@@ -3,15 +3,30 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" type="text/css" href="/FrontEnd-Rough/styles.css">
-        <link rel="stylesheet" type="text/css" href="/Navbar/Css/navStyle.css">
+        <link rel="stylesheet" type="text/css" href="/LuckySeven/FrontEnd-Rough/styles.css">
+        <link rel="stylesheet" type="text/css" href="/LuckySeven/Navbar/Css/navStyle.css">
 
-        <title>Login/Register - Your Real Estate</title>
+        <title>Login/Register</title>
     </head>
     <body>
         <header>
-            <nav id="navbar"></nav>
-        </header>
+        <nav>
+            <div class="logo">
+                <a href="/LuckySeven/FrontEnd-Rough/index.html"> <img  src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
+            </div>
+            <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+        
+                <li><a href="/LuckySeven/properties">Properties</a></li>
+                <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
+                <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
         <div class = "content-wrap"> 
 
@@ -80,12 +95,12 @@
         </footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="/FrontEnd-Rough/script.js" type="module"></script>
+        <script src="/LuckySeven/FrontEnd-Rough/script.js" type="module"></script>
 
-        <script src="/login/import_data.js" type="module"></script>
-        <script src="/login/login.js" type="module"></script>
+        <script src="/LuckySeven/login/import_data.js" type="module"></script>
+        <script src="/LuckySeven/login/login.js" type="module"></script>
 
-        <script src="/Navbar/navbar.js"></script>
+        <script src="/LuckySeven/Navbar/navbar.js"></script>
         <script>implementNavbar("Login")</script>
     </body>
 </html>
