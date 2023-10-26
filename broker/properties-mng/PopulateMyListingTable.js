@@ -1,4 +1,11 @@
-import {getBrokerProperties, getLocations, getPropertyTypes, insertNewProperty, updateProperty} from "./import_data.js";
+import {
+    getBrokerProperties,
+    getLocations,
+    getPropertyTypes,
+    insertNewProperty,
+    linkImageToProperty,
+    updateProperty
+} from "./import_data.js";
 
 
 const user = localStorage.getItem('user');
@@ -79,8 +86,6 @@ function populateMyListingTable(listings){
     }
 
 
-
-
     // Populate table
     listings.forEach(
         (listing) => tableBody.appendChild(getTableRow(listing, locations, propertyTypes))
@@ -119,14 +124,26 @@ function getTableRow(listing, locations, propertyTypes){
 
     // Will add editing to images later
     const td_COVER_IMG_ID = document.createElement("td");
+    td_COVER_IMG_ID.id = `COVER_IMG_ID-${id}`;
+    td_COVER_IMG_ID.className = "dashboard-td";
         const img = document.createElement("img");
         img.className = "cover-img"
         img.id = `img-${id}`
-        img.src = `${listing.COVER_IMAGE}`; // What will this be?
+        img.src = listing.COVER_IMAGE;
         img.alt = `Image-${listing.COVER_IMG_ID}`
-    td_COVER_IMG_ID.id = `COVER_IMG_ID-${id}`;
-    td_COVER_IMG_ID.className = "dashboard-td";
+    const img_input = document.createElement('input');
+        img_input.type = 'file';
+    const img_submit_button = document.createElement('input');
+    img_submit_button.type = 'submit'
+    img_submit_button.textContent = "Submit";
+    img_submit_button.addEventListener("click", ()=>{
+            linkImageToProperty(img_input.value, listing.PROPERTY_ID);
+            console.log(img_input.value, listing.PROPERTY_ID)
+            location.reload();
+        })
     td_COVER_IMG_ID.appendChild(img);
+    td_COVER_IMG_ID.appendChild(img_input)
+    td_COVER_IMG_ID.appendChild(img_submit_button)
     row.appendChild(td_COVER_IMG_ID);
 
 
@@ -413,13 +430,12 @@ form_create_new_listing.addEventListener("submit",
         const PARKING_COUNT = document.getElementById("parkingCount").value;
         const BATH_COUNT = document.getElementById("bathCount").value;
         const ROOMS_COUNT = document.getElementById("roomsCount").value;
-        const TYPE_ID = document.getElementById("select_type_id`").value;
+        const TYPE_ID = document.getElementById("select_type_id").value;
         const PRICE = document.getElementById("price").value;
         const IS_FOR_SALE = document.getElementById("isForSale").checked ? 1 : 0;
-
+        const COVER_IMG = document.getElementById('cover_img').value;
 
         insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE);
-
         location.reload();
     });
 

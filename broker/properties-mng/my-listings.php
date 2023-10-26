@@ -92,6 +92,9 @@
             <label for="isForSale">Is it for sale?</label>
             <input type="checkbox" id="isForSale" name="isForSale"><br><br>
 
+            <label for="cover_img">Cover Image:</label>
+            <input type="text" id="cover_img" name="cover_img">
+
             <button type="submit">Create new listing</button>
         </form>
     </div>

@@ -81,8 +81,6 @@ function populateVisitsTable(visits) {
                 console.log(formatDateTime(calendar.value))
                 console.log(visit.REQUEST_ID)
                 scheduleVisit(formatDateTime(calendar.value), visit.REQUEST_ID);
-
-                console.log("hel");
                 location.reload();
             };
 
