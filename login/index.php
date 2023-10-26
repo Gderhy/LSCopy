@@ -24,13 +24,6 @@
                 <li><a href="/LuckySeven/properties">Properties</a></li>
                 <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
                 <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="account-dropdown">Account</a>
-                    <div class="dropdown-content">
-                        <a href="#">Login/Register</a>
-                       
-                    </div>
-                </li>
             </ul>
         </nav>
     </header>
