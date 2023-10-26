@@ -1,6 +1,6 @@
 import {
     getBrokerProperties,
-    getLocations,
+    getLocations, getPropertyImages,
     getPropertyTypes,
     insertNewProperty,
     linkImageToProperty,
@@ -129,21 +129,18 @@ function getTableRow(listing, locations, propertyTypes){
         const img = document.createElement("img");
         img.className = "cover-img"
         img.id = `img-${id}`
-        img.src = listing.COVER_IMAGE;
+        const images = getPropertyImages(id) ?? [{"IMG" : `${listing.COVER_IMG_ID}`}];
+    console.log(id, images)
+        img.src = images[images.length-1].IMG;
         img.alt = `Image-${listing.COVER_IMG_ID}`
     const img_input = document.createElement('input');
-        img_input.type = 'file';
-    const img_submit_button = document.createElement('input');
-    img_submit_button.type = 'submit'
-    img_submit_button.textContent = "Submit";
-    img_submit_button.addEventListener("click", ()=>{
-            linkImageToProperty(img_input.value, listing.PROPERTY_ID);
-            console.log(img_input.value, listing.PROPERTY_ID)
-            location.reload();
-        })
+        img_input.type = 'text';
+        img_input.id = `img_input-${id}`;
+
+    // const img_select = getImgSelect(id);
+    // td_COVER_IMG_ID.appendChild(img_select);
     td_COVER_IMG_ID.appendChild(img);
     td_COVER_IMG_ID.appendChild(img_input)
-    td_COVER_IMG_ID.appendChild(img_submit_button)
     row.appendChild(td_COVER_IMG_ID);
 
 
@@ -177,38 +174,6 @@ function getTableRow(listing, locations, propertyTypes){
     select.value = AREA_ID;
     td_CITY_PROVINCE_COUNTRY.appendChild(select);
     row.appendChild(select);
-
-
-    //const td_LOCATION_NAME = document.createElement("td");
-    // td_LOCATION_NAME.id = `PROPERTY_NAME-${id}`;
-    // td_LOCATION_NAME.textContent = `${listing.LOCATION_NAME}`;
-    // td_LOCATION_NAME.className = "dashboard-td";
-    // td_LOCATION_NAME.contentEditable = true;
-    // row.appendChild(td_LOCATION_NAME);
-
-
-    // const td_LOCATION_CITY = document.createElement("td");
-    // td_LOCATION_CITY.id = `LOCATION_CITY-${id}`;
-    // td_LOCATION_CITY.textContent = `${listing.LOCATION_CITY}`;
-    // td_LOCATION_CITY.className = "dashboard-td";
-    // td_LOCATION_CITY.contentEditable = true;
-    // row.appendChild(td_LOCATION_CITY);
-    //
-    //
-    // const td_LOCATION_PROVINCE = document.createElement("td");
-    // td_LOCATION_PROVINCE.id = `LOCATION_PROVINCE-${id}`;
-    // td_LOCATION_PROVINCE.textContent = `${listing.LOCATION_PROVINCE}`;
-    // td_LOCATION_PROVINCE.className = "dashboard-td";
-    // td_LOCATION_PROVINCE.contentEditable = true;
-    // row.appendChild(td_LOCATION_PROVINCE);
-    //
-    //
-    // const td_LOCATION_COUNTRY = document.createElement("td");
-    // td_LOCATION_COUNTRY.id = `LOCATION_COUNTRY-${id}`;
-    // td_LOCATION_COUNTRY.textContent = `${listing.LOCATION_COUNTRY}`;
-    // td_LOCATION_COUNTRY.className = "dashboard-td";
-    // td_LOCATION_COUNTRY.contentEditable = true;
-    // row.appendChild(td_LOCATION_COUNTRY);
 
 
     const td_YEAR = document.createElement("td");
@@ -276,12 +241,16 @@ function getTableRow(listing, locations, propertyTypes){
     updateButton.addEventListener("click",
         (event)=>{
 
+
+
             const id = event.target.id.replace("UPDATE_BUTTON-", "");
+            console.log(getPropertyImages(id));
+
             const confirm1 = confirm(`Are you sure you want to update property: ${id}`);
 
             if(!confirm1) return;
 
-            const COVER_IMG_ID = 1; // is this the source of the image?
+            const COVER_IMG_ID = document.getElementById(`img_input-${id}`).value; // is this the source of the image?
             const DESCRIPTION = document.getElementById(`DESCRIPTION-${id}`).textContent;
             const AREA_ID = document.getElementById(`SELECT_CITY_PROVINCE_COUNTRY-${id}`).value;
             const ADDRESS = document.getElementById(`ADDRESS-${id}`).textContent;
@@ -440,5 +409,35 @@ form_create_new_listing.addEventListener("submit",
     });
 
 
+function getImgSelect(PROPERTY_ID){
 
+    const images = getPropertyImages(PROPERTY_ID);
+
+    const select = document.createElement('select');
+    select.style = 'width : 100px'
+
+    images.forEach(image => {
+
+        const option = document.createElement('option');
+        option.value = image.IMG_ID;
+        option.style.height = '100px';
+        option.style.width = '100px'
+        option.style = `background-image: url(${image.IMG});`;
+        option.innerHTML = '<img src="https://as1.ftcdn.net/v2/jpg/00/78/02/92/1000_F_78029240_czkaiWM7G8jkvXAv88dtEArnO7UGDFeg.jpg">'
+
+        // const img = document.createElement('img');
+        // img.src = image.IMG;
+        // img.alt = 'Image';
+        // img.style.width = "100%"
+        //
+        //
+        // option.appendChild(img);
+
+        select.appendChild(option);
+
+    })
+
+
+    return select;
+}
 

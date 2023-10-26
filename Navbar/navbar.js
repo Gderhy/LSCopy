@@ -60,7 +60,7 @@ const pathForLogin = "/LuckySeven/Login/index.php";
  *
  * @param {string} activePage
  */
-export function implementNavbar(activePage){
+function implementNavbar(activePage){
 
     // CssInHead();
 
@@ -68,6 +68,13 @@ export function implementNavbar(activePage){
 
     const logo = document.createElement("div");
     logo.className = "logo";
+    const a = document.createElement('a');
+    a.href = ""; // Must add homepage link
+    const img = document.createElement('img');
+    img.src = "/Navbar/Logo/logo.png";
+    img.alt = "Logo";
+    a.appendChild(img);
+    logo.appendChild(a)
     navbar.appendChild(logo);
 
     const ul = getUl(activePage);
@@ -77,7 +84,7 @@ export function implementNavbar(activePage){
 
 function getUl(activePage){
 
-    const user = JSON.parse(localStorage.getItem('user') ?? localStorage.getItem(addFakeUserToLocaleStorage()));
+    const user = JSON.parse(localStorage.getItem('user'));
 
 
     const ul = document.createElement("ul");
@@ -129,8 +136,12 @@ function getUl(activePage){
 
     } else{
 
-        const username = getLi("#", user.USER_NAME, activePage,
-            ()=>localStorage.removeItem('user'));
+        const username = getLi("/LuckySeven/properties/", user.USER_NAME, activePage,
+            ()=>{
+
+                localStorage.removeItem('user')
+
+            });
         ul.appendChild(username);
 
         // Have to add a hover dropdown menu that shows logout
@@ -146,7 +157,7 @@ function getLi(path, content, activePage, onClickFunction = null){
     const a = document.createElement("a");
     a.href = path;
     a.textContent = content;
-    if(onClickFunction) a.onclick = onClickFunction;
+    if(onClickFunction !== null) a.addEventListener("click", onClickFunction)
     if(content === activePage) a.className = "active";
 
     li.appendChild(a);
