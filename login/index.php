@@ -12,7 +12,7 @@
         <header>
         <nav>
             <div class="logo">
-                <a href="index.html"> <img  src="logo.png" alt="Logo"></a>
+                <a href="/LuckySeven/FrontEnd-Rough/index.html"> <img  src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
             </div>
             <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
                 <div class="bar"></div>
@@ -21,9 +21,9 @@
             </div>
             <ul class="nav-links" id="nav-links">
         
-                <li><a href="listings.html">Listings</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/LuckySeven/FrontEnd-Rough/listings.html">Listings</a></li>
+                <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
+                <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
                 <li class="dropdown">
                     <a href="#" class="account-dropdown">Account</a>
                     <div class="dropdown-content">
