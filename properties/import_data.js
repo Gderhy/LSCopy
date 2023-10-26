@@ -31,7 +31,7 @@ export function getPropertyImages(PROPERTY_ID) {
  */
 export function getProperties(AREA_ID, MAX_PRICE, IS_FOR_SALE) {
     let recipe = 'getProperties';
-    let values = [AREA_ID, ,AREA_ID, , MAX_PRICE, MAX_PRICE, IS_FOR_SALE, IS_FOR_SALE];
+    let values = [AREA_ID ,AREA_ID, MAX_PRICE, MAX_PRICE, IS_FOR_SALE, IS_FOR_SALE];
     
      let properties = sqlHandler(recipe, values);
      return eval(properties);
