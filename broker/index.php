@@ -14,8 +14,9 @@
             </div>
             <ul id="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="listings.html">Listings</a></li>
-                <li><a href="broker.html">Broker</a></li>
+                <li><a href="/LuckySeven/broker">Broker</a></li>
+                <li><a href="/LuckySeven/broker/visit-requests">Visit Management</a></li>
+                <li><a href="/LuckySeven/broker/properties-mng">properties-mng</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
