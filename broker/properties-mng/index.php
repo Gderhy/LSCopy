@@ -8,12 +8,26 @@
     <link rel="stylesheet" href="/broker/Css/Table.css">
     <link rel="stylesheet" href="/broker/Css/dashboard-listings.css">
     <link rel="stylesheet" href="/broker/Css/dashboard-create-new.css">
-
+    <link rel="stylesheet" href="/LuckySeven/FrontEnd-Rough/styles.css">
     <title>My Listings </title>
 </head>
 <body>
 <header>
-    <nav id="navbar"></nav>
+    <nav>
+        <div class="logo">
+            <a href="index.html"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
+        </div>
+        <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="../properties-mng/index.php">Property Management</a></li>
+            <li><a href="../visit-requests/index.php">My visits</a></li>
+            <li><a href="/LuckySeven/login/index.php">Logout</a></li>
+        </ul>
+    </nav>
 </header>
 
 <!--        Make sure user is logged in and has role-->
