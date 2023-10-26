@@ -37,55 +37,25 @@
         <table class="visits-table">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
+                <th>Property ID</th>
                 <th>Image</th>
-                <th>Date</th>
+                <th>Client's Name</th>
+                <th>Client's Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>City, Province, Country</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>For sale?</th>
+                <th>Property Type</th>
+                <th>Year</th>
+                <th>Request ID</th>
+                <th>Scheduled Date</th>
+                <th>Requested Date</th>
                 <th>Status</th>
-                <th>Action</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td>Steven</td>
-                <td>51405949392</td>
-                <td>sswsw@gmail.com</td>
-                <td>Image</td>
-                <td>
-                    <form>
-                        <div class="form-group">
-
-                            <input type="date" id="offer-date" name="offer-date" required>
-                        </div>
-                    </form>
-                </td>
-                <td>Pending</button></td>
-                <td>
-                    <button onclick="cancelVisit(1)">Cancel</button>
-                    <button onclick="confirmVisit(1)">Confirm</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Steven</td>
-                <td>51405949392</td>
-                <td>sswsw@gmail.com</td>
-                <td>Image</td>
-                <td>
-                    <form>
-                        <div class="form-group">
-
-                            <input type="date" id="offer-date" name="offer-date" required>
-                        </div>
-                    </form>
-                </td>
-                <td>Pending</button></td>
-                <td>
-                    <button onclick="cancelVisit(1)">Cancel</button>
-                    <button onclick="confirmVisit(1)">Confirm</button>
-                </td>
-            </tr>
-
+            <tbody id="visits-tbody">
             </tbody>
         </table>
     </section>
@@ -192,7 +162,13 @@
 <footer>
     <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
 </footer>
-<script src="script.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="import_data.js" type="module"></script>
+<script src="/LuckySeven/broker/JavaScript/Login_Authentication.js" type="module"></script>
+
+<script src="populateVisitsTable.js" type="module"></script>
 
 <!--<script src="/Navbar/navbar.js"></script>-->
 <!--<script>implementNavbar("My Visits")</script>-->

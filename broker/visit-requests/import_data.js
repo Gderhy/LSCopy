@@ -28,8 +28,7 @@ export function scheduleVisit(DATE, REQUEST_ID) {
     let recipe = 'scheduleVisit';
     let values = [DATE, REQUEST_ID];
 
-    let properties = sqlHandler(recipe, values);
-    return eval(properties);
+    sqlHandler(recipe, values);
 }
 
 export function sqlHandler(recipe, values) {

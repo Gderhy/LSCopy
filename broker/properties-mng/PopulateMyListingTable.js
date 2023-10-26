@@ -413,7 +413,7 @@ form_create_new_listing.addEventListener("submit",
         const PARKING_COUNT = document.getElementById("parkingCount").value;
         const BATH_COUNT = document.getElementById("bathCount").value;
         const ROOMS_COUNT = document.getElementById("roomsCount").value;
-        const TYPE_ID = document.getElementById("select_type_id").value;
+        const TYPE_ID = document.getElementById("select_type_id`").value;
         const PRICE = document.getElementById("price").value;
         const IS_FOR_SALE = document.getElementById("isForSale").checked ? 1 : 0;
 
