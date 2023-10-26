@@ -21,7 +21,6 @@ document.getElementById('propertySearchForm').addEventListener('click', function
     maxPrice = maxPrice ? maxPrice : -1;
 
     let jsonProperties = getProperties(area, maxPrice, isForSale);
-    console.log(jsonProperties);
     displayProperties(jsonProperties);
 });
 

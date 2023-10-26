@@ -16,7 +16,7 @@ let user = getUserInfo(username, password);
             window.location.href = '../admin/';
             break;
          case 2: 
-            window.location.href = '../broker/';
+            window.location.href = '../broker/properties-mng';
             break;
          default:
             window.location.href = '../properties/';

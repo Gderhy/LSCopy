@@ -5,27 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="/Navbar/Css/navStyle.css">
+    <link rel="stylesheet" href="/LuckySeven/FrontEnd-Rough/styles.css">
     <title>Broker Page - Your Real Estate</title>
 </head>
 <body>
 <header>
-<!--    <nav id="navbar"></nav>-->
     <nav>
         <div class="logo">
-            <img src="logo.png" alt="Your Logo">
+            <a href="index.html"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
         </div>
-        <ul id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="listings.html">Listings</a></li>
-            <li><a href="broker.html">Broker</a></li>
-
-            <li><a href="contact.html">Contact</a></li>
+        <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="../properties-mng/index.php">Property Management</a></li>
+            <li><a href="../visit-requests/index.php">My visits</a></li>
+            <li><a href="/LuckySeven/login/index.php">Logout</a></li>
         </ul>
-        <div class="menu-icon" onclick="toggleMobileMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
     </nav>
 </header>
 
