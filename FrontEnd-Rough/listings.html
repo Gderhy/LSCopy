@@ -4,87 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Listings - Your Real Estate</title>
+    <title>index page</title>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="/admin/">Admin</a></li>
-                <li><a href="/broker/">Broker</a></li>
-                <li><a href="" class="active">Listings</a></li>
+            <div class="logo">
+                <a href="index.html"> <img  src="logo.png" alt="Logo"></a>
+            </div>
+            <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+        
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="about-us.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="../properties">Properties</a></li>
-                <li><a href="../login">Login</a></li>
+                <li class="dropdown">
+                    <a href="login.html" class="account-dropdown">Account</a>
+                    <div class="dropdown-content">
+                        <a href="login.html">Login/Register</a>
+                       
+                    </div>
+                </li>
             </ul>
-                </nav>
+        </nav>
     </header>
+
+    <section class="hero">
+        
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="luxury-apartment-design-online-living-room-1.jpg.webp" alt="Property 1">
+            </div>
+            <div class="slide fade">
+                <img src="Ultra-Luxury-Apartment-Design-cover.jpg" alt="Property 2">
+            </div>
+            <div class="slide fade">
+                <img src="copper-accent-wall.jpg" alt="Property 3">
+            </div>
+        </div>
+    </section>
 
     <section class="search-bar">
         <div class="search-container">
-            <h1>Find Your Dream Property</h1>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="location">Location:</label>
-                    <input type="text" id="location" name="location">
-                </div>
-                <div class="form-group">
-                    <label for="price-range">Price Range:</label>
-                    <select id="price-range" name="price-range">
-                        <option value="">Any</option>
-                        <option value="100000">$100,000</option>
-                        <option value="200000">$200,000</option>
-                        <option value="300000">$300,000</option>
-                        <!-- Add more options as needed -->
-                    </select>
-                </div>
+            <h1>Find Your Dream Home</h1>
+            <form action="search-results.html" method="GET">
+                <input type="text" name="location" placeholder="Location">
+                <input type="number" name="price-min" placeholder="Min Price">
+                <input type="number" name="price-max" placeholder="Max Price">
+                <select name="property-type">
+                    <option value="house">House</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="condo">Condo</option>
+                </select>
                 <button type="submit">Search</button>
             </form>
         </div>
     </section>
 
-    <section class="listings">
-        <div class="listing">
-            <img src="media.ashx-4.jpeg" alt="Property 1">
-            <h3>Modern Apartment in the City</h3>
-            <p>Location: Downtown</p>
-            <p>Price: $250,000</p>
-            <a href="#">View Details</a>
-        </div>
-        <div class="listing">
-            <img src="media.ashx-4.jpeg" alt="Property 2">
-            <h3>Spacious Family Home</h3>
-            <p>Location: Suburbs</p>
-            <p>Price: $350,000</p>
-            <a href="#">View Details</a>
-        </div>
-        <div class="listing">
-            <img src="media.ashx-4.jpeg" alt="Property 3">
-            <h3>Spacious Family Home</h3>
-            <p>Location: Suburbs</p>
-            <p>Price: $350,000</p>
-            <a href="#">View Details</a>
-        </div>
+    <section class="featured-listings">
+        <h2>Featured Listings</h2>
         <div class="listing">
             <img src="media.ashx-4.jpeg" alt="Property 4">
-            <h3>Spacious Family Home</h3>
-            <p>Location: Suburbs</p>
+            <h3>Beautiful Family Home</h3>
+            <p>3 Bedrooms | 2 Bathrooms | 1,500 sqft</p>
             <p>Price: $350,000</p>
             <a href="#">View Details</a>
         </div>
-        <div class="listing">
-            <img src="media.ashx-4.jpeg" alt="Property 5">
-            <h3>Spacious Family Home</h3>
-            <p>Location: Suburbs</p>
-            <p>Price: $350,000</p>
-            <a href="#">View Details</a>
+   
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <p class="quote">"We found our dream home. They made the entire process so smooth and stress-free!"</p>
+            <p class="client">- Steven and Kumai</p>
         </div>
-        <!-- Add more listings here -->
+    
     </section>
 
     <footer>
         <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
     </footer>
+
+  
+    <script src="script.js"></script>
+    <script src="slideshow.js"></script>
+    
 </body>
 </html>
