@@ -1,0 +1,12 @@
+{
+  "name": "luckyseven",
+  "version": "1.0.0",
+  "description": "In the realm of software development and agile methodologies, our project embarks on the journey to create a fully functional Real Estate Web Application. \r This collaborative educational endeavor aims to provide students with a comprehensive understanding of software development while laying the foundation for future endeavors in the field.\r The following core features should be included in the project:",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
