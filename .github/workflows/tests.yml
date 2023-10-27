@@ -21,5 +21,8 @@ jobs:
         with:
           php-version: 7.4  # Adjust the PHP version as needed
 
+      - name: Make vendor/bin/phpunit executable
+        run: chmod +x vendor/bin/phpunit
+
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit
