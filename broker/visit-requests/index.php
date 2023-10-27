@@ -50,6 +50,7 @@
                 <th>Scheduled Date</th>
                 <th>Requested Date</th>
                 <th>Status</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody id="visits-tbody">

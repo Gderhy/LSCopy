@@ -1,4 +1,4 @@
-import {getBrokerVisitRequests, scheduleVisit} from "./import_data.js";
+import {deleteVisit, getBrokerVisitRequests, scheduleVisit} from "./import_data.js";
 
 const user = JSON.parse(localStorage.getItem('user'))
 
@@ -95,14 +95,18 @@ function populateVisitsTable(visits) {
             td_status.textContent = visit.STATUS;
             tr.appendChild(td_status);
 
-            const td_delete = document.createElement('button')
-            td_delete.textContent = "Delete";
-            td_delete.addEventListener("click", ()=>{
+            const td_delete = document.createElement('td');
+            const delete_button = document.createElement("button");
+            delete_button.textContent = "Delete"
+            delete_button.addEventListener("click", ()=>{
 
-                deleteVisit(visit.REQUESTED_DATE);
+                console.log(visit.REQUEST_ID)
+                deleteVisit(visit.REQUEST_ID);
 
                 location.reload();
             })
+            td_delete.appendChild(delete_button)
+            tr.appendChild(td_delete)
 
 
             visitTableBody.appendChild(tr);
