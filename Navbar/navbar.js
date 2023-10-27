@@ -136,7 +136,7 @@ function getUl(activePage){
 
     } else{
 
-        const username = getLi("/LuckySeven/properties/", user.USER_NAME, activePage,
+        const username = getLi("/LuckySeven/properties/", "Logout", activePage,
             ()=>{
 
                 localStorage.removeItem('user')

@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.getElementById('propertySearchForm').addEventListener('click', function (event) {
-    event.preventDefault();
-
     let area = document.getElementById('area').value;
     let maxPrice = document.getElementById('maxPrice').value;
     let isForSale = document.getElementById('isForSale').value;

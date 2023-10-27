@@ -250,7 +250,7 @@ function getTableRow(listing, locations, propertyTypes){
 
             if(!confirm1) return;
 
-            const COVER_IMG_ID = document.getElementById(`img_input-${id}`).value; // is this the source of the image?
+            const COVER_IMG_ID = 1;
             const DESCRIPTION = document.getElementById(`DESCRIPTION-${id}`).textContent;
             const AREA_ID = document.getElementById(`SELECT_CITY_PROVINCE_COUNTRY-${id}`).value;
             const ADDRESS = document.getElementById(`ADDRESS-${id}`).textContent;

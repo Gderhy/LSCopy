@@ -117,7 +117,8 @@ $RECIPES = [
 	WHERE
 		(P.AREA_ID = '?-?' OR '?-?' = -1)
 		AND (P.PRICE <= '?-?' OR '?-?' = -1)
-		AND (P.IS_FOR_SALE = '?-?' OR '?-?' = -1);",
+		AND (P.IS_FOR_SALE = '?-?' OR '?-?' = -1)
+                AND P.STATUS = 1;",
     'getPropertyTypes' => 'SELECT * FROM luckyseven.tbl_property_type;',
     'getLocations' => 'SELECT * FROM luckyseven.tbl_location',
     
