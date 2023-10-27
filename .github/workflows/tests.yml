@@ -1,0 +1,29 @@
+name: Run Jasmine Tests on Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main  # Adjust the branch name as needed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Start a simple web server
+        run: npx http-server -p 8080  # Adjust the port as needed
+
+      - name: Wait for the server to start
+        run: sleep 3
+
+      - name: Run Jasmine tests
+        run: |
+          npx jasmine init
+          npx jasmine examples
+
+      - name: Stop the web server
+        run: pkill -f "http-server"
+
