@@ -1,31 +1,29 @@
-name: Frontend Tests
+name: Run Jasmine Tests on Pull Request
 
 on:
-  push:
+  pull_request:
     branches:
-      - main
+      - main  # Adjust the branch name as needed
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14
+      - name: Start a simple web server
+        run: npx http-server -p 8080  # Adjust the port as needed
 
-    - name: Install NPM dependencies
-      run: npm install
+      - name: Wait for the server to start
+        run: sleep 3
 
-    - name: Start a local web server
-      run: npm start &
-    
-    - name: Wait for the server to start
-      run: sleep 5
+      - name: Run Jasmine tests
+        run: |
+          npx jasmine init
+          npx jasmine examples
 
-    - name: Run Jasmine Tests
-      run: npm test
+      - name: Stop the web server
+        run: pkill -f "http-server"
+
