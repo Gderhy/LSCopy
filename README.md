@@ -34,7 +34,7 @@ The following core features should be included in the project:
 * [@mbkjaan](https://www.github.com/mbkjaan)	Static Frontend developer - ID: 40176066 
 * [@elshito](https://www.github.com/elshito)	Static Frontend developer - ID: 40174529
 * [@Gderhy](https://www.github.com/Gderhy)	Dynamic Frontend Developer - ID: 40247254 
-* [@yousefenein](https://www.github.com/yousefenein)	Dynamic Frontend Developer - ID: 40177849
+* [@yousefenein](https://www.github.com/yousefenein)	Dynamic Frontend Developer - ID: 40115494
 * [@Leen-El](https://www.github.com/Leen-El)	Dynamic Frontend Developer - ID: 40177849 
  
 ## 📋 Responsibilities 
