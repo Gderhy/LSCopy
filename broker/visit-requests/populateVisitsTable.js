@@ -99,7 +99,9 @@ function populateVisitsTable(visits) {
             td_delete.textContent = "Delete";
             td_delete.addEventListener("click", ()=>{
 
+                deleteVisit(visit.REQUESTED_DATE);
 
+                location.reload();
             })
 
 
