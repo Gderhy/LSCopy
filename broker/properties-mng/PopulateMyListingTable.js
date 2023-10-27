@@ -8,9 +8,11 @@ import {
 } from "./import_data.js";
 
 
-const user = localStorage.getItem('user');
+const user = JSON.parse(localStorage.getItem('user'));
 const locations = getLocations();
 const propertyTypes = getPropertyTypes();
+
+populateMyListingTable(getBrokerProperties(user.USER_ID));
 
 function populateMyListingTable(listings){
 
