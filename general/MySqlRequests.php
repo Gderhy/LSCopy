@@ -162,6 +162,9 @@ $RECIPES = [
                         SET STATUS = 2,
                         SCHEDULED_DATE = '?-?'
                         WHERE REQUEST_ID = '?-?';",
+    'deleteVisit' => "UPDATE luckyseven.tbl_property_visit
+                        SET STATUS = 3
+                        WHERE REQUEST_ID = '?-?';",
     'getVisitsRequests' => "SELECT
                         P.PROPERTY_ID,
                         PT.NAME AS PROPERTY_TYPE,

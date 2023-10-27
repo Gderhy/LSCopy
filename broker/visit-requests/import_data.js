@@ -37,6 +37,18 @@ export function scheduleVisit(DATE, REQUEST_ID) {
     sqlHandler(recipe, values);
 }
 
+/**
+ * Deleting a visit request
+ * @param {int} REQUEST_ID
+ * @returns {undefined}
+ */
+export function deleteVisit(REQUEST_ID) {
+    let recipe = 'deleteVisit';
+    let values = [REQUEST_ID];
+    
+    sqlHandler(recipe, values);
+}
+
 export function sqlHandler(recipe, values) {
     let tempData;
     $.ajax({url: '../../general/MySqlRequests.php', method: 'POST', async: false,
