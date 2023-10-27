@@ -13,17 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Start a simple web server
-        run: npx http-server -p 8080  # Adjust the port as needed
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
 
-      - name: Wait for the server to start
-        run: sleep 3
+      - name: Install dependencies
+        run: npm install
 
       - name: Run Jasmine tests
-        run: |
-          npx jasmine init
-          npx jasmine examples
-
-      - name: Stop the web server
-        run: pkill -f "http-server"
-
+        run: npm test
