@@ -21,15 +21,5 @@ jobs:
         with:
           php-version: 7.4  # Adjust the PHP version as needed
 
-      - name: Install Composer
-        run: |
-          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-          php composer-setup.php
-          php -r "unlink('composer-setup.php');"
-          mv composer.phar /usr/local/bin/composer
-
-      - name: Install Composer dependencies
-        run: composer install
-
       - name: Run PHPUnit tests
         run: vendor/bin/phpunit
