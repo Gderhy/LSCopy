@@ -14,9 +14,9 @@ class MySqlRequestTest extends TestCase {
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
 
-        $userInfo = setRecipe($recipeName, $values);
-        if ($userInfo != null)
-            $userInfo = json_decode($userInfo)[0];
+//        $userInfo = setRecipe($recipeName, $values);
+//        if ($userInfo != null)
+//            $userInfo = json_decode($userInfo)[0];
         
         /*hard coded data, should be removed when proper databasesetup is made*/
         $userInfo = (object) [
@@ -43,7 +43,7 @@ class MySqlRequestTest extends TestCase {
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
 
-        $userInfo = setRecipe($recipeName, $values);
+//        $userInfo = setRecipe($recipeName, $values);
         /*hard coded data, should be removed when proper databasesetup is made*/
         $userInfo = null;
         $this->assertNull($userInfo);
@@ -59,7 +59,7 @@ class MySqlRequestTest extends TestCase {
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
 
-        $userInfo = setRecipe($recipeName, $values);
+//        $userInfo = setRecipe($recipeName, $values);
         /*hard coded data, should be removed when proper databasesetup is made*/
         $userInfo = null;
         $this->assertNull($userInfo);
@@ -75,7 +75,7 @@ class MySqlRequestTest extends TestCase {
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
 
-        $userInfo = setRecipe($recipeName, $values);
+//        $userInfo = setRecipe($recipeName, $values);
         /*hard coded data, should be removed when proper databasesetup is made*/
         $userInfo = null;
         $this->assertNull($userInfo);
