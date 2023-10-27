@@ -2,6 +2,8 @@ import {getBrokerVisitRequests, scheduleVisit} from "./import_data.js";
 
 const user = JSON.parse(localStorage.getItem('user'))
 
+populateVisitsTable(getBrokerVisitRequests(user.USER_ID));
+
 function populateVisitsTable(visits) {
 
 
@@ -92,6 +94,13 @@ function populateVisitsTable(visits) {
             const td_status = document.createElement('td');
             td_status.textContent = visit.STATUS;
             tr.appendChild(td_status);
+
+            const td_delete = document.createElement('button')
+            td_delete.textContent = "Delete";
+            td_delete.addEventListener("click", ()=>{
+
+
+            })
 
 
             visitTableBody.appendChild(tr);
