@@ -1,29 +1,25 @@
-name: Run Jasmine Tests on Pull Request
+name: PHP Unit Testing
 
 on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
   pull_request:
     branches:
       - main  # Adjust the branch name as needed
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Start a simple web server
-        run: npx http-server -p 8080  # Adjust the port as needed
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4  # Adjust the PHP version as needed
 
-      - name: Wait for the server to start
-        run: sleep 3
-
-      - name: Run Jasmine tests
-        run: |
-          npx jasmine init
-          npx jasmine examples
-
-      - name: Stop the web server
-        run: pkill -f "http-server"
-
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit

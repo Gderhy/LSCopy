@@ -1,6 +1,7 @@
 <?php
+
 $RECIPES = [
-   'getUserInfo' => "SELECT FIRST_NAME,
+    'getUserInfo' => "SELECT FIRST_NAME,
                      USER_ID,
                      LAST_NAME,
                      PHONE_NUM,
@@ -12,13 +13,13 @@ $RECIPES = [
     /*
      * USER QUERRIES HERE
      */
-   'insertNewUser' => "INSERT INTO luckyseven.tbl_user (USER_ID, FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, ROLE_ID, STATUS)
+    'insertNewUser' => "INSERT INTO luckyseven.tbl_user (USER_ID, FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, ROLE_ID, STATUS)
                             SELECT IFNULL(MAX(USER_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 3, 1
                             FROM luckyseven.tbl_user;",
     /*
      * admin QUERRIES HERE
      */
-   'getAllBrokers' => "SELECT 
+    'getAllBrokers' => "SELECT 
                         USER_ID,
                         FIRST_NAME,
                         LAST_NAME,
@@ -34,7 +35,6 @@ $RECIPES = [
     'insertNewBroker' => "INSERT INTO luckyseven.tbl_user (USER_ID, FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, ROLE_ID, STATUS)
                             SELECT IFNULL(MAX(USER_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 2, 1
                             FROM luckyseven.tbl_user;",
-    
     'updateBroker' => "UPDATE luckyseven.tbl_user
                         SET FIRST_NAME = '?-?',
                             LAST_NAME = '?-?',
@@ -44,14 +44,13 @@ $RECIPES = [
                             PASSWORD = '?-?',
                             STATUS = '?-?'
                         WHERE USER_ID = '?-?';",
-    
     'updateBrokerStatus' => "UPDATE luckyseven.tbl_user
                             SET STATUS = '?-?'
                             WHERE USER_ID = '?-?';",
     /*
      * Properties Mangement
      */
-        'getBrokerProperties' => "
+    'getBrokerProperties' => "
         SELECT
 		P.PROPERTY_ID,
 		PT.NAME AS PROPERTY_TYPE,
@@ -121,12 +120,10 @@ $RECIPES = [
                 AND P.STATUS = 1;",
     'getPropertyTypes' => 'SELECT * FROM luckyseven.tbl_property_type;',
     'getLocations' => 'SELECT * FROM luckyseven.tbl_location',
-    
     'insertNewProperty' => "INSERT INTO luckyseven.tbl_property (PROPERTY_ID, BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
             PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS)
             SELECT IFNULL(MAX(PROPERTY_ID), 0) + 1, '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', '?-?', 1
             FROM luckyseven.tbl_property;",
-    
     'updateProperty' => "UPDATE luckyseven.tbl_property
                             SET
                                 COVER_IMG_ID = '?-?',
@@ -202,11 +199,16 @@ $RECIPES = [
                 WHERE P.BROKER_ID = '?-?'"
 ];
 
-$importedRecipeKey = $_POST['recipeKey']; //the key of the SQL recipe
+$importedRecipeKey = isset($_POST['recipeKey']) ? $_POST['recipeKey'] : null; // Check if 'recipeKey' key exists
+$importedValues = isset($_POST['values']) ? $_POST['values'] : null; // Check if 'recipeKey' key exists
 
-$importedValues = $_POST['values']; //array of values to replace ?-? in recipe
-
-setRecipe($importedRecipeKey, $importedValues);
+if ($importedRecipeKey !== null) {
+    $importedValues = $_POST['values']; // array of values to replace ?-?
+    setRecipe($importedRecipeKey, $importedValues);
+} else {
+    // Handle the case when 'recipeKey' is not defined in the POST data
+    echo "The 'recipeKey' is not defined in the POST data.";
+}
 
 /**
  * @param str $recipeName
@@ -225,8 +227,9 @@ function setRecipe($recipeName, $values) {
             $str = str_replace_first('?-?', $values[$i], $str);
         }
     }
-    executeQuery($str);
+    return executeQuery($str);
 }
+
 /**
  * @param str $search //string to be replaced
  * @param str $replace //string to replace $search
@@ -236,7 +239,6 @@ function setRecipe($recipeName, $values) {
  * substring in a specific string
  * 
  */
-
 function str_replace_first($search, $replace, $subject) {
     $search = '/' . preg_quote($search, '/') . '/';
     return preg_replace($search, $replace, $subject, 1);
@@ -252,7 +254,6 @@ function executeQuery($recipe) {
     $userName = "root"; // Change this to your MySQL username
     $password = "luckyseven"; // Change this to your MySQL password
     $dbName = "luckyseven"; // Change this to your MySQL database name
-
     // Create a connection to MySQL
     $conn = new mysqli($serverName, $userName, $password, $dbName);
 
@@ -274,7 +275,7 @@ function executeQuery($recipe) {
             'response' => $errorMessage
         );
         echo json_encode($response);
-        return;
+        return null;
     }
 
     // Fetch and encode the results as JSON
@@ -284,8 +285,10 @@ function executeQuery($recipe) {
             $rows[] = clean($row);
         }
         echo json_encode($rows);
+        return json_encode($rows);
     } else {
         echo "null";
+        return null;
     }
 
     // Close the MySQL connection
@@ -293,6 +296,7 @@ function executeQuery($recipe) {
 }
 
 function clean($string) {
-   return array_map('utf8_encode', $string); // Removes special chars.
+    return array_map('utf8_encode', $string); // Removes special chars.
 }
+
 ?>
