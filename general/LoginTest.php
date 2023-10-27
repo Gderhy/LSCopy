@@ -45,7 +45,7 @@ class MySqlRequestTest extends TestCase {
 
 //        $userInfo = setRecipe($recipeName, $values);
         /*hard coded data, should be removed when proper databasesetup is made*/
-        $userInfo = null;
+        $userInfo = 'null';
         $this->assertNull($userInfo);
     }
 
