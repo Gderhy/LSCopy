@@ -1,10 +1,6 @@
 import {getBrokerVisitRequests, scheduleVisit} from "./import_data.js";
 
-console.log(getBrokerVisitRequests(101))
 const user = JSON.parse(localStorage.getItem('user'))
-
-
-populateVisitsTable(getBrokerVisitRequests(101))
 
 function populateVisitsTable(visits) {
 

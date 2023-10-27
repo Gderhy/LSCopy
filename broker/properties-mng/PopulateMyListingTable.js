@@ -12,69 +12,6 @@ const user = localStorage.getItem('user');
 const locations = getLocations();
 const propertyTypes = getPropertyTypes();
 
-addEventListener("DOMContentLoaded",
-    ()=> {
-
-        populateMyListingTable(getBrokerProperties(101));
-        addAreaIDToForm();
-        addTypeIDToForm();
-    }
-);
-
-
-
-const testingData = [
-    {
-        PROPERTY_ID : 1,
-        COVER_IMG_ID : 2,
-        DESCRIPTION : "description fake",
-        AREA_ID : 3,
-        ADDRESS : "@",
-        POSTAL : "H4M",
-        YEAR : 2023,
-        PARKING_COUNT : 4,
-        BATH_COUNT : 4.5,
-        ROOMS_COUNT : 5,
-        TYPE_ID : 6,
-        PRICE : 6.5,
-        IS_FOR_SALE : 0,
-        STATUS : 7
-    },
-    {
-        PROPERTY_ID : 2,
-        COVER_IMG_ID : 2,
-        DESCRIPTION : "description fake",
-        AREA_ID : 3,
-        ADDRESS : "@",
-        POSTAL : "H4M",
-        YEAR : 2023,
-        PARKING_COUNT : 4,
-        BATH_COUNT : 4.5,
-        ROOMS_COUNT : 5,
-        TYPE_ID : 6,
-        PRICE : 6.5,
-        IS_FOR_SALE : 0,
-        STATUS : 7
-    },
-    {
-        PROPERTY_ID : 3,
-        COVER_IMG_ID : 2,
-        DESCRIPTION : "description fake",
-        AREA_ID : 3,
-        ADDRESS : "@",
-        POSTAL : "H4M",
-        YEAR : 2023,
-        PARKING_COUNT : 4,
-        BATH_COUNT : 4.5,
-        ROOMS_COUNT : 5,
-        TYPE_ID : 6,
-        PRICE : 6.5,
-        IS_FOR_SALE : 0,
-        STATUS : 7
-    }
-]
-
-
 function populateMyListingTable(listings){
 
     const tableBody = document.getElementById("tbody-my-listings");

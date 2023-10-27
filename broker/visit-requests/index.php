@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
-=======
-    <link rel="stylesheet" href="/Navbar/Css/navStyle.css">
     <link rel="stylesheet" href="/LuckySeven/FrontEnd-Rough/styles.css">
->>>>>>> adad9e191b09296578ea0c2b9907835768e75d09
     <title>Broker Page - Your Real Estate</title>
 </head>
 <body>
