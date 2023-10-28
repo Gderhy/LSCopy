@@ -1,4 +1,4 @@
-#### Team: LuckySeven - SPRINT 1
+#### Team: LuckySeven
 
 # 📝 Project Description
 In the realm of software development and agile methodologies, our project embarks on the journey to create a fully functional Real Estate Web Application. 
