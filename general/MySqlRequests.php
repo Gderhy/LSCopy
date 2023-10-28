@@ -277,7 +277,10 @@ function executeQuery($recipe) {
         echo json_encode($response);
         return null;
     }
-
+    
+    if (is_bool($result)) {
+        return true;
+    }
     // Fetch and encode the results as JSON
     if ($result->num_rows > 0) {
         $rows = array();

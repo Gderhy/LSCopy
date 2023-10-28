@@ -3,9 +3,10 @@
 use PHPUnit\Framework\TestCase;
 require_once 'MySqlRequests.php'; // Make sure to include the correct path to MySqlRequests.php
 
-class MySqlRequestTest extends TestCase {
+class LoginTest extends TestCase {
     /**
      * @test
+     * @testdox Test for valid credentials
      */
     public function testValidCredentials() {
         $USER_NAME = 'k-alabba';
@@ -35,6 +36,7 @@ class MySqlRequestTest extends TestCase {
 
     /**
      * @test
+     * @testdox Test for invalid username
      */
     public function testInvalidUsername() {
         $USER_NAME = 'invalid_username-@#!SDA@#';
@@ -51,6 +53,7 @@ class MySqlRequestTest extends TestCase {
 
     /**
      * @test
+     * @testdox Test for invalid password
      */
     public function testInvalidPassword() {
         $USER_NAME = 'k-alabba';
@@ -67,6 +70,7 @@ class MySqlRequestTest extends TestCase {
 
     /**
      * @test
+     * @testdox Test for valid credentials
      */
     public function testInvalidCredentials() {
         $USER_NAME = 'invalid_username';
