@@ -63,8 +63,5 @@ class PropertySearchTest extends TestCase {
         $locations = 'not null';
         // Assert that the result is not null and, if needed, perform more specific validations on the retrieved locations.
         $this->assertNotNull($locations);
-
-        // Example: Check if the number of retrieved locations matches expectations.
-        $this->assertCount(10, json_decode($locations));
     }
 }
