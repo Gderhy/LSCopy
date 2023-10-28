@@ -99,9 +99,6 @@
 
         <script src="/LuckySeven/login/import_data.js" type="module"></script>
         <script src="/LuckySeven/login/login.js" type="module"></script>
-
-        <script src="/LuckySeven/Navbar/navbar.js"></script>
-        <script>implementNavbar("Login")</script>
     </body>
 </html>
 
