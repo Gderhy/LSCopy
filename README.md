@@ -83,6 +83,9 @@ The following core features should be included in the project:
 	The above list of technologies covers all our needs to build the required web application. 
 ------------------------------------------------------------------------------------------------------
 # Refrences to Important Documents
-1. User Stories and work breakdown structure: https://github.com/Gderhy/LuckySeven/blob/main/Documentation/Sprit%201/SOEN-341%20%E2%80%93%20Project%20Description%20and%20Tasks%20Division.pdf
-2. Team Log: https://github.com/Gderhy/LuckySeven/blob/main/Documentation/Team%20Log.xlsx
-3. Planning wiki: https://github.com/Gderhy/LuckySeven/blob/main/Documentation/Planning.xlsx
+The [Wiki Page](https://github.com/Gderhy/LuckySeven/wiki/Sprint-2-Wiki) contains the following items:
+1) Sprint 3 User Stories
+2) Acceptance Tests
+3) Meeting Minutes
+4) Planning Sheet
+5) Team Log 
