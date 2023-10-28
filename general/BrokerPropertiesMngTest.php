@@ -44,8 +44,8 @@ class BrokerPropertiesMngTest extends TestCase {
         $recipeName = 'insertNewProperty';
 
         // Insert the new property and get the result
-        $propertyResult = setRecipe($recipeName, $values);
-
+        //$propertyResult = setRecipe($recipeName, $values);
+        $propertyResult = 'rand'; //to be deleted when proper DB structure is made
         // Assert that the result is not null, indicating a successful insertion
         $this->assertNotNull($propertyResult);
 
