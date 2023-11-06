@@ -11,11 +11,13 @@ import {
 const user = JSON.parse(localStorage.getItem('user'));
 const locations = getLocations();
 const propertyTypes = getPropertyTypes();
-
+console.log(user.USER_ID);
 populateMyListingTable(getBrokerProperties(user.USER_ID));
 
-function populateMyListingTable(listings){
+addTypeIDToForm();
 
+function populateMyListingTable(listings){
+    console.log(listings);
     const tableBody = document.getElementById("tbody-my-listings");
 
     // Clears out existing table
@@ -25,10 +27,10 @@ function populateMyListingTable(listings){
     }
 
 
-    // Populate table
-    listings.forEach(
-        (listing) => tableBody.appendChild(getTableRow(listing, locations, propertyTypes))
-    );
+    if (listings)
+        listings.forEach(
+            (listing) => tableBody.appendChild(getTableRow(listing, locations, propertyTypes))
+        );
 }
 
 function getTableRow(listing, locations, propertyTypes){
@@ -329,7 +331,7 @@ form_create_new_listing.addEventListener("submit",
 
         event.preventDefault();
 
-        const BROKER_ID = 101; // have to check this
+        const BROKER_ID = user.USER_ID;
         const DESCRIPTION = document.getElementById("description").value;
         const AREA_ID = document.getElementById("select_area_id").value;
         const ADDRESS = document.getElementById("address").value;

@@ -1,13 +1,14 @@
 
- const user = JSON.parse(localStorage.getItem('user'));
- 
- if(user?.ROLE_ID !== "1"){
+import {implementNavbar} from '/LuckySeven/Navbar/navbar.js'
+const user = JSON.parse(localStorage.getItem('user'));
 
-     alert("Not authorized.")
-     window.location.href = "/LuckySeven/login";
- }
+if (user?.ROLE_ID !== "1") {
 
+    alert("Not authorized.")
+    window.location.href = "/LuckySeven/login";
+}
 
+implementNavbar("Admin");
 
 /**
  * This function will return all the brokers
@@ -26,9 +27,9 @@
  */
 export function getAllBrokers() {
     let brokers = sqlHandler('getAllBrokers', null);
-    
+
     brokers = eval(brokers);
-    
+
     return brokers;
 }
 
@@ -37,7 +38,7 @@ export function getAllBrokers() {
 export function addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD) {
     let recipe = 'insertNewBroker';
     let values = [FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD];
-    
+
     return sqlHandler(recipe, values);
 }
 
@@ -83,7 +84,7 @@ export function updateBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME,
 export function deleteBroker(USER_ID) {
     let recipe = 'updateBrokerStatus';
     let values = [3, USER_ID]; //3 int code for deleted
-    
+
     sqlHandler(recipe, values);
 }
 
@@ -96,7 +97,7 @@ export function deleteBroker(USER_ID) {
 export function suspendBroker(USER_ID) {
     let recipe = 'updateBrokerStatus';
     let values = [2, USER_ID]; //2 int code for suspended
-    
+
     sqlHandler(recipe, values);
 }
 

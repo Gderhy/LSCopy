@@ -4,19 +4,15 @@
 <head>
     <meta charset="UTF-8">
 
-<<<<<<< HEAD
     <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/Table.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-listings.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-create-new.css">
-
-=======
     <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/Table.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-listings.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-create-new.css">
     <link rel="stylesheet" href="/LuckySeven/FrontEnd-Rough/styles.css">
->>>>>>> adad9e191b09296578ea0c2b9907835768e75d09
     <title>My Listings </title>
 </head>
 <body>
@@ -117,13 +113,14 @@
             <label for="cover_img">Cover Image:</label>
             <input type="text" id="cover_img" name="cover_img">
 
-            <button type="submit">Create new listing</button>
+            <button type="submit" id='addProperty'">Create new listing</button>
         </form>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/LuckySeven/Navbar/navbar.js" type="module"></script>
 <script src="import_data.js" type="module"></script>
+<script src="properties-mng.js" type="module"></script>
 <script src="PopulateMyListingTable.js" type="module"></script>
 </body>
 </html>

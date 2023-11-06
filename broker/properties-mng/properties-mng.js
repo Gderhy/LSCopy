@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = '../../login/';
     }
     let locations = getLocations();
-    let selectElement = document.getElementById('AREA_ID');
+    let selectElement = document.getElementById('select_area_id');
+    console.log(locations);
 
     locations.forEach(function(location) {
         let option = document.createElement('option');

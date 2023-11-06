@@ -96,10 +96,7 @@
         <script src="JavaScript/PopulateTable.js" type="module"></script>
         <script src="JavaScript/import_data.js" type="module"></script>
         <script src="JavaScript/CreateNewBroker.js" type="module"></script>
-
-        <script src="../Navbar/navbar.js"></script>
-        <script>implementNavbar("Admin")</script>
-
+        <script src="../Navbar/navbar.js" type="module"></script>
     </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

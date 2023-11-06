@@ -42,7 +42,7 @@ function addFakeUserToLocaleStorage(){
 }
 
 
-const pathForHome = "/LuckySeven/FrontEnd-rough/";
+const pathForHome = "/LuckySeven/properties/";
 
 const pathForAdmin = "/LuckySeven/admin/";
 const pathForMyListings = "/LuckySeven/broker/properties-mng";
@@ -71,7 +71,7 @@ export function implementNavbar(activePage){
     const a = document.createElement('a');
     a.href = ""; // Must add homepage link
     const img = document.createElement('img');
-    img.src = "/Navbar/Logo/logo.png";
+    img.src = "/LuckySeven/Navbar/Logo/logo.png";
     img.alt = "Logo";
     a.appendChild(img);
     logo.appendChild(a)
