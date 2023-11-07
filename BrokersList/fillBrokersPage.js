@@ -11,6 +11,9 @@ function fillBrokers(brokers){
     brokers.forEach(
         broker => {
 
+            if(broker.STATUS !== "ACTIVE") return;
+
+
             const listing = document.createElement("div");
             listing.id = broker.USER_ID;
             listing.className = 'listing'
@@ -46,14 +49,11 @@ function fillBrokers(brokers){
 
                     localStorage.setItem("broker", broker);
                     location.href = "/LuckySeven/properties/index.php";
-
                 })
             listing.appendChild(view_listings_btn);
 
             listings.appendChild(listing)
         }
     )
-
-
 }
 

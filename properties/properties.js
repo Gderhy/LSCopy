@@ -3,6 +3,7 @@ import {getProperties, getLocations, getPropertyImages, requestVisitToProperty, 
 document.addEventListener('DOMContentLoaded', function () {
 
 
+
     let locations = getLocations();
     let selectElement = document.getElementById('area');
 
@@ -15,10 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const brokers_select = document.getElementById('brokers_select');
 
+
     const brokers = getAllBrokers();
 
+    console.log(brokers);
     brokers.forEach(
         broker => {
+
+            if(broker.STATUS !== "ACTIVE") return;
 
             const option = document.createElement('option');
             option.value = broker.USER_ID;
@@ -47,7 +52,7 @@ function displayProperties(properties) {
     let resultsDiv = document.getElementById('searchResults');
 
     resultsDiv.innerHTML = '';
-    if (properties.length >= 1) {
+    if (properties?.length >= 1) {
         removeElementsByClassName('featured-listings');
         properties.forEach(function (property) {
             let propertyImage = getPropertyImages(property.PROPERTY_ID);
