@@ -196,7 +196,24 @@ $RECIPES = [
                         luckyseven.tbl_property_img PI ON P.COVER_IMG_ID = PI.IMG_ID
                 LEFT JOIN
                         luckyseven.tbl_user U ON U.USER_ID = V.CLIENT_ID
-                WHERE P.BROKER_ID = '?-?'"
+                WHERE P.BROKER_ID = '?-?'",
+    
+    'getBrokerOffers' => "SELECT OFFER_ID,
+		FROM_BROKER_ID,
+		OFFER.PROPERTY_ID,
+		NOTE, 
+		OFFER.STATUS,
+                PROPERTY.DESCRIPTION,
+                PROPERTY.ADDRESS,
+                PROPERTY.POSTAL,
+                PROPERTY.PRICE,
+                TO_USER.USER_ID,
+        CONCAT(FROM_USER.FIRST_NAME, ' ', FROM_USER.LAST_NAME) AS FROM_BROKER_NAME
+        FROM luckyseven.tbl_property_offer OFFER
+        LEFT JOIN luckyseven.tbl_property PROPERTY ON OFFER.PROPERTY_ID = PROPERTY.PROPERTY_ID
+        LEFT JOIN luckyseven.tbl_user FROM_USER ON OFFER.FROM_BROKER_ID = FROM_USER.USER_ID
+        LEFT JOIN luckyseven.tbl_user TO_USER ON OFFER.FROM_BROKER_ID = TO_USER.USER_ID
+        WHERE TO_USER.USER_ID = '?-?'"
 ];
 
 $importedRecipeKey = isset($_POST['recipeKey']) ? $_POST['recipeKey'] : null; // Check if 'recipeKey' key exists
