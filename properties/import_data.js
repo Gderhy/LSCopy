@@ -68,6 +68,19 @@ export function requestVisitToProperty(REQUESTED_DATE, CLIENT_ID, PROPERTY_ID) {
     sqlHandler(recipe, values);
 }
 
+/**
+ * Submitting new offer 
+ * @param {type} FROM_BROKER_ID the broker submitting the offer
+ * @param {type} PROPERTY_ID the property for which the offer is submiited
+ * @param {type} NOTE a description of the offer.
+ * @returns {undefined}
+ */
+export function submitOffer(FROM_BROKER_ID, PROPERTY_ID, NOTE) {
+    let recipe = 'insertOffer';
+    let values = [FROM_BROKER_ID, PROPERTY_ID, NOTE];
+    sqlHandler(recipe, values);
+}
+
 function sqlHandler(recipe, values) {
     let tempData;
     $.ajax({url: '../general/MySqlRequests.php', method: 'POST', async: false,

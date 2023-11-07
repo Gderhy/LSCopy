@@ -217,7 +217,10 @@ $RECIPES = [
         WHERE TO_USER.USER_ID = '?-?'",
     'updateOffer' => "UPDATE luckyseven.tbl_property_offer
                       SET STATUS = '?-?'
-                      WHERE OFFER_ID = ?;"
+                      WHERE OFFER_ID = ?;",
+    'insertOffer' => "INSERT INTO luckyseven.tbl_property_offer (OFFER_ID, FROM_BROKER_ID, PROPERTY_ID, NOTE, STATUS)
+                   SELECT IFNULL(MAX(OFFER_ID), 0) + 1, '?-?', '?-?', '?-?', 1
+                   FROM luckyseven.tbl_property_offer;"
 ];
 
 $importedRecipeKey = isset($_POST['recipeKey']) ? $_POST['recipeKey'] : null; // Check if 'recipeKey' key exists
