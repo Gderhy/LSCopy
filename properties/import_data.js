@@ -39,6 +39,21 @@ export function getProperties(AREA_ID, MAX_PRICE, IS_FOR_SALE, BROKER_ID) {
 }
 
 /**
+ * This is the function that you will need to import.
+ * Please respect the importation syntax:
+ * import {getAllBrokers} from './import_data.js';
+ * Make sure all your js files are of type module in your index.php
+ * @returns {data}
+ */
+export function getAllBrokers() {
+    let brokers = sqlHandler('getAllBrokers', null);
+
+    brokers = eval(brokers);
+
+    return brokers;
+}
+
+/**
  * This function is called when the user request a visit to property
  * @param {int} REQUEST_ID
  * @param {str (datetime)} REQUESTED_DATE must be in the format YYYY-MM-DD HH:MM:SS
