@@ -69,6 +69,16 @@
 
         <div id="propertiesSections"></div>
 
+        <div class="popup-container" id="popup">
+            <div class="popup-content">
+                <span class="close" id="close-popup">&times;</span>
+                <h2>Broker Details</h2>
+                <p><strong>Name:</strong> <span id="broker-name"></span></p>
+                <p><strong>Email:</strong> <span id="broker-email"></span></p>
+                <p><strong>Phone Number:</strong> <span id="broker-phone"></span></p>
+            </div>
+        </div>
+
         <section class="testimonials">
             <h2>What Our Clients Say</h2>
             <div class="testimonial">
@@ -89,6 +99,8 @@
         <script src="import_data.js" type="module"></script>
         <script src="properties.js" type="module"></script>
         <script src="/LuckySeven/FrontEnd-Rough/slideshow.js" type="module"></script>
+
+
     </body>
 </html>
 

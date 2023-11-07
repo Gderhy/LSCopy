@@ -49,45 +49,9 @@
         </div>
     </section>
 
-    <section id="brokers-grid"  class="listings">
-        <div class="listing">
-            <img src="https://www.rate-my-agent.com/upload/Asal-Jami-Montreal-Real-Estate-Agent.webp" alt="Property 1">
-            <h3>Name of broker</h3>
-            <a href="tel:+1234567"><p>+1-514-000-0000</p></a>
-            <a href="mailto:test@gmail.com"><p>test@gmail.com</p></a>
-            <button class="view-details">View Listings</button>
-        </div>
+    <section id="brokers-grid"  class="listings"></section>
 
-        <div class="listing">
-            <img src="https://www.rate-my-agent.com/upload/Asal-Jami-Montreal-Real-Estate-Agent.webp" alt="Property 1">
-            <h3>Modern Apartment in the City</h3>
-            <p>Location: Downtown</p>
-            <p>Price: $250,000</p>
-            <a href="#" class="view-details">View Details</a>
-            
-        </div>
 
-        <div class="listing">
-            <img src="https://www.rate-my-agent.com/upload/Asal-Jami-Montreal-Real-Estate-Agent.webp" alt="Property 1">
-            <h3>Modern Apartment in the City</h3>
-            <p>Location: Downtown</p>
-            <p>Price: $250,000</p>
-            <a href="#" class="view-details">View Details</a>
-            
-        </div>
-    
-    </section>
-
-  
-    <div class="popup-container" id="popup">
-        <div class="popup-content">
-            <span class="close" id="close-popup">&times;</span>
-            <h2>Broker Details</h2>
-            <p><strong>Name:</strong> <span id="broker-name"></span></p>
-            <p><strong>Email:</strong> <span id="broker-email"></span></p>
-            <p><strong>Phone Number:</strong> <span id="broker-phone"></span></p>
-        </div>
-    </div>
 
     <footer>
         <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
@@ -97,42 +61,10 @@
 
 
 
-    <!-- SCRIPT FOR POP UP-->
-    <script>
-        
-        const popup = document.getElementById("popup");
-        const closePopup = document.getElementById("close-popup");
-        const viewDetailsLinks = document.querySelectorAll(".view-details");
 
-       
-        function openPopup(name, email, phone) {
-            document.getElementById("broker-name").textContent = name;
-            document.getElementById("broker-email").textContent = email;
-            document.getElementById("broker-phone").textContent = phone;
-            popup.style.display = "block";
-        }
-
-      
-        function closePopupWindow() {
-            popup.style.display = "none";
-        }
-
-       //REPLACE DETAILS!!!!
-        viewDetailsLinks.forEach((link) => {
-            link.addEventListener("click", function (event) {
-                event.preventDefault();
-                const name = "John Doe"; 
-                const email = "john.doe@example.com"; // Replace with broker's email
-                const phone = "+1234567890"; // Replace with broker's phone number
-                openPopup(name, email, phone);
-            });
-        });
-
-        //CLOSE
-        closePopup.addEventListener("click", closePopupWindow);
-    </script>
 
     <script src="fillBrokersPage.js" type="module"></script>;
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="import_data.js" type="module"></script>
 </body>
 </html>

@@ -1,7 +1,9 @@
-import {getProperties, getLocations, getPropertyImages, requestVisitToProperty, getAllBrokers} from './import_data.js';
+import {getProperties, getLocations, getPropertyImages,
+    requestVisitToProperty, getAllBrokers, submitOffer1} from './import_data.js';
+
+const user = JSON.parse(localStorage.getItem('user'));
 
 document.addEventListener('DOMContentLoaded', function () {
-
 
 
     let locations = getLocations();
@@ -19,11 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const brokers = getAllBrokers();
 
-    console.log(brokers);
     brokers.forEach(
         broker => {
 
-            if(broker.STATUS !== "ACTIVE") return;
+            if (broker.STATUS !== "ACTIVE") return;
 
             const option = document.createElement('option');
             option.value = broker.USER_ID;
@@ -31,9 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
             brokers_select.appendChild(option);
         }
     )
+
+    const broker_USER_ID = localStorage.getItem("broker");
+
+    if (broker_USER_ID) {
+
+        brokers_select.value = broker_USER_ID;
+        localStorage.removeItem("broker");
+        document.getElementById('propertySearchForm').click();
+    }
+
 });
 
-document.getElementById('propertySearchForm').addEventListener('click', function (event) {
+document.getElementById('propertySearchForm').addEventListener('click',
+    function (event) {
     let area = document.getElementById('area').value;
     let maxPrice = document.getElementById('maxPrice').value;
     let isForSale = document.getElementById('isForSale').value;
@@ -62,10 +74,10 @@ function displayProperties(properties) {
             let propertyDiv = document.createElement('section');
 
             propertyDiv.className = 'featured-listings';
-            
+
             let listing = document.createElement('div');
             listing.className = 'listing';
-            
+
             propertyDiv.innerHTML = `
             <div class="listing" id="property_${property.PROPERTY_ID}">
                 <img src="${imageUrl}" alt="Property 4">
@@ -76,12 +88,36 @@ function displayProperties(properties) {
             </div>`;
 
             document.getElementById('propertiesSections').appendChild(propertyDiv);
-            let submitRequest = document.createElement('a');
+            let submitRequest = document.createElement('button');
             submitRequest.textContent = 'Request Visit';
             document.getElementById('property_' + property.PROPERTY_ID).appendChild(submitRequest);
-            submitRequest.addEventListener('click', function() {
+            submitRequest.addEventListener('click', function () {
                 submitVisitRequest(property.PROPERTY_ID);
             });
+
+
+            if(user?.ROLE_ID == 2){
+
+
+                const submitOffer = document.createElement('button');
+                submitOffer.textContent = "Submit an offer";
+                submitOffer.addEventListener('click',
+                    ()=>{
+
+
+
+
+                        submitOffer1(user.BROKER_ID, property.PROPERTY_ID, prompt("Enter your offer: "));
+
+                        // console.log(user.USER_ID, property.PROPERTY_ID, prompt("Enter your offer: "))
+
+                    })
+                document.getElementById('property_' + property.PROPERTY_ID).appendChild(submitOffer);
+
+
+            }
+
+
         });
     }
 }

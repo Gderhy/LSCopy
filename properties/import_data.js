@@ -75,10 +75,11 @@ export function requestVisitToProperty(REQUESTED_DATE, CLIENT_ID, PROPERTY_ID) {
  * @param {type} NOTE a description of the offer.
  * @returns {undefined}
  */
-export function submitOffer(FROM_BROKER_ID, PROPERTY_ID, NOTE) {
+export function submitOffer1(FROM_BROKER_ID, PROPERTY_ID, NOTE) {
     let recipe = 'insertOffer';
     let values = [FROM_BROKER_ID, PROPERTY_ID, NOTE];
-    sqlHandler(recipe, values);
+    console.log(sqlHandler(recipe, values));
+
 }
 
 function sqlHandler(recipe, values) {
