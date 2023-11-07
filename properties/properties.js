@@ -1,6 +1,9 @@
 import {getProperties, getLocations, getPropertyImages, requestVisitToProperty} from './import_data.js';
 
 document.addEventListener('DOMContentLoaded', function () {
+
+
+
     let locations = getLocations();
     let selectElement = document.getElementById('area');
 
@@ -10,6 +13,20 @@ document.addEventListener('DOMContentLoaded', function () {
         option.textContent = location.NAME;
         selectElement.appendChild(option);
     });
+
+    const brokers_select = document.getElementById('brokers_select');
+
+    const brokers = getAllBrokers();
+
+    brokers.forEach(
+        broker => {
+
+            const option = document.createElement('option');
+            option.value = broker.USER_ID;
+            option.textContent = `${broker.FIRST_NAME} ${broker.LAST_NAME}`;
+            brokers_select.appendChild(option);
+        }
+    )
 });
 
 document.getElementById('propertySearchForm').addEventListener('click', function (event) {
@@ -89,3 +106,6 @@ function getCurrentDateTime() {
 
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
+
+
+

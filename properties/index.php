@@ -51,11 +51,14 @@
                 <h1>Find Your Dream Home</h1>
                 <form action="search-results.html" method="GET">
                     <select id="area" name="area">
-                        <option value="-1">All</option>
+                        <option value="-1">All Areas</option>
                     </select>
                     <input type="number" id="maxPrice" placeholder="Max Price">
+                    <select id="brokers_select" name="brokers_select">
+                        <option value="-1">All Brokers</option>
+                    </select>
                     <select id="isForSale">
-                        <option value="-1">All</option>
+                        <option value="-1">All Listing Types</option>
                         <option value="1">For Sale</option>
                         <option value="0">For Rent</option>
                     </select>
@@ -63,8 +66,8 @@
                 </form>
             </div>
         </section>
-        <div id="propertiesSections">
-        </div>
+
+        <div id="propertiesSections"></div>
 
         <section class="testimonials">
             <h2>What Our Clients Say</h2>

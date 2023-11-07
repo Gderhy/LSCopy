@@ -41,6 +41,13 @@ function fillBrokers(brokers){
             const view_listings_btn = document.createElement('button');
             view_listings_btn.innerText = "View Broker's Listings";
             view_listings_btn.className = "view-details";
+            view_listings_btn.addEventListener('click',
+                event=> {
+
+                    localStorage.setItem("broker", broker);
+                    location.href = "/LuckySeven/properties/index.php";
+
+                })
             listing.appendChild(view_listings_btn);
 
             listings.appendChild(listing)
