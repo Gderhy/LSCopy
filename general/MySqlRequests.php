@@ -117,6 +117,7 @@ $RECIPES = [
 		(P.AREA_ID = '?-?' OR '?-?' = -1)
 		AND (P.PRICE <= '?-?' OR '?-?' = -1)
 		AND (P.IS_FOR_SALE = '?-?' OR '?-?' = -1)
+                AND (P.BROKER_ID = '?-?' OR '?-?' = -1)
                 AND P.STATUS = 1;",
     'getPropertyTypes' => 'SELECT * FROM luckyseven.tbl_property_type;',
     'getLocations' => 'SELECT * FROM luckyseven.tbl_location',
@@ -213,7 +214,10 @@ $RECIPES = [
         LEFT JOIN luckyseven.tbl_property PROPERTY ON OFFER.PROPERTY_ID = PROPERTY.PROPERTY_ID
         LEFT JOIN luckyseven.tbl_user FROM_USER ON OFFER.FROM_BROKER_ID = FROM_USER.USER_ID
         LEFT JOIN luckyseven.tbl_user TO_USER ON OFFER.FROM_BROKER_ID = TO_USER.USER_ID
-        WHERE TO_USER.USER_ID = '?-?'"
+        WHERE TO_USER.USER_ID = '?-?'",
+    'updateOffer' => "UPDATE luckyseven.tbl_property_offer
+                      SET STATUS = '?-?'
+                      WHERE OFFER_ID = ?;"
 ];
 
 $importedRecipeKey = isset($_POST['recipeKey']) ? $_POST['recipeKey'] : null; // Check if 'recipeKey' key exists

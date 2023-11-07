@@ -23,6 +23,22 @@ export function getBrokerOffers(BROKER_ID) {
     return eval(requests);
 }
 
+/**
+ * Please use the following in you select element:
+ *      NEW OFFER STATUS is 1
+ *      ACCEPTED STATUS is 2
+ *      DELETED/DENIED STATUS is 3
+ * @param {str} offerStatus a string with the status of the offer
+ * @returns {undefined}
+ */
+export function updateOffer(offerStatus, offerId) {
+    let recipe = 'updateOffer';
+    let status = offerStatus;
+    let values = [status, offerId];
+    
+    sqlHandler(recipe, values)
+}
+
 export function sqlHandler(recipe, values) {
     let tempData;
     $.ajax({url: '../../general/MySqlRequests.php', method: 'POST', async: false,

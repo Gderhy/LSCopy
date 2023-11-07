@@ -29,9 +29,10 @@ export function getPropertyImages(PROPERTY_ID) {
  * @param {int} IS_FOR_SALE 1 for true and 0 for false, -1 for all properties
  * @returns {json array}
  */
-export function getProperties(AREA_ID, MAX_PRICE, IS_FOR_SALE) {
+export function getProperties(AREA_ID, MAX_PRICE, IS_FOR_SALE, BROKER_ID) {
     let recipe = 'getProperties';
-    let values = [AREA_ID ,AREA_ID, MAX_PRICE, MAX_PRICE, IS_FOR_SALE, IS_FOR_SALE];
+    let values = [AREA_ID ,AREA_ID, MAX_PRICE, 
+        ,IS_FOR_SALE, IS_FOR_SALE, BROKER_ID, BROKER_ID];
     
      let properties = sqlHandler(recipe, values);
      return eval(properties);
