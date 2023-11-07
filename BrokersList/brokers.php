@@ -10,7 +10,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="index.html"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
+                <a href="/LuckySeven/properties/index.php"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
             </div>
             <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
                 <div class="bar"></div>
@@ -49,14 +49,13 @@
         </div>
     </section>
 
-    <section class="listings">
+    <section id="brokers-grid"  class="listings">
         <div class="listing">
             <img src="https://www.rate-my-agent.com/upload/Asal-Jami-Montreal-Real-Estate-Agent.webp" alt="Property 1">
-            <h3>Modern Apartment in the City</h3>
-            <p>Location: Downtown</p>
-            <p>Price: $250,000</p>
-            <a href="#" class="view-details">View Details</a>
-            
+            <h3>Name of broker</h3>
+            <a href="tel:+1234567"><p>+1-514-000-0000</p></a>
+            <a href="mailto:test@gmail.com"><p>test@gmail.com</p></a>
+            <button class="view-details">View Listings</button>
         </div>
 
         <div class="listing">
@@ -132,5 +131,8 @@
         //CLOSE
         closePopup.addEventListener("click", closePopupWindow);
     </script>
+
+    <script src="fillBrokersPage.js" type="module"></script>;
+
 </body>
 </html>

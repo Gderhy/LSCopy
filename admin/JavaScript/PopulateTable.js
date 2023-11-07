@@ -4,8 +4,11 @@ import {deleteBroker, getAllBrokers, updateBroker} from "./import_data.js";
 // Tbody element
 const tableBody = document.querySelector("#table-exiting-brokers > tbody");
 
+const brokers = getAllBrokers();
+console.log(brokers)
+
 // Populate table as page reloads
-document.addEventListener("DOMContentLoaded", ()=> { populateTable(getAllBrokers()); });
+document.addEventListener("DOMContentLoaded", ()=> { populateTable(brokers); });
 // getAllBrokerTesting() function calls the db to get data for testing
 
 

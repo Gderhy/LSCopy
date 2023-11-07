@@ -285,7 +285,7 @@ header a {
     margin-bottom: 10px;
 }
 
-.listing a {
+.listing button {
     background-color: #292b2c;
     color: #fff;
     text-decoration: none;
@@ -296,7 +296,7 @@ header a {
     transition: background-color 0.3s ease;
 }
 
-.listing a:hover {
+.listing button:hover {
     background-color: #555;
 }
 
@@ -430,12 +430,12 @@ button[type="submit"]:hover {
     margin: 10px 0;
 }
 
-.listing p {
+.listing p  {
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.listing a {
+.listing button {
     background-color: #292b2c;
     color: #fff;
     text-decoration: none;
@@ -446,7 +446,8 @@ button[type="submit"]:hover {
     transition: background-color 0.3s ease;
 }
 
-.listing a:hover {
+
+.listing button:hover {
     background-color: #555;
 }
 

@@ -97,9 +97,11 @@
         <script src="JavaScript/import_data.js" type="module"></script>
         <script src="JavaScript/CreateNewBroker.js" type="module"></script>
         <script src="../Navbar/navbar.js" type="module"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
     </body>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 <!--Admin page is used to control the brokers meaning to view all

@@ -11,7 +11,7 @@
 <header>
     <nav>
         <div class="logo">
-            <a href="index.html"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
+            <a href="/LuckySeven/properties/index.php"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
         </div>
         <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
             <div class="bar"></div>
