@@ -1,7 +1,6 @@
-import {getProperties, getLocations, getPropertyImages, requestVisitToProperty} from './import_data.js';
+import {getProperties, getLocations, getPropertyImages, requestVisitToProperty, getAllBrokers} from './import_data.js';
 
 document.addEventListener('DOMContentLoaded', function () {
-
 
 
     let locations = getLocations();
@@ -33,11 +32,13 @@ document.getElementById('propertySearchForm').addEventListener('click', function
     let area = document.getElementById('area').value;
     let maxPrice = document.getElementById('maxPrice').value;
     let isForSale = document.getElementById('isForSale').value;
+    let broker_id = document.getElementById('brokers_select').value;
 
     area = area ? area : -1;
     maxPrice = maxPrice ? maxPrice : -1;
+    broker_id = broker_id ? broker_id : -1;
 
-    let jsonProperties = getProperties(area, maxPrice, isForSale);
+    let jsonProperties = getProperties(area, maxPrice, isForSale, broker_id);
     displayProperties(jsonProperties);
 });
 
