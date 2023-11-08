@@ -1,10 +1,35 @@
 import {getAllBrokers} from "./import_data.js";
 
 
-const brokers = getAllBrokers();
-console.log(brokers);
+const searchInput = document.getElementById('search-input');
+searchInput.addEventListener('keyup', function (){
 
-fillBrokers(brokers);
+        // Setting to lower case for matching
+        const searchTerm = searchInput.value.toLowerCase();
+
+        // Getting access to all the divs of the brokers
+        const brokerDivs = document.querySelectorAll('#brokers-grid .listing');
+
+        brokerDivs.forEach(
+            brokerDiv => {
+
+                    const detailsOfBrokers = brokerDiv.getAttribute('broker-info').toLowerCase();
+
+                    if(detailsOfBrokers.includes(searchTerm)){
+
+                            brokerDiv.style.display = "block";
+                    } else {
+
+                            brokerDiv.style.display = "none";
+                    }
+            }
+        )
+
+
+
+
+})
+fillBrokers(getAllBrokers());
 
 function fillBrokers(brokers) {
 
@@ -15,10 +40,10 @@ function fillBrokers(brokers) {
 
             if (broker.STATUS !== "ACTIVE") return;
 
-
             const listing = document.createElement("div");
             listing.id = broker.USER_ID;
-            listing.className = 'listing'
+            listing.className = 'listing';
+            listing.setAttribute('broker-info', `${broker.FIRST_NAME}, ${broker.LAST_NAME}, ${broker.EMAIL}, ${broker.PHONE_NUM}`);
 
             const img = document.createElement("img");
             img.src = "https://www.rate-my-agent.com/upload/Asal-Jami-Montreal-Real-Estate-Agent.webp";
