@@ -1,7 +1,7 @@
 /**
  * This function takes a username and passowrd and return the associated user
  * info if they exists in the DB
- * 
+ *
  * @param {str} username
  * @param {str} password
  * @returns {json} user info
@@ -19,6 +19,7 @@ export function getUserInfo(USER_NAME, PASSWORD) {
         return null;
     }
 }
+
 // Function to add a new user
 export function addNewUser(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD) {
     let recipe = 'insertNewUser';
@@ -29,7 +30,8 @@ export function addNewUser(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, P
 
 export function sqlHandler(recipe, values) {
     let tempData;
-    $.ajax({url: '../general/MySqlRequests.php', method: 'POST', async: false,
+    $.ajax({
+        url: '../general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
         success: function (response) {
             let data = response;

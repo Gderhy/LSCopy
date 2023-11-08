@@ -3,13 +3,14 @@
  * page
  * @type js
  */
- const user = JSON.parse(localStorage.getItem('user'));
- 
- if(user?.ROLE_ID !== "2"){
+const user = JSON.parse(localStorage.getItem('user'));
 
-     alert("Not authorized.")
-     window.location.href = "/LuckySeven/login";
- }
+if (user?.ROLE_ID !== "2") {
+
+    alert("Not authorized.")
+    window.location.href = "/LuckySeven/login";
+}
+
 /**
  * Return the visits requests for the properties posted by a certain broker
  * @param {int} brokerID
@@ -45,13 +46,14 @@ export function scheduleVisit(DATE, REQUEST_ID) {
 export function deleteVisit(REQUEST_ID) {
     let recipe = 'deleteVisit';
     let values = [REQUEST_ID];
-    
+
     sqlHandler(recipe, values);
 }
 
 export function sqlHandler(recipe, values) {
     let tempData;
-    $.ajax({url: '../../general/MySqlRequests.php', method: 'POST', async: false,
+    $.ajax({
+        url: '../../general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
         success: function (response) {
             let data = response;
