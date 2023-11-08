@@ -16,9 +16,30 @@
       
     </head>
     <body>
-        <header>
-           <nav id="navbar"></nav>
-        </header>
+<!--        <header>-->
+<!--           <nav id="navbar"></nav>-->
+<!--        </header>-->
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
+        </div>
+        <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>
+            <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
+            <li><a href="/LuckySeven/admin/index.php">Admin Page</a></li>
+            <li><a href="/LuckySeven/login/index.php">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+
         <div class="content-container">
 
 <!--        Find a way to make this fetch data from data base and display respectively -->

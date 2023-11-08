@@ -19,6 +19,7 @@
             </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>
+                <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
                 <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
                 <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
                 <li><a href="/LuckySeven/login/index.php">Login/Register</a></li>
@@ -29,23 +30,11 @@
     <section class="search-bar">
         <div class="search-container">
             <h1>Find Your Ideal Broker</h1>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name">
-                </div>
-                <div class="form-group">
-                    <label for="price-range">Price Range:</label>
-                    <select id="price-range" name="price-range">
-                        <option value="">Any</option>
-                        <option value="100000">$100,000</option>
-                        <option value="200000">$200,000</option>
-                        <option value="300000">$300,000</option>
-                        
-                    </select>
-                </div>
-                <button type="submit">Search</button>
-            </form>
+            <div class="form-group">
+                <label for="name"></label>
+                <input type="text" id="search-input" name="name">
+            </div>
+
         </div>
     </section>
 
