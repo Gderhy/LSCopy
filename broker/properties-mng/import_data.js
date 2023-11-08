@@ -4,13 +4,13 @@
  * @type js
  */
 
- const user = JSON.parse(localStorage.getItem('user'));
- 
- if(user?.ROLE_ID !== "2"){
+const user = JSON.parse(localStorage.getItem('user'));
 
-     alert("Not authorized.")
-     window.location.href = "/LuckySeven/login";
- }
+if (user?.ROLE_ID !== "2") {
+
+    alert("Not authorized.")
+    window.location.href = "/LuckySeven/login";
+}
 
 /**
  * Return the properties of a specific broker id
@@ -38,7 +38,7 @@ export function getPropertyTypes() {
 }
 
 /**
- * return all locations 
+ * return all locations
  * @returns {json array}
  */
 export function getLocations() {
@@ -48,6 +48,7 @@ export function getLocations() {
     let locations = sqlHandler(recipe, values);
     return eval(locations);
 }
+
 /**
  * Return images URL for a certain propertyID
  * @param {type} PROPERTY_ID
@@ -56,7 +57,7 @@ export function getLocations() {
 export function getPropertyImages(PROPERTY_ID) {
     let recipe = 'getPropertyImages';
     let values = [PROPERTY_ID];
-    
+
     let propetyImages = sqlHandler(recipe, values);
     return eval(propetyImages);
 }
@@ -78,17 +79,17 @@ export function getPropertyImages(PROPERTY_ID) {
  * @returns void
  */
 export function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
-        PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE) {
+                                  PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE) {
 
     let recipe = 'insertNewProperty';
     let values = [BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE];
-    
+
     sqlHandler(recipe, values);
 }
 
 /**
- * 
+ *
  * @param {int} COVER_IMG_ID // you can get it after inserting image to property
  * see getPropertyImages and linkImageToProperty functions
  * @param {string} DESCRIPTION
@@ -106,13 +107,13 @@ export function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POST
  * @returns {undefined}
  */
 export function updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
-        PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID) {
+                               PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID) {
 
-    
+
     let recipe = 'updateProperty';
     let values = [COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID];
-    
+
     console.log(sqlHandler(recipe, values));
 }
 
@@ -125,13 +126,14 @@ export function updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POST
 export function linkImageToProperty(IMG_LINK, PROPERTY_ID) {
     let recipe = 'linkImageToProperty';
     let values = [IMG_LINK, PROPERTY_ID];
-    
+
     sqlHandler(recipe, values);
 }
 
 export function sqlHandler(recipe, values) {
     let tempData;
-    $.ajax({url: '../../general/MySqlRequests.php', method: 'POST', async: false,
+    $.ajax({
+        url: '../../general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
         success: function (response) {
             let data = response;

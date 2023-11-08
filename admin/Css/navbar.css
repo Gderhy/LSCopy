@@ -98,7 +98,6 @@ body {
 }
 
 
-
 /* Style the dropdown menu */
 .dropdown {
     position: relative;
@@ -358,7 +357,6 @@ header a {
 }
 
 
-
 input[type="text"],
 input[type="email"],
 textarea {
@@ -456,8 +454,6 @@ button[type="submit"]:hover {
 }
 
 
-
-
 /* LOGINn */
 
 /* Style the Login/register section */
@@ -552,12 +548,6 @@ button[type="submit"]:hover {
 }
 
 
-
-
-
-
-
-
 /* Responsive layout adjustments */
 @media screen and (max-width: 768px) {
     .listings {
@@ -576,12 +566,6 @@ button[type="submit"]:hover {
         }
     }
 }
-
-
-
-
-
-
 
 
 /* Style the property details page layout */
@@ -622,7 +606,6 @@ button[type="submit"]:hover {
 .property-info strong {
     font-weight: bold;
 }
-
 
 
 /* ... (Existing styles) ... */

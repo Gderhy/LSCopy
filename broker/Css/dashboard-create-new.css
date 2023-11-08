@@ -5,7 +5,7 @@ div.div-create-new h3 {
 }
 
 /* form.form-create-broker styles */
-.form-create-new{
+.form-create-new {
 
     font-size: 12px;
     padding: 20px;
@@ -16,7 +16,7 @@ div.div-create-new h3 {
 
 form.form-create-new form {
     max-width: 400px; /* Adjust the form.form-create-broker width as needed */
-    margin: 0 auto;  /* Center the form.form-create-broker horizontally */
+    margin: 0 auto; /* Center the form.form-create-broker horizontally */
 }
 
 /* form.form-create-new field label styles */
@@ -60,16 +60,16 @@ form.form-create-new input[type="submit"] {
 }
 
 /* form.form-create-broker field label styles for specific fields */
-form.form-create-new label{
+form.form-create-new label {
 
 }
 
-span.labels-same-line{
+span.labels-same-line {
 
     width: 100%;
 }
 
-.add-listing{
+.add-listing {
 
     padding: 30px;
 }

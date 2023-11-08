@@ -5,7 +5,7 @@ import {addNewBroker} from "./import_data.js";
 
 const form = document.getElementById("form-create-broker");
 
-form.addEventListener("submit", (event) =>{
+form.addEventListener("submit", (event) => {
 
     event.preventDefault();
 
@@ -22,7 +22,7 @@ form.addEventListener("submit", (event) =>{
 
 
     // Function works !
-    addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM,EMAIL, USER_NAME, PASSWORD);
+    addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD);
 
 
     window.location.reload();

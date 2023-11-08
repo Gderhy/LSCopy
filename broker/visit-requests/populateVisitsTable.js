@@ -98,7 +98,7 @@ function populateVisitsTable(visits) {
             const td_delete = document.createElement('td');
             const delete_button = document.createElement("button");
             delete_button.textContent = "Delete"
-            delete_button.addEventListener("click", ()=>{
+            delete_button.addEventListener("click", () => {
 
                 console.log(visit.REQUEST_ID)
                 deleteVisit(visit.REQUEST_ID);

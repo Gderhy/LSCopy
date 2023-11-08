@@ -1,196 +1,129 @@
-// Auto adds css
+/**
+ * <header>
+ *             <nav>
+ *                 <div class="logo">
+ *                     <a href="/LuckySeven/properties/"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
+ *                 </div>
+ *                 <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+ *                     <div class="bar"></div>
+ *                     <div class="bar"></div>
+ *                     <div class="bar"></div>
+ *                 </div>
+ *                 <ul class="nav-links" id="nav-links">
+ *                     <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>
+ *                     <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
+ *                     <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
+ *                     <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
+ *                     <li><a href="/LuckySeven/login/index.php">Login/Register</a></li>
+ *                 </ul>
+ *             </nav>
+ *         </header>
+ */
 
+function implementNavBar() {
 
+    const navbar = document.getElementById('navbar');
 
+    navbar.appendChild(getImageDiv());
+    navbar.appendChild(getMobileIcon());
+    navbar.appendChild(getUl());
 
+}
 
+function getImageDiv() {
 
+    const divLogo = document.createElement('div');
+    divLogo.className = 'logo';
+    const aLogo = document.createElement('a');
+    aLogo.href = "/LuckySeven/properties";
+    const imgLogo = document.createElement('img');
+    imgLogo.src = "/LuckySeven/Navbar/logo.png";
+    imgLogo.alt = 'Logo';
+    aLogo.appendChild(imgLogo);
+    divLogo.appendChild(aLogo);
 
-// This will be a general navbar, include this in all ur html/php files in order to have one navbar
-// This navbar will handle all Login, logout, and page routing. i.e Display Admin or Broker page respectively.
+    return divLogo;
+}
 
-// <nav>
-//             <div class="logo"></div>
-//             <ul>
-//                 <li><a href="" class="active">Admin</a></li>
-//                 <li><a href="../broker">Broker</a></li>
-//                  <li><a href="../FrontEnd-Rough">Home</a></li>
-//                 <li><a href="../FrontEnd-Rough/listings.html">Listings</a></li>
-//                 <li><a href="../FrontEnd-Rough/contact.html">Contact</a></li>
-//                 <li><a href="../properties">Properties</a></li>
-//                 <li><a href="../Login">Login</a></li>
-//             </ul>
-// </nav>
+function getMobileIcon() {
 
-//fake user
-function addFakeUserToLocaleStorage(){
-    const fake_user = {
-        'USER_ID' : 11,
-        'FIRST_NAME' : 'Carmelo',
-        'LAST_NAME' : 'Farrell',
-        'PHONE_NUM' : '(119)681-5239',
-        'EMAIL' : 'nsimonis@example.com',
-        'USER_NAME' : 'linnea.boyer',
-        'PASSWORD' : 'dolore',
-        'ROLE_ID' : 3,
-        'STATUS' : 2
+    const div = document.createElement('div');
+    div.className = 'mobile-menu-icon';
+    div.onclick = toggleMobileMenu;
+
+    for (let i = 0; i < 3; i++) {
+
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        div.appendChild(bar)
     }
 
-    localStorage.setItem('user', JSON.stringify(fake_user));
-
-    return 'user'
+    return div;
 }
 
 
-const pathForHome = "/LuckySeven/properties/";
+function getUl() {
 
-const pathForAdmin = "/LuckySeven/admin/";
-const pathForMyListings = "/LuckySeven/broker/properties-mng";
-const pathForMyVisits = "/LuckySeven/broker/visit-requests";
-const pathForPropertySearch = "/LuckySeven/properties/";
+    const ul = document.createElement('ul');
+    ul.className = 'nav-links';
+    ul.id = 'nav-links';
 
-const pathForContact = "/LuckySeven/FrontEnd-Rough/contact.html";
-const pathForLogin = "/LuckySeven/Login/index.php";
+    ul.appendChild(getLi('/LuckySeven/properties/', "Properties"));
+    ul.appendChild(getLi('/LuckySeven/brokerList/brokers.php', 'Brokers'));
 
+    const user = localStorage.getItem('user');
 
+    if (!user) {
 
-/**
- * This function will implement the navbar into the html
- * It takes one parameter which holds the active page
- *
- * @param {string} activePage
- */
-export function implementNavbar(activePage){
-
-    // CssInHead();
-
-    const navbar = document.getElementById("navbar");
-
-    const logo = document.createElement("div");
-    logo.className = "logo";
-    const a = document.createElement('a');
-    a.href = ""; // Must add homepage link
-    const img = document.createElement('img');
-    img.src = "/LuckySeven/Navbar/Logo/logo.png";
-    img.alt = "Logo";
-    a.appendChild(img);
-    logo.appendChild(a)
-    navbar.appendChild(logo);
-
-    const ul = getUl(activePage);
-    navbar.appendChild(ul);
-
-}
-
-function getUl(activePage){
-
-    const user = JSON.parse(localStorage.getItem('user'));
-
-
-    const ul = document.createElement("ul");
-
-    const home = getLi(pathForHome, "Home", activePage);
-    ul.appendChild(home);
-
-    if(!user){
-
-        const propertySearch = getLi(pathForPropertySearch, "Search for a property", activePage);
-        ul.appendChild(propertySearch);
-
+        ul.appendChild(getLi('/LuckySeven/FrontEnd-Rough/about-us.html', 'About Us'));
+        ul.appendChild(getLi('FrontEnd-Rough/contact.html', 'Contact Us'));
+        ul.appendChild(getLi('/LuckySeven/login/index.php', 'Login/Register'));
     } else {
 
-        // 1 - Admin
-        // 2 - Broker
-        // 3 - Client
+        if (user.ROLE_ID == 1) { // Admin
 
-        if(user?.ROLE_ID === "1"){
+            ul.appendChild(getLi('/LuckySeven/admin/', 'Admin'));
 
-            const admin = getLi(pathForAdmin, "Admin", activePage);
-            ul.appendChild(admin)
 
-        } else if (user?.ROLE_ID ==="2") {
+        } else if (user.ROLE_ID == 2) { // Broker
 
-            const myListings = getLi(pathForMyListings, "My Listings", activePage);
-            ul.appendChild(myListings);
+            ul.appendChild(getLi('/LuckySeven/broker/properties-mng/', 'Property Management'));
+            ul.appendChild(getLi('/LuckySeven/broker/visit-requests/', 'Visit Requests'));
 
-            const myVisits = getLi(pathForMyVisits, "My Visits", activePage);
-            ul.appendChild(myVisits);
-        } else {
+        } else if (user.ROLE_ID == 3) { // Client
 
-            const client = getLi(pathForPropertySearch, "Property Search", activePage);
-            ul.appendChild(client);
+            ul.appendChild(getLi('/LuckySeven/FrontEnd-Rough/about-us.html', 'About Us'));
+            ul.appendChild(getLi('FrontEnd-Rough/contact.html', 'Contact Us'));
+
         }
-    }
-
-    if(user?.ROLE_ID === "3"){
-
-        const contact = getLi(pathForContact, "Contact Us", activePage);
-        ul.appendChild(contact);
-    }
 
 
-    if(!user){
+        const logout = document.createElement('a');
+        logout.addEventListener('click', function () {
 
-        const login = getLi(pathForLogin, "Login", activePage);
-        ul.appendChild(login);
+            // Logging out
+            localStorage.removeItem('user');
+            location.href = '/LuckySeven/properties/';
+        });
 
-    } else{
+        logout.textContent = user.USER_NAME;
 
-        const username = getLi("/LuckySeven/properties/", "Logout", activePage,
-            ()=>{
-
-                localStorage.removeItem('user')
-
-            });
-        ul.appendChild(username);
-
-        // Have to add a hover dropdown menu that shows logout
+        ul.appendChild(document.createElement('li').appendChild(logout));
 
     }
 
     return ul;
 }
 
-function getLi(path, content, activePage, onClickFunction = null){
-    const li = document.createElement("li");
 
-    const a = document.createElement("a");
-    a.href = path;
-    a.textContent = content;
-    if(onClickFunction !== null) a.addEventListener("click", onClickFunction)
-    if(content === activePage) a.className = "active";
+function getLi(pathname, textContent) {
 
-    li.appendChild(a);
+    const a = document.createElement('a');
+    a.href = pathname;
+    a.textContent = textContent;
 
-
-    return li;
+    return document.createElement('li').appendChild(a);
 }
-
-
-function CssInHead(){
-
-    const cssFileNameToCheck = "Navbar/Css/navStyle.css"; // Name of css file to check
-
-    const cssLinks = document.querySelectorAll("head link[rel='stylesheet']");
-    let isCssFileInHead = false;
-
-    cssLinks.forEach(link => {
-        const href = link.getAttribute("href");
-        if (href === cssFileNameToCheck) {
-            isCssFileInHead = true;
-        }
-    });
-
-    if (!isCssFileInHead) {
-
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        link.href = cssFileNameToCheck;
-        document.head.appendChild(link);
-    }
-}
-
 
 
 

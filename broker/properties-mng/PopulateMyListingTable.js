@@ -16,12 +16,12 @@ populateMyListingTable(getBrokerProperties(user.USER_ID));
 
 addTypeIDToForm();
 
-function populateMyListingTable(listings){
+function populateMyListingTable(listings) {
     console.log(listings);
     const tableBody = document.getElementById("tbody-my-listings");
 
     // Clears out existing table
-    while(tableBody.firstChild) {
+    while (tableBody.firstChild) {
 
         tableBody.removeChild(tableBody.firstChild);
     }
@@ -33,7 +33,7 @@ function populateMyListingTable(listings){
         );
 }
 
-function getTableRow(listing, locations, propertyTypes){
+function getTableRow(listing, locations, propertyTypes) {
 
     const id = listing.PROPERTY_ID;
 
@@ -53,7 +53,7 @@ function getTableRow(listing, locations, propertyTypes){
     td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${id}`;
     td_PROPERTY_TYPE.appendChild(propertyTypeSelect);
     row.appendChild(td_PROPERTY_TYPE);
-    
+
 
     // const td_PROPERTY_TYPE = document.createElement("td");
     // td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${id}`;
@@ -67,16 +67,16 @@ function getTableRow(listing, locations, propertyTypes){
     const td_COVER_IMG_ID = document.createElement("td");
     td_COVER_IMG_ID.id = `COVER_IMG_ID-${id}`;
     td_COVER_IMG_ID.className = "dashboard-td";
-        const img = document.createElement("img");
-        img.className = "cover-img"
-        img.id = `img-${id}`
-        const images = getPropertyImages(id) ?? [{"IMG" : `${listing.COVER_IMG_ID}`}];
+    const img = document.createElement("img");
+    img.className = "cover-img"
+    img.id = `img-${id}`
+    const images = getPropertyImages(id) ?? [{"IMG": `${listing.COVER_IMG_ID}`}];
     console.log(id, images)
-        img.src = images[images.length-1].IMG;
-        img.alt = `Image-${listing.COVER_IMG_ID}`
+    img.src = images[images.length - 1].IMG;
+    img.alt = `Image-${listing.COVER_IMG_ID}`
     const img_input = document.createElement('input');
-        img_input.type = 'text';
-        img_input.id = `img_input-${id}`;
+    img_input.type = 'text';
+    img_input.id = `img_input-${id}`;
 
     // const img_select = getImgSelect(id);
     // td_COVER_IMG_ID.appendChild(img_select);
@@ -180,8 +180,7 @@ function getTableRow(listing, locations, propertyTypes){
     updateButton.id = `UPDATE_BUTTON-${id}`; // Important for deleting users from db
     updateButton.textContent = "Update";
     updateButton.addEventListener("click",
-        (event)=>{
-
+        (event) => {
 
 
             const id = event.target.id.replace("UPDATE_BUTTON-", "");
@@ -189,7 +188,7 @@ function getTableRow(listing, locations, propertyTypes){
 
             const confirm1 = confirm(`Are you sure you want to update property: ${id}`);
 
-            if(!confirm1) return;
+            if (!confirm1) return;
 
             const COVER_IMG_ID = 1;
             const DESCRIPTION = document.getElementById(`DESCRIPTION-${id}`).textContent;
@@ -201,7 +200,7 @@ function getTableRow(listing, locations, propertyTypes){
             const BATH_COUNT = parseInt(document.getElementById(`BATH_COUNT-${id}`).textContent);
             const ROOMS_COUNT = parseInt(document.getElementById(`ROOMS_COUNT-${id}`).textContent);
             const TYPE_ID = document.getElementById(`PROPERTY_TYPE_SELECT-${id}`).value;
-            const PRICE = parseFloat(document.getElementById(`BATH_COUNT-${id}`).textContent.replace("$",""));
+            const PRICE = parseFloat(document.getElementById(`BATH_COUNT-${id}`).textContent.replace("$", ""));
             const IS_FOR_SALE = document.getElementById(`IS_FOR_SALE-${id}`).textContent === "Yes" ? 1 : 0;
             const STATUS = document.getElementById(`STATUS_SELECT-${id}`).value; // str
             const PROPERTY_ID = id;
@@ -248,7 +247,7 @@ function createLocationSelect(locations, id) {
  * @param {number} id
  * @returns {HTMLSelectElement}
  */
-function createStatusSelect(id){
+function createStatusSelect(id) {
 
     const select = document.createElement("select");
     select.id = `STATUS_SELECT-${id}`;
@@ -258,7 +257,7 @@ function createStatusSelect(id){
     status.forEach(
         (s, index) => {
             const option = document.createElement('option');
-            option.value = index+1;
+            option.value = index + 1;
             option.textContent = s;
 
             select.appendChild(option);
@@ -268,14 +267,13 @@ function createStatusSelect(id){
 }
 
 
-
-function createPropertyTypeSelect(propertyTypes, id){
+function createPropertyTypeSelect(propertyTypes, id) {
 
     const select = document.createElement('select');
     select.id = `PROPERTY_TYPE_SELECT-${id}`;
 
     propertyTypes.forEach(
-        (type)=>{
+        (type) => {
 
             const option = document.createElement('option');
             option.value = type.TYPE_ID;
@@ -293,7 +291,7 @@ function findTypeIdByPropertyType(propertyTypes, PROPERTY_TYPE) {
     return foundType ? foundType.TYPE_ID : null;
 }
 
-function addAreaIDToForm(){
+function addAreaIDToForm() {
 
 
     const select = document.getElementById('select_area_id');
@@ -308,7 +306,7 @@ function addAreaIDToForm(){
 
 }
 
-function addTypeIDToForm(){
+function addTypeIDToForm() {
 
     const select = document.getElementById("select_type_id");
     propertyTypes.forEach(type => {
@@ -327,7 +325,7 @@ function addTypeIDToForm(){
 
 const form_create_new_listing = document.getElementById("form-create-new-listing");
 form_create_new_listing.addEventListener("submit",
-    (event) =>{
+    (event) => {
 
         event.preventDefault();
 
@@ -350,7 +348,7 @@ form_create_new_listing.addEventListener("submit",
     });
 
 
-function getImgSelect(PROPERTY_ID){
+function getImgSelect(PROPERTY_ID) {
 
     const images = getPropertyImages(PROPERTY_ID);
 

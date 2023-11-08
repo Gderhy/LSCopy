@@ -8,7 +8,9 @@ const brokers = getAllBrokers();
 console.log(brokers)
 
 // Populate table as page reloads
-document.addEventListener("DOMContentLoaded", ()=> { populateTable(brokers); });
+document.addEventListener("DOMContentLoaded", () => {
+    populateTable(brokers);
+});
 // getAllBrokerTesting() function calls the db to get data for testing
 
 
@@ -35,14 +37,13 @@ document.addEventListener("DOMContentLoaded", ()=> { populateTable(brokers); });
 // }
 
 
-
 // Parameter - Array of brokers
-function populateTable(brokers){
+function populateTable(brokers) {
 
     console.log(brokers);
 
     // Clears out existing table
-    while(tableBody.firstChild) {
+    while (tableBody.firstChild) {
 
         tableBody.removeChild(tableBody.firstChild);
     }
@@ -155,10 +156,10 @@ function getTableRow(broker) {
     deleteButton.id = "delete_button-" + broker.USER_ID; // Important for deleting users from db
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click",
-        (event)=>{
+        (event) => {
             const result = confirm("Are you sure you want to remove user: " + event.target.id);
 
-            if(result === true) {
+            if (result === true) {
 
                 const rowToBeRemoved = document.getElementById("row-" + event.target.id.replace("delete_button-", ""))
 
@@ -182,7 +183,7 @@ function getTableRow(broker) {
     updateButton.id = "update_button-" + broker.USER_ID; // Important for updating users from db
     updateButton.textContent = "Update";
     updateButton.addEventListener("click",
-        (event)=>{
+        (event) => {
 
             const rowToBeUpdated = document.getElementById("row-" + event.target.id.replace("update_button-", ""));
 
@@ -195,7 +196,7 @@ function getTableRow(broker) {
             const STATUS = rowToBeUpdated.querySelector("#status").textContent;
             const USER_ID = rowToBeUpdated.querySelector("#user_id").textContent;
 
-            updateBroker(FIRST_NAME, LAST_NAME,PHONE_NUM, EMAIL, USER_NAME, PASSWORD, STATUS, USER_ID);
+            updateBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD, STATUS, USER_ID);
             window.location.reload();
         }); // Add an event listener to the update button to handle deletion logic
     td_UPDATE_BUTTON.appendChild(updateButton);

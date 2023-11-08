@@ -19,6 +19,7 @@ thead.dashboard-thead {
     top: 0; /* Stick the header to the top of the container */
     z-index: 1; /* Ensure the header is above the content */
 }
+
 /* Dashboard table header styles */
 th.dashboard-th {
     border: 2px solid #ccc;

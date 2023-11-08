@@ -1,5 +1,3 @@
-
-
 /* BROKER PAGE */
 
 
@@ -9,13 +7,13 @@
 }
 
 .visits-table {
-    width: 100%; 
+    width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
 }
 
 .visits-table th, .visits-table td {
-    padding: 8px; 
+    padding: 8px;
     border: 1px solid #ccc;
     text-align: center;
 }
@@ -78,7 +76,7 @@
 }
 
 .offers-table, .offer-management-table {
-    width: 100%; 
+    width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
 }

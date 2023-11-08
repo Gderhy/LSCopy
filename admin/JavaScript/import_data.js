@@ -1,5 +1,5 @@
-
 import {implementNavbar} from '/LuckySeven/Navbar/navbar.js'
+
 const user = JSON.parse(localStorage.getItem('user'));
 
 if (user?.ROLE_ID !== "1") {
@@ -43,7 +43,7 @@ export function addNewBroker(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME,
 }
 
 /**
- * 
+ *
  * @param {type} FIRST_NAME
  * @param {type} LAST_NAME
  * @param {type} PHONE_NUM
@@ -103,7 +103,8 @@ export function suspendBroker(USER_ID) {
 
 function sqlHandler(recipe, values) {
     let tempData;
-    $.ajax({url: '../general/MySqlRequests.php', method: 'POST', async: false,
+    $.ajax({
+        url: '../general/MySqlRequests.php', method: 'POST', async: false,
         data: {recipeKey: recipe, values: values},
         success: function (response) {
             let data = response;
