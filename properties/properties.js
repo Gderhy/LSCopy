@@ -107,7 +107,7 @@ function displayProperties(properties) {
 
 
 
-                        submitOffer1(user.BROKER_ID, property.PROPERTY_ID, prompt("Enter your offer: "));
+                        submitOffer1(user.USER_ID, property.PROPERTY_ID, prompt("Enter your offer: "));
 
                         // console.log(user.USER_ID, property.PROPERTY_ID, prompt("Enter your offer: "))
 

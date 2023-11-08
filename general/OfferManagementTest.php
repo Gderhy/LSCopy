@@ -12,7 +12,7 @@ class OfferManagementTest extends TestCase {
      */
     public function testGetOffers() {
         // Define search criteria
-        $BROKER_ID = '105';
+        $BROKER_ID = '102';
         // Create an array of search criteria values
         $values = [
             $BROKER_ID

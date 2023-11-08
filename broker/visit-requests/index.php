@@ -59,28 +59,7 @@
     </section>
 
 
-    <section class="submit-offers">
-        <h2>Submit Offers</h2>
-        <form class="submit-offers-form">
-            <div class="form-group">
-                <label for="property-select">Property:</label>
-                <select id="property-select" name="property-select">
-                    <option value="property1">Property 1</option>
-                    <option value="property2">Property 2</option>
-                    <!-- Add more property options here -->
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="offer-amount">Offer Amount ($):</label>
-                <input type="text" id="offer-amount" name="offer-amount" required>
-            </div>
-            <div class="form-group">
-                <label for="offer-date">Offer Date:</label>
-                <input type="date" id="offer-date" name="offer-date" required>
-            </div>
-            <button type="button" onclick="submitOffer()">Submit Offer</button>
-        </form>
-    </section>
+
 
 
     <section class="manage-visits">
@@ -115,46 +94,6 @@
             </tbody>
         </table>
     </section>
-
-
-    <section class="offer-management">
-        <h2>Offer Management</h2>
-        <table class="offer-management-table">
-            <thead>
-            <tr>
-                <th>Property</th>
-                <th>Offer Amount</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Property 1</td>
-                <td>$500,000</td>
-                <td>Pending</td>
-                <td>
-                    <button onclick="manageOffer(1)">Manage</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Property 2</td>
-                <td>$600,000</td>
-                <td>Accepted</td>
-                <td>
-                    <button onclick="manageOffer(2)">Manage</button>
-                </td>
-            </tr>
-
-            </tbody>
-        </table>
-    </section>
-
-    <div class="view-listings">
-        <a href="../FrontEnd-Roungh/listings.html">
-            <button>View Your Listings</button>
-        </a>
-    </div>
 </section>
 
 <footer>

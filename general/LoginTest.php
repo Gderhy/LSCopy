@@ -9,8 +9,8 @@ class LoginTest extends TestCase {
      * @testdox Test for valid credentials
      */
     public function testValidCredentials() {
-        $USER_NAME = 'k-alabba';
-        $PASSWORD = 'ooo';
+        $USER_NAME = 'linnea.boyer';
+        $PASSWORD = 'dolore';
 
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
@@ -27,10 +27,10 @@ class LoginTest extends TestCase {
 //            'ROLE_ID' => '1',
 //        ];
         $this->assertNotNull($userInfo);
-        $this->assertEquals('Kumai', $userInfo->FIRST_NAME);
-        $this->assertEquals('Alabbas', $userInfo->LAST_NAME);
-        $this->assertEquals('1', $userInfo->USER_ID);
-        $this->assertEquals('1', $userInfo->ROLE_ID);
+        $this->assertEquals('Carmelo', $userInfo->FIRST_NAME);
+        $this->assertEquals('Farrell', $userInfo->LAST_NAME);
+        $this->assertEquals('11', $userInfo->USER_ID);
+        $this->assertEquals('3', $userInfo->ROLE_ID);
         // Add more assertions for other properties if needed
     }
 
