@@ -204,20 +204,18 @@ $RECIPES = [
 		OFFER.PROPERTY_ID,
 		NOTE, 
 		OFFER.STATUS,
-                PROPERTY.DESCRIPTION,
-                PROPERTY.ADDRESS,
-                PROPERTY.POSTAL,
-                PROPERTY.PRICE,
-                TO_USER.USER_ID,
+		PROPERTY.DESCRIPTION,
+		PROPERTY.ADDRESS,
+		PROPERTY.POSTAL,
+		PROPERTY.PRICE,
         CONCAT(FROM_USER.FIRST_NAME, ' ', FROM_USER.LAST_NAME) AS FROM_BROKER_NAME
         FROM luckyseven.tbl_property_offer OFFER
         LEFT JOIN luckyseven.tbl_property PROPERTY ON OFFER.PROPERTY_ID = PROPERTY.PROPERTY_ID
         LEFT JOIN luckyseven.tbl_user FROM_USER ON OFFER.FROM_BROKER_ID = FROM_USER.USER_ID
-        LEFT JOIN luckyseven.tbl_user TO_USER ON OFFER.FROM_BROKER_ID = TO_USER.USER_ID
-        WHERE TO_USER.USER_ID = '?-?'",
+        WHERE PROPERTY.BROKER_ID = '?-?'",
     'updateOffer' => "UPDATE luckyseven.tbl_property_offer
                       SET STATUS = '?-?'
-                      WHERE OFFER_ID = ?;",
+                      WHERE OFFER_ID = '?-?';",
     'insertOffer' => "INSERT INTO luckyseven.tbl_property_offer (OFFER_ID, FROM_BROKER_ID, PROPERTY_ID, NOTE, STATUS)
                    SELECT IFNULL(MAX(OFFER_ID), 0) + 1, '?-?', '?-?', '?-?', 1
                    FROM luckyseven.tbl_property_offer;"

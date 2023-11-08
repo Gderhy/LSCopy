@@ -15,6 +15,7 @@ class PropertySearchTest extends TestCase {
         $AREA_ID = '2'; // Replace with a valid area ID, or use -1 for any
         $MAX_PRICE = '300000'; // Replace with a maximum price, or use -1 for any
         $FOR_SALE = '1'; // 1 for "For Sale", -1 for any
+        $BROKER_ID = '-1'; // 1 for "For Sale", -1 for any
         // Create an array of search criteria values
         $values = [
             $AREA_ID,
@@ -22,15 +23,17 @@ class PropertySearchTest extends TestCase {
             $MAX_PRICE,
             $MAX_PRICE, // Use the same value twice if you want to search for "any"
             $FOR_SALE,
-            $FOR_SALE, // Use the same value twice if you want to search for "any"
+            $FOR_SALE,
+            $BROKER_ID,
+            $BROKER_ID, // Use the same value twice if you want to search for "any"
         ];
 
         // Specify the recipe name for retrieving properties
         $recipeName = 'getProperties';
 
         // Retrieve properties based on the search criteria
-        //$properties = setRecipe($recipeName, $values);
-        $properties = 'not null';
+        $properties = setRecipe($recipeName, $values);
+//        $properties = 'not null';
         // Assert that the result is not null and, if needed, perform more specific validations on the retrieved properties.
         $this->assertNotNull($properties);
     }
@@ -44,8 +47,8 @@ class PropertySearchTest extends TestCase {
         $recipeName = 'getPropertyTypes';
 
         // Retrieve the list of property types
-        //$propertyTypes = setRecipe($recipeName, null);
-        $propertyTypes = 'not null';
+        $propertyTypes = setRecipe($recipeName, null);
+//        $propertyTypes = 'not null';
         // Assert that the result is not null and, if needed, perform more specific validations on the retrieved property types.
         $this->assertNotNull($propertyTypes);
     }
@@ -59,8 +62,8 @@ class PropertySearchTest extends TestCase {
         $recipeName = 'getLocations';
 
         // Retrieve the list of locations
-        //$locations = setRecipe($recipeName, null);
-        $locations = 'not null';
+        $locations = setRecipe($recipeName, null);
+//        $locations = 'not null';
         // Assert that the result is not null and, if needed, perform more specific validations on the retrieved locations.
         $this->assertNotNull($locations);
     }

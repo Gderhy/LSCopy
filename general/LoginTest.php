@@ -15,17 +15,17 @@ class LoginTest extends TestCase {
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
 
-//        $userInfo = setRecipe($recipeName, $values);
-//        if ($userInfo != null)
-//            $userInfo = json_decode($userInfo)[0];
+        $userInfo = setRecipe($recipeName, $values);
+        if ($userInfo != null)
+            $userInfo = json_decode($userInfo)[0];
         
-        /*hard coded data, should be removed when proper databasesetup is made*/
-        $userInfo = (object) [
-            'FIRST_NAME' => 'Kumai',
-            'LAST_NAME' => 'Alabbas',
-            'USER_ID' => '1',
-            'ROLE_ID' => '1',
-        ];
+//        /*hard coded data, should be removed when proper databasesetup is made*/
+//        $userInfo = (object) [
+//            'FIRST_NAME' => 'Kumai',
+//            'LAST_NAME' => 'Alabbas',
+//            'USER_ID' => '1',
+//            'ROLE_ID' => '1',
+//        ];
         $this->assertNotNull($userInfo);
         $this->assertEquals('Kumai', $userInfo->FIRST_NAME);
         $this->assertEquals('Alabbas', $userInfo->LAST_NAME);
@@ -45,9 +45,9 @@ class LoginTest extends TestCase {
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
 
-//        $userInfo = setRecipe($recipeName, $values);
+        $userInfo = setRecipe($recipeName, $values);
         /*hard coded data, should be removed when proper databasesetup is made*/
-        $userInfo = null;
+//        $userInfo = null;
         $this->assertNull($userInfo);
     }
 
@@ -57,14 +57,14 @@ class LoginTest extends TestCase {
      */
     public function testInvalidPassword() {
         $USER_NAME = 'k-alabba';
-        $PASSWORD = 'ooo';
+        $PASSWORD = 'oo';
 
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
 
-//        $userInfo = setRecipe($recipeName, $values);
+        $userInfo = setRecipe($recipeName, $values);
         /*hard coded data, should be removed when proper databasesetup is made*/
-        $userInfo = null;
+//        $userInfo = null;
         $this->assertNull($userInfo);
     }
 
@@ -79,9 +79,9 @@ class LoginTest extends TestCase {
         $values = [$USER_NAME, $PASSWORD];
         $recipeName = 'getUserInfo';
 
-//        $userInfo = setRecipe($recipeName, $values);
+        $userInfo = setRecipe($recipeName, $values);
         /*hard coded data, should be removed when proper databasesetup is made*/
-        $userInfo = null;
+//        $userInfo = null;
         $this->assertNull($userInfo);
     }
 }

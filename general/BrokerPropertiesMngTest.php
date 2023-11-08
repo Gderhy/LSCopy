@@ -10,7 +10,7 @@ class BrokerPropertiesMngTest extends TestCase {
     public function testInsertNewProperty() {
         // Define valid property data to insert
         $BROKER_ID = '1'; // Replace with a valid broker ID
-        $DESCRIPTION = 'Spacious 3-bedroom house';
+        $DESCRIPTION = 'THIS PROPERTY IS INSERTED FROM TEST CASE';
         $AREA_ID = '2'; // Replace with a valid area ID
         $ADDRESS = '123 Elm Street';
         $POSTAL = '12345';
@@ -44,8 +44,8 @@ class BrokerPropertiesMngTest extends TestCase {
         $recipeName = 'insertNewProperty';
 
         // Insert the new property and get the result
-        //$propertyResult = setRecipe($recipeName, $values);
-        $propertyResult = 'rand'; //to be deleted when proper DB structure is made
+        $propertyResult = setRecipe($recipeName, $values);
+//        $propertyResult = 'rand'; //to be deleted when proper DB structure is made
         // Assert that the result is not null, indicating a successful insertion
         $this->assertNotNull($propertyResult);
 

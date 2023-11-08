@@ -23,8 +23,8 @@ class VisitManagementTest extends TestCase {
         $recipeName = 'scheduleVisit';
 
         // Schedule the visit and get the result
-        //$scheduleResult = setRecipe($recipeName, $values);
-        $scheduleResult = 'not null';
+        $scheduleResult = setRecipe($recipeName, $values);
+//        $scheduleResult = 'not null';
         // Assert that the result is not null, indicating a successful visit scheduling
         $this->assertNotNull($scheduleResult);
 
@@ -46,8 +46,8 @@ class VisitManagementTest extends TestCase {
         $recipeName = 'deleteVisit';
 
         // Delete the visit and get the result
-        //$deleteResult = setRecipe($recipeName, $values);
-        $deleteResult = 'not null';
+        $deleteResult = setRecipe($recipeName, $values);
+//        $deleteResult = 'not null';
         // Assert that the result is not null, indicating a successful visit deletion
         $this->assertNotNull($deleteResult);
 

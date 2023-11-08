@@ -78,7 +78,7 @@ export function requestVisitToProperty(REQUESTED_DATE, CLIENT_ID, PROPERTY_ID) {
 export function submitOffer1(FROM_BROKER_ID, PROPERTY_ID, NOTE) {
     let recipe = 'insertOffer';
     let values = [FROM_BROKER_ID, PROPERTY_ID, NOTE];
-    console.log(sqlHandler(recipe, values));
+    sqlHandler(recipe, values);
 
 }
 
