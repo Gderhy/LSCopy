@@ -22,6 +22,7 @@
             <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>
             <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
             <li><a href="../properties-mng/index.php">Property Management</a></li>
+            <li><a href="../offers/index.php">My Offers</a></li>
             <li><a href="../visit-requests/index.php">My visits</a></li>
             <li><a href="/LuckySeven/login/index.php">Logout</a></li>
         </ul>
@@ -61,42 +62,8 @@
     </section>
 
 
-
-
-
-    <section class="manage-visits">
-        <h2>Manage Offers</h2>
-        <table class="offers-table">
-            <thead>
-            <tr>
-                <th>Property</th>
-                <th>Offer Amount</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Property 1</td>
-                <td>$500,000</td>
-                <td>Pending</td>
-                <td>
-                    <button onclick="manageOffer(1)">Manage</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Property 2</td>
-                <td>$600,000</td>
-                <td>Accepted</td>
-                <td>
-                    <button onclick="manageOffer(2)">Manage</button>
-                </td>
-            </tr>
-
-            </tbody>
-        </table>
-    </section>
 </section>
+
 
 <footer>
     <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
