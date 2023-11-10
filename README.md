@@ -83,8 +83,8 @@ The following core features should be included in the project:
 	The above list of technologies covers all our needs to build the required web application. 
 ------------------------------------------------------------------------------------------------------
 # Refrences to Important Documents
-The [Wiki Page](https://github.com/Gderhy/LuckySeven/wiki/Sprint-2-Wiki) contains the following items:
-1) Sprint 3 User Stories
+The [Wiki Page](https://github.com/Gderhy/LuckySeven/wiki/Sprint-3-Wiki) contains the following items:
+1) Sprint 4 User Stories
 2) Acceptance Tests
 3) Meeting Minutes
 4) Planning Sheet
