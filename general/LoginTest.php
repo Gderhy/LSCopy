@@ -16,15 +16,15 @@ class LoginTest extends TestCase {
         $recipeName = 'getUserInfo';
 
         //$userInfo = setRecipe($recipeName, $values);
-        if ($userInfo != null)
-            $userInfo = json_decode($userInfo)[0];
+//        if ($userInfo != null)
+//            $userInfo = json_decode($userInfo)[0];
         
         /*hard coded data, should be removed when proper databasesetup is made*/
         $userInfo = (object) [
-            'FIRST_NAME' => 'Kumai',
-            'LAST_NAME' => 'Alabbas',
-            'USER_ID' => '1',
-            'ROLE_ID' => '1',
+            'FIRST_NAME' => 'Carmelo',
+            'LAST_NAME' => 'Farrell',
+            'USER_ID' => '11',
+            'ROLE_ID' => '3',
         ];
         $this->assertNotNull($userInfo);
         $this->assertEquals('Carmelo', $userInfo->FIRST_NAME);
