@@ -18,9 +18,12 @@
                     <div class="bar"></div>
                 </div>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="../properties-mng/index.php">Property Management</a></li>
-                    <li><a href="../visit-requests/index.php">My visits</a></li>
-                    <li><a href="/LuckySeven/login/index.php">Logout</a></li>
+             <li><a href="/LuckySeven/properties/">Properties</a></li>
+            <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
+            <li><a href="../properties-mng/index.php">Property Management</a></li>
+            <li><a href="../offers/index.php">My Offers</a></li>
+            <li><a href="../visit-requests/index.php">My visits</a></li>
+            <li><a href="/LuckySeven/login/index.php">Logout</a></li>
                 </ul>
             </nav>
         </header>
@@ -30,59 +33,44 @@
             <section class="offer-management">
                 <h2>Offer Management</h2>
                 <table class="offer-management-table">
-                    <thead>
-                        <tr>
-                            <th>Property</th>
-                            <th>Offer Amount</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Property 1</td>
-                            <td>$500,000</td>
-                            <td>Pending</td>
-                            <td>
-                                <button onclick="manageOffer(1)">Manage</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Property 2</td>
-                            <td>$600,000</td>
-                            <td>Accepted</td>
-                            <td>
-                                <button onclick="manageOffer(2)">Manage</button>
-                            </td>
-                        </tr>
-
-                    </tbody>
+                <thead>
+            <tr>
+                <th>Address</th>
+                <th>Description</th>
+                <th>Broker Name</th>
+                <th>Postal Code</th>
+                <th>Price</th>
+                <th>Offer proposed</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+                <tbody id="offers-tbody">
+   
+                </tbody>
+                </table>
+            </section>
+            <section class="offerSent">
+                <h2>Offer(s) Sent</h2>
+                <table class="offerSent-table">
+                <thead>
+            <tr>
+                <th>Address</th>
+                <th>Description</th>
+                <th>Broker Name</th>
+                <th>Postal Code</th>
+                <th>Price</th>
+                <th>Offer proposed</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+                <tbody id="offerSent-tbody">
+   
+                </tbody>
                 </table>
             </section>
         </section>
 
-        <section class="submit-offers">
-            <h2>Submit Offers</h2>
-            <form class="submit-offers-form">
-                <div class="form-group">
-                    <label for="property-select">Property:</label>
-                    <select id="property-select" name="property-select">
-                        <option value="property1">Property 1</option>
-                        <option value="property2">Property 2</option>
-                        <!-- Add more property options here -->
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="offer-amount">Offer Amount ($):</label>
-                    <input type="text" id="offer-amount" name="offer-amount" required>
-                </div>
-                <div class="form-group">
-                    <label for="offer-date">Offer Date:</label>
-                    <input type="date" id="offer-date" name="offer-date" required>
-                </div>
-                <button type="button" onclick="submitOffer()">Submit Offer</button>
-            </form>
-        </section>
+        
         <footer>
             <p>&copy; 2023 Your Real Estate. All rights reserved.</p>
         </footer>
@@ -90,6 +78,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="import_data.js" type="module"></script>
+        <script src="offers.js" type="module"></script>
 
     </body>
 </html>
