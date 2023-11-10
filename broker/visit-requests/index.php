@@ -19,7 +19,7 @@
             <div class="bar"></div>
         </div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>
+            <li><a href="/LuckySeven/properties/">Properties</a></li>
             <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
             <li><a href="../properties-mng/index.php">Property Management</a></li>
             <li><a href="../visit-requests/index.php">My visits</a></li>
