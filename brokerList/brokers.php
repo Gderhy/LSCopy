@@ -18,17 +18,14 @@
                 <div class="bar"></div>
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="/LuckySeven/broker/properties-mng">Broker MyAccout</a></li>
                 <li><a href="/LuckySeven/properties/">Properties</a></li>
                 <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
-                <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
+                <li><a href="/LuckySeven/broker/properties-mng/index.php">Property Management</a></li>
                 <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
                 <li><a href="/LuckySeven/login/index.php">Login/Register</a></li>
             </ul>
         </nav>
     </header>
-
-    
 
     <section class="search-bar">
         <div class="search-container">
