@@ -32,7 +32,7 @@
             <li><a href="../properties-mng/index.php">Property Management</a></li>
             <li><a href="../offers/index.php">My Offers</a></li>
             <li><a href="../visit-requests/index.php">My visits</a></li>
-            <li><a href="/LuckySeven/login/index.php">Logout</a></li>
+            <li><a href="/LuckySeven/login/index.php" id="nav-login/register">Logout</a></li>
         </ul>
     </nav>
 </header>

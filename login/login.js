@@ -1,6 +1,7 @@
 import {getUserInfo, addNewUser} from './import_data.js';
 
 
+
 document.getElementById('login-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -55,16 +56,4 @@ document.getElementById('register-form').addEventListener('submit', function (ev
 });
 
 
-function changeLoginInNav(){
 
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    if(!user) return;
-
-    // Changing Login/Register in nav bar to `${user.USER_NAME}`
-    const a_login = document.getElementById('nav-login/register');
-    a.innerText = `${user.USER_NAME}`;
-
-
-
-}

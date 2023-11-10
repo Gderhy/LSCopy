@@ -1,6 +1,8 @@
 import {getProperties, getLocations, getPropertyImages,
     requestVisitToProperty, getAllBrokers, submitOffer1} from './import_data.js';
+import {changeLoginInNav} from '../login/loginNAV.js';
 
+changeLoginInNav();
 const user = JSON.parse(localStorage.getItem('user'));
 
 document.addEventListener('DOMContentLoaded', function () {

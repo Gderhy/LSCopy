@@ -1,5 +1,7 @@
 import {deleteVisit, getBrokerVisitRequests, scheduleVisit} from "./import_data.js";
+import {changeLoginInNav} from "../../login/loginNAV.js";
 
+changeLoginInNav();
 const user = JSON.parse(localStorage.getItem('user'))
 
 populateVisitsTable(getBrokerVisitRequests(user.USER_ID));

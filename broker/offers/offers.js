@@ -1,7 +1,10 @@
 
 import {getBrokerOffers, getSentOffers, updateOffer} from './import_data.js';
+import { changeLoginInNav } from '../../login/loginNAV.js';
+
 
 const user = JSON.parse(localStorage.getItem('user'));
+changeLoginInNav();
 const brokerOffers = getBrokerOffers(user.USER_ID);
 const sentOffers = getSentOffers(user.USER_ID);
 

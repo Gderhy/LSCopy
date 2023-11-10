@@ -26,7 +26,7 @@
                     <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
                     <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
                     <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
-                    <li><a href="/LuckySeven/login/index.php">Login/Register</a></li>
+                    <li><a href="/LuckySeven/login/index.php" id="nav-login/register">Login/Register</a></li>
                 </ul>
             </nav>
         </header>
