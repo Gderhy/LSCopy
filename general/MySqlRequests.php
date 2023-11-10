@@ -117,8 +117,8 @@ $RECIPES = [
 		(P.AREA_ID = '?-?' OR '?-?' = -1)
 		AND (P.PRICE <= '?-?' OR '?-?' = -1)
 		AND (P.IS_FOR_SALE = '?-?' OR '?-?' = -1)
-                AND (P.BROKER_ID = '?-?' OR '?-?' = -1)
-                AND P.STATUS = 1;",
+        AND (P.BROKER_ID = '?-?' OR '?-?' = -1)
+        AND P.STATUS = 1;",
     'getPropertyTypes' => 'SELECT * FROM luckyseven.tbl_property_type;',
     'getLocations' => 'SELECT * FROM luckyseven.tbl_location',
     'insertNewProperty' => "INSERT INTO luckyseven.tbl_property (PROPERTY_ID, BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,

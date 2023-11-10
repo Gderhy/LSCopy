@@ -100,6 +100,7 @@
         <script src="import_data.js" type="module"></script>
         <script src="properties.js" type="module"></script>
         <script src="/LuckySeven/FrontEnd-Rough/slideshow.js" type="module"></script>
+        <script src="/LuckySeven/FrontEnd-Rough/script.js" type="module"></script>
 
 
     </body>

@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (broker_USER_ID) {
 
         brokers_select.value = broker_USER_ID;
-        localStorage.removeItem("broker");
         document.getElementById('propertySearchForm').click();
+        localStorage.removeItem("broker");
     }
 
 });
@@ -54,18 +54,15 @@ document.getElementById('propertySearchForm').addEventListener('click',
     area = area ? area : -1;
     maxPrice = maxPrice ? maxPrice : -1;
     broker_id = broker_id ? broker_id : -1;
-
     let jsonProperties = getProperties(area, maxPrice, isForSale, broker_id);
     displayProperties(jsonProperties);
 });
 
 
 function displayProperties(properties) {
-    let resultsDiv = document.getElementById('searchResults');
+    removeElementsByClassName('featured-listings');
 
-    resultsDiv.innerHTML = '';
-    if (properties?.length >= 1) {
-        removeElementsByClassName('featured-listings');
+    if (properties.length >= 1) {
         properties.forEach(function (property) {
             let propertyImage = getPropertyImages(property.PROPERTY_ID);
 

@@ -1,5 +1,3 @@
-
-import {implementNavbar} from '/LuckySeven/Navbar/navbar.js'
 const user = JSON.parse(localStorage.getItem('user'));
 
 

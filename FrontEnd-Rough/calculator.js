@@ -22,4 +22,7 @@ function toggleCalculator() {
   }
 }
 
-// Rest of your JavaScript code for calculating the mortgage payment remains the same
+// We need to add code to make calc actually calculate
+
+
+
