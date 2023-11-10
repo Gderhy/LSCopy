@@ -49,6 +49,25 @@
                 </tbody>
                 </table>
             </section>
+            <section class="offerSent">
+                <h2>Offer(s) Sent</h2>
+                <table class="offerSent-table">
+                <thead>
+            <tr>
+                <th>Address</th>
+                <th>Description</th>
+                <th>Broker Name</th>
+                <th>Postal Code</th>
+                <th>Price</th>
+                <th>Offer proposed</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+                <tbody id="offerSent-tbody">
+   
+                </tbody>
+                </table>
+            </section>
         </section>
 
         

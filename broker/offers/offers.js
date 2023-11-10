@@ -48,3 +48,33 @@ function updateOfferStatus(selectElement) {
     console.log(`Offer ID: ${offerId}, New Status: ${newStatus}`);
     updateOffer(newStatus, offerId);
 }
+
+
+
+// let sentOffers = getSentOffers(user.USER_ID); --> sql function needed 
+function populateSentOffersTable(sentOffers) {
+    const tableBody = document.getElementById('sent-offers-tbody');
+    tableBody.innerHTML = ''; 
+    sentOffers.forEach(offer => {
+        const row = tableBody.insertRow();
+        row.innerHTML = `
+            <td>${offer.ADDRESS}</td>
+            <td>${offer.DESCRIPTION}</td>
+            <td>${offer.TO_BROKER_NAME}</td>
+            <td>${offer.POSTAL}</td>
+            <td>$${offer.PRICE}</td>
+            <td>${convertStatusToText(offer.STATUS)}</td>
+        `;
+    });
+}
+
+function convertStatusToText(status) {
+    switch (status) {
+        case '1':
+            return 'Pending approval';
+        case '2':
+            return 'Accepted';
+        case '3':
+            return 'Declined';
+    }
+}
