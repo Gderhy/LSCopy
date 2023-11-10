@@ -1,14 +1,20 @@
 
-import { getBrokerOffers, updateOffer } from './import_data.js';
+import {getBrokerOffers, getSentOffers, updateOffer} from './import_data.js';
 
 const user = JSON.parse(localStorage.getItem('user'));
 const brokerOffers = getBrokerOffers(user.USER_ID);
+const sentOffers = getSentOffers(user.USER_ID);
+
+console.log(brokerOffers)
+console.log(sentOffers);
+
 if (brokerOffers == null) {
     alert('No offers found.');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     populateOffersTable(brokerOffers);
+    populateSentOffersTable(sentOffers);
 });
 
 function populateOffersTable(offers) {
@@ -53,28 +59,36 @@ function updateOfferStatus(selectElement) {
 
 // let sentOffers = getSentOffers(user.USER_ID); --> sql function needed 
 function populateSentOffersTable(sentOffers) {
-    const tableBody = document.getElementById('sent-offers-tbody');
+
+    const tableBody = document.getElementById('offerSent-tbody');
     tableBody.innerHTML = ''; 
-    sentOffers.forEach(offer => {
-        const row = tableBody.insertRow();
+    sentOffers.forEach(sentOffer => {
+        console.log(sentOffer)
+        const row = document.createElement('tr');
+        row.innerHTML = '';
         row.innerHTML = `
-            <td>${offer.ADDRESS}</td>
-            <td>${offer.DESCRIPTION}</td>
-            <td>${offer.TO_BROKER_NAME}</td>
-            <td>${offer.POSTAL}</td>
-            <td>$${offer.PRICE}</td>
-            <td>${convertStatusToText(offer.STATUS)}</td>
+            <td>${sentOffer.OFFER_ID}</td>
+            <td>${sentOffer.ADDRESS}</td>
+            <td>${sentOffer.DESCRIPTION}</td>
+            <td>${sentOffer.FROM_BROKER_NAME}</td>
+            <td>${sentOffer.POSTAL}</td>
+            <td>$${sentOffer.PRICE}</td>
+            <td>${convertStatusToText(sentOffer.STATUS)}</td>
         `;
+        tableBody.appendChild(row);
     });
 }
 
 function convertStatusToText(status) {
-    switch (status) {
-        case '1':
-            return 'Pending approval';
-        case '2':
-            return 'Accepted';
-        case '3':
-            return 'Declined';
+
+    if(status == 1){
+
+        return 'Pending approval';
+    } else if(status == 2){
+
+        return 'Accepted';
+    } else {
+
+        return 'Declined'
     }
 }
