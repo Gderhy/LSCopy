@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="Css/admin-content.css">
     <link rel="stylesheet" href="Css/Existing-brokers.css">
     <link rel="stylesheet" href="Css/Create-new-broker.css">
-    <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
+    <link rel="stylesheet" href="/LuckySeven/FrontEnd-Rough/styles.css">
 
 
     <title>Your Real Estate</title>
