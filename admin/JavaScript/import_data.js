@@ -1,4 +1,3 @@
-import {implementNavbar} from '/LuckySeven/Navbar/navbar.js'
 
 const user = JSON.parse(localStorage.getItem('user'));
 
@@ -8,7 +7,6 @@ if (user?.ROLE_ID !== "1") {
     window.location.href = "/LuckySeven/login";
 }
 
-implementNavbar("Admin");
 
 /**
  * This function will return all the brokers
