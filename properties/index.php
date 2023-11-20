@@ -28,8 +28,6 @@
         </ul>
     </nav>
 </header>
-<br><br><br><br><br>
-
 <section class="hero">
     <!-- Slideshow of featured properties -->
     <div class="slideshow-container">
