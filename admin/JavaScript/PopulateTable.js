@@ -5,7 +5,7 @@ import {deleteBroker, getAllBrokers, updateBroker} from "./import_data.js";
 const tableBody = document.querySelector("#table-exiting-brokers > tbody");
 
 const brokers = getAllBrokers();
-console.log(brokers)
+// console.log(brokers)
 
 // Populate table as page reloads
 document.addEventListener("DOMContentLoaded", () => {
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Parameter - Array of brokers
 function populateTable(brokers) {
 
-    console.log(brokers);
+    // console.log(brokers);
 
     // Clears out existing table
     while (tableBody.firstChild) {

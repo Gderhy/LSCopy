@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="/LuckySeven/broker/Css/Table.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-listings.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-create-new.css">
-    <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/Table.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-listings.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-create-new.css">
     <link rel="stylesheet" href="/LuckySeven/FrontEnd-Rough/styles.css">
+
+    <script src="/LuckySeven/Navbar/navbar.js"></script>
+
     <title>My Listings </title>
 </head>
 <body>
@@ -27,12 +29,12 @@
             <div class="bar"></div>
         </div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="/LuckySeven/properties/">Properties</a></li>
-            <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
-            <li><a href="../properties-mng/index.php">Property Management</a></li>
-            <li><a href="../offers/index.php">My Offers</a></li>
-            <li><a href="../visit-requests/index.php">My visits</a></li>
-            <li><a href="/LuckySeven/login/index.php" id="nav-login/register">Logout</a></li>
+<!--            <li><a href="/LuckySeven/properties/">Properties</a></li>-->
+<!--            <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>-->
+<!--            <li><a href="../properties-mng/index.php">Property Management</a></li>-->
+<!--            <li><a href="../offers/index.php">My Offers</a></li>-->
+<!--            <li><a href="../visit-requests/index.php">My visits</a></li>-->
+<!--            <li><a href="/LuckySeven/login/index.php" id="nav-login/register">Logout</a></li>-->
         </ul>
     </nav>
 </header>

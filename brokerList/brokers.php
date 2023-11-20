@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/LuckySeven/FrontEnd-Rough/styles.css">
+
+    <script src="/LuckySeven/Navbar/navbar.js"></script>
+
+
     <title>BROKERLIST</title>
 </head>
 <body>
@@ -18,11 +22,11 @@
                 <div class="bar"></div>
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="/LuckySeven/properties/">Properties</a></li>
-                <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
-                <li><a href="/LuckySeven/broker/properties-mng/index.php">Property Management</a></li>
-                <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
-                <li><a href="/LuckySeven/login/index.php" id="nav-login/register">Login/Register</a></li>
+<!--                <li><a href="/LuckySeven/properties/">Properties</a></li>-->
+<!--                <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>-->
+<!--                <li><a href="/LuckySeven/broker/properties-mng/index.php">Property Management</a></li>-->
+<!--                <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>-->
+<!--                <li><a href="/LuckySeven/login/index.php" id="nav-login/register">Login/Register</a></li>-->
             </ul>
         </nav>
     </header>
