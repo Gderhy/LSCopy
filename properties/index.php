@@ -64,6 +64,23 @@
     </div>
 </section>
 
+<div class="mortgage-calculator-popup" id="mortgage-calculator-popup" style="display: none">
+        <div class="calculator-content">
+            <span class="close-button" id="close-button">&times;</span>
+            <h2>Mortgage Calculator</h2>
+            <label for="property-amount">Property Amount:</label>
+            <input type="number" id="property-amount" placeholder="$">
+            <label for="down-payment">Down Payment:</label>
+            <input type="number" id="down-payment" placeholder="$">
+            <label for="annual-interest-rate">Annual Interest Rate (%):</label>
+            <input type="number" id="annual-interest-rate" placeholder="%">
+            <label for="amortization-period">Amortization Period (Years):</label>
+            <input type="number" id="amortization-period" placeholder="Years">
+            <button id="calculateButton">Calculate</button>
+            <div id="monthly-payment-result"></div>
+        </div>
+    </div>
+
 <div id="propertiesSections"></div>
 
         <div class="popup-container" id="popup">
@@ -75,6 +92,7 @@
                 <p><strong>Phone Number:</strong> <span id="broker-phone"></span></p>
             </div>
         </div>
+        
 
 <section class="testimonials">
     <h2>What Our Clients Say</h2>

@@ -175,7 +175,7 @@ function closeCalculator() {
 
 function toggleCalculator() {
   const calculatorPopup = document.getElementById("mortgage-calculator-popup");
-  calculatorPopup.style.display = (calculatorPopup.style.display === 'none' ? 'block' : 'none');
+  calculatorPopup.style.display = "block";
 }
 
 function calculateMonthlyPayment() {
