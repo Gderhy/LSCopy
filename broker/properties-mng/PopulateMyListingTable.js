@@ -11,13 +11,13 @@ import {
 const user = JSON.parse(localStorage.getItem('user'));
 const locations = getLocations();
 const propertyTypes = getPropertyTypes();
-console.log(user.USER_ID);
+// console.log(user.USER_ID);
 populateMyListingTable(getBrokerProperties(user.USER_ID));
 
 addTypeIDToForm();
 
 function populateMyListingTable(listings) {
-    console.log(listings);
+    // console.log(listings);
     const tableBody = document.getElementById("tbody-my-listings");
 
     // Clears out existing table
@@ -71,7 +71,7 @@ function getTableRow(listing, locations, propertyTypes) {
     img.className = "cover-img"
     img.id = `img-${id}`
     const images = getPropertyImages(id) ?? [{"IMG": `${listing.COVER_IMG_ID}`}];
-    console.log(id, images)
+    // console.log(id, images)
     img.src = images[images.length - 1].IMG;
     img.alt = `Image-${listing.COVER_IMG_ID}`
     const img_input = document.createElement('input');
@@ -184,7 +184,7 @@ function getTableRow(listing, locations, propertyTypes) {
 
 
             const id = event.target.id.replace("UPDATE_BUTTON-", "");
-            console.log(getPropertyImages(id));
+            // console.log(getPropertyImages(id));
 
             const confirm1 = confirm(`Are you sure you want to update property: ${id}`);
 
@@ -205,7 +205,7 @@ function getTableRow(listing, locations, propertyTypes) {
             const STATUS = document.getElementById(`STATUS_SELECT-${id}`).value; // str
             const PROPERTY_ID = id;
 
-            console.log(STATUS)
+            // console.log(STATUS)
 
             updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, STATUS, PROPERTY_ID);
 

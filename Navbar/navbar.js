@@ -1,130 +1,188 @@
-/**
- * <header>
- *             <nav>
- *                 <div class="logo">
- *                     <a href="/LuckySeven/properties/"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
- *                 </div>
- *                 <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
- *                     <div class="bar"></div>
- *                     <div class="bar"></div>
- *                     <div class="bar"></div>
- *                 </div>
- *                 <ul class="nav-links" id="nav-links">
- *                     <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>
- *                     <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
- *                     <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
- *                     <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
- *                     <li><a href="/LuckySeven/login/index.php">Login/Register</a></li>
- *                 </ul>
- *             </nav>
- *         </header>
+/*
+<header>
+    <nav>
+        <div class="logo">
+            <a href="index.html"> <img src="/LuckySeven/FrontEnd-Rough/logo.png" alt="Logo"></a>
+        </div>
+        <div class="mobile-menu-icon" onclick="toggleMobileMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>
+            <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
+            <li><a href="/LuckySeven/admin/index.php">Admin Page</a></li>
+            <li><a href="/LuckySeven/login/index.php">Logout</a></li>
+        </ul>
+    </nav>
+</header>
  */
 
-function implementNavBar() {
 
-    const navbar = document.getElementById('navbar');
+// Calls for function that fills the li needed
+addEventListener('DOMContentLoaded', implementNavbar);
 
-    navbar.appendChild(getImageDiv());
-    navbar.appendChild(getMobileIcon());
-    navbar.appendChild(getUl());
 
-}
+function implementNavbar() {
 
-function getImageDiv() {
+    // Applies the proper link to the home page (Property Search)
+    const logoAnchor = document.querySelector(".logo a")
+    logoAnchor.href = "/LuckySeven/properties/index.php"
 
-    const divLogo = document.createElement('div');
-    divLogo.className = 'logo';
-    const aLogo = document.createElement('a');
-    aLogo.href = "/LuckySeven/properties";
-    const imgLogo = document.createElement('img');
-    imgLogo.src = "/LuckySeven/Navbar/logo.png";
-    imgLogo.alt = 'Logo';
-    aLogo.appendChild(imgLogo);
-    divLogo.appendChild(aLogo);
 
-    return divLogo;
-}
+    // Applies the respective li to the ul of the nav
+    const ul = document.getElementById('nav-links');
 
-function getMobileIcon() {
+    while (ul.firstChild) {
 
-    const div = document.createElement('div');
-    div.className = 'mobile-menu-icon';
-    div.onclick = toggleMobileMenu;
-
-    for (let i = 0; i < 3; i++) {
-
-        const bar = document.createElement('div');
-        bar.className = 'bar';
-        div.appendChild(bar)
+        ul.removeChild(ul.firstChild)
     }
 
-    return div;
-}
+    ul.appendChild(getPropertySearchLi());
+    ul.appendChild(getSearchForBrokerLi());
 
 
-function getUl() {
+    const user = JSON.parse(localStorage.getItem('user'));
 
-    const ul = document.createElement('ul');
-    ul.className = 'nav-links';
-    ul.id = 'nav-links';
+    if (user?.ROLE_ID === "1") { // admin
 
-    ul.appendChild(getLi('/LuckySeven/properties/', "Properties"));
-    ul.appendChild(getLi('/LuckySeven/brokerList/brokers.php', 'Brokers'));
+        ul.appendChild(getAdminLi())
 
-    const user = localStorage.getItem('user');
+    } else if (user?.ROLE_ID === "2") { // Broker
 
-    if (!user) {
+        ul.appendChild(getPropertyManagementLi());
+        ul.appendChild(getVisitRequestLi());
+        ul.appendChild(getOfferManagementLi());
 
-        ul.appendChild(getLi('/LuckySeven/FrontEnd-Rough/about-us.html', 'About Us'));
-        ul.appendChild(getLi('FrontEnd-Rough/contact.html', 'Contact Us'));
-        ul.appendChild(getLi('/LuckySeven/login/index.php', 'Login/Register'));
-    } else {
+    } else { // Logged out or client
 
-        if (user.ROLE_ID == 1) { // Admin
-
-            ul.appendChild(getLi('/LuckySeven/admin/', 'Admin'));
-
-
-        } else if (user.ROLE_ID == 2) { // Broker
-
-            ul.appendChild(getLi('/LuckySeven/broker/properties-mng/', 'Property Management'));
-            ul.appendChild(getLi('/LuckySeven/broker/visit-requests/', 'Visit Requests'));
-
-        } else if (user.ROLE_ID == 3) { // Client
-
-            ul.appendChild(getLi('/LuckySeven/FrontEnd-Rough/about-us.html', 'About Us'));
-            ul.appendChild(getLi('FrontEnd-Rough/contact.html', 'Contact Us'));
-
-        }
-
-
-        const logout = document.createElement('a');
-        logout.addEventListener('click', function () {
-
-            // Logging out
-            localStorage.removeItem('user');
-            location.href = '/LuckySeven/properties/';
-        });
-
-        logout.textContent = user.USER_NAME;
-
-        ul.appendChild(document.createElement('li').appendChild(logout));
-
+        ul.appendChild(getContactUsLi());
+        ul.appendChild(getAboutUsLi());
     }
 
-    return ul;
+    user ? ul.appendChild(getLoggedInUserLi(user.FIRST_NAME, user.LAST_NAME)) :
+        ul.appendChild(getLoginRegisterLi());
 }
 
-
-function getLi(pathname, textContent) {
-
+function getLoginRegisterLi() {
+    const li = document.createElement('li');
     const a = document.createElement('a');
-    a.href = pathname;
-    a.textContent = textContent;
+    a.href = '/LuckySeven/login/index.php';
+    a.innerText = 'Login/Register';
 
-    return document.createElement('li').appendChild(a);
+    li.appendChild(a);
+
+    return li;
+}
+
+function getAdminLi() {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+
+    a.href = '/LuckySeven/admin/index.php';
+    a.innerText = 'Admin';
+
+    li.appendChild(a);
+
+    return li;
+}
+
+function getLoggedInUserLi(firstName, lastName) {
+
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '/LuckySeven/login/index.php';
+    a.innerText = `${firstName}`;
+
+    li.appendChild(a);
+
+    return li;
+}
+
+function getPropertyManagementLi() {
+
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '/LuckySeven/broker/properties-mng/index.php';
+    a.innerText = `Property Management`;
+
+    li.appendChild(a);
+
+    return li;
+}
+
+function getVisitRequestLi() {
+
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+
+    a.href = '/LuckySeven/broker/visit-requests/index.php';
+    a.innerText = `Visit Requests Management`;
+
+    li.appendChild(a);
+
+    return li;
+}
+
+function getOfferManagementLi() {
+
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+
+    a.href = '/LuckySeven/broker/offers/index.php';
+    a.innerText = `Offer Management`;
+
+    li.appendChild(a);
+
+    return li;
 }
 
 
+function getPropertySearchLi() {
 
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '/LuckySeven/properties/index.php';
+    a.innerText = 'Properties';
+
+    li.appendChild(a);
+
+    return li;
+}
+
+function getSearchForBrokerLi() {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '/LuckySeven/brokerList/brokers.php';
+    a.innerText = 'Brokers';
+
+    li.appendChild(a);
+
+    return li;
+}
+
+function getContactUsLi() {
+
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '/LuckySeven/contactUs/contact.html';
+    a.innerText = 'Contact Us';
+
+    li.appendChild(a);
+
+    return li;
+}
+
+function getAboutUsLi() {
+
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '/LuckySeven/aboutUs/about-us.html';
+    a.innerText = 'About Us';
+
+    li.appendChild(a);
+
+    return li;
+}
 

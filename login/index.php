@@ -5,6 +5,9 @@
 
         <link rel="stylesheet" type="text/css" href="/LuckySeven/FrontEnd-Rough/styles.css">
         <link rel="stylesheet" type="text/css" href="/LuckySeven/Navbar/Css/navStyle.css">
+        <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
+
+        <script src="/LuckySeven/Navbar/navbar.js"></script>
 
         <title>Login/Register</title>
     </head>
@@ -21,9 +24,9 @@
             </div>
             <ul class="nav-links" id="nav-links">
         
-                <li><a href="/LuckySeven/properties">Properties</a></li>
-                <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>
-                <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>
+<!--                <li><a href="/LuckySeven/properties">Properties</a></li>-->
+<!--                <li><a href="/LuckySeven/FrontEnd-Rough/about-us.html">About Us</a></li>-->
+<!--                <li><a href="/LuckySeven/FrontEnd-Rough/contact.html">Contact</a></li>-->
             </ul>
         </nav>
     </header>

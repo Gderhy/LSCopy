@@ -21,7 +21,7 @@
         
                 <li><a href="listings.html">Listings</a></li>
                 <li><a href="about-us.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../contactUs/contact.html">Contact</a></li>
                 <li class="dropdown">
                     <a href="login.html" class="account-dropdown">Account</a>
                     <div class="dropdown-content">

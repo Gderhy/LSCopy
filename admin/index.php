@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="Css/admin-content.css">
     <link rel="stylesheet" href="Css/Existing-brokers.css">
     <link rel="stylesheet" href="Css/Create-new-broker.css">
-    <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
+    <link rel="stylesheet" href="/LuckySeven/FrontEnd-Rough/styles.css">
 
+    <script src="/LuckySeven/Navbar/navbar.js"></script>
 
     <title>Your Real Estate</title>
 
@@ -28,10 +29,10 @@
             <div class="bar"></div>
         </div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>
-            <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>
-            <li><a href="/LuckySeven/admin/index.php">Admin Page</a></li>
-            <li><a href="/LuckySeven/login/index.php">Logout</a></li>
+<!--            <li><a href="/LuckySeven/FrontEnd-Rough/properties/">Properties</a></li>-->
+            <!--            <li><a href="/LuckySeven/brokerList/brokers.php">Brokers</a></li>-->
+            <!--            <li><a href="/LuckySeven/admin/index.php">Admin Page</a></li>-->
+            <!--            <li><a href="/LuckySeven/login/index.php">Logout</a></li>-->
         </ul>
     </nav>
 </header>

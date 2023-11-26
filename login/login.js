@@ -1,5 +1,7 @@
 import {getUserInfo, addNewUser} from './import_data.js';
 
+// Log out by default
+localStorage.removeItem('user')
 
 
 document.getElementById('login-form').addEventListener('submit', function (event) {
