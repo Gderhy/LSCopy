@@ -66,15 +66,15 @@
 
 <div id="propertiesSections"></div>
 
-<div class="popup-container" id="popup">
-    <div class="popup-content">
-        <span class="close" id="close-popup">&times;</span>
-        <h2>Broker Details</h2>
-        <p><strong>Name:</strong> <span id="broker-name"></span></p>
-        <p><strong>Email:</strong> <span id="broker-email"></span></p>
-        <p><strong>Phone Number:</strong> <span id="broker-phone"></span></p>
-    </div>
-</div>
+        <div class="popup-container" id="popup">
+            <div class="popup-content">
+                <span class="close" id="close-popup">&times;</span>
+                <h2>Broker Details</h2>
+                <p><strong>Name:</strong> <span id="broker-name"></span></p>
+                <p><strong>Email:</strong> <span id="broker-email"></span></p>
+                <p><strong>Phone Number:</strong> <span id="broker-phone"></span></p>
+            </div>
+        </div>
 
 <section class="testimonials">
     <h2>What Our Clients Say</h2>

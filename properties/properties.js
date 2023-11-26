@@ -83,7 +83,7 @@ function displayProperties(properties) {
                 <h3>${property.DESCRIPTION}</h3>
                 <p>${property.LOCATION_CITY},  ${property.ADDRESS}</p>
                 <p>Price: ${property.PRICE}$</p>
-                <p>🛌 ${property.ROOMS_COUNT} 🛁 ${property.BATH_COUNT} 🅿️ ${property.PARKING_COUNT}</p>
+                <p>🛌 ${property.ROOMS_COUNT} 🛁 ${property.BATH_COUNT} 🅿️ ${property.PARKING_COUNT}
             </div>`;
 
             document.getElementById('propertiesSections').appendChild(propertyDiv);
@@ -93,6 +93,14 @@ function displayProperties(properties) {
             submitRequest.addEventListener('click', function () {
                 submitVisitRequest(property.PROPERTY_ID);
             });
+
+
+            if (property.IS_FOR_SALE === '1') {
+                const mortgageCalculator = document.createElement('button');
+                mortgageCalculator.textContent = 'Mortgage Calculator 🧮';
+                mortgageCalculator.addEventListener('click', toggleCalculator);
+                document.getElementById('property_' + property.PROPERTY_ID).appendChild(mortgageCalculator);
+            }
 
 
             if(user?.ROLE_ID == 2){
@@ -146,6 +154,51 @@ function getCurrentDateTime() {
     const seconds = String(now.getSeconds()).padStart(2, '0');
 
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+
+document.getElementById('close-button').addEventListener('click',
+    function (event) {
+        closeCalculator();
+    });
+
+document.getElementById('calculateButton').addEventListener('click',
+    function (event) {
+        calculateMonthlyPayment();
+    });
+
+function closeCalculator() {
+  const calculatorPopup = document.getElementById("mortgage-calculator-popup");
+  calculatorPopup.style.display = "none";
+}
+
+
+function toggleCalculator() {
+  const calculatorPopup = document.getElementById("mortgage-calculator-popup");
+  calculatorPopup.style.display = (calculatorPopup.style.display === 'none' ? 'block' : 'none');
+}
+
+function calculateMonthlyPayment() {
+  
+  var propertyAmount = parseFloat(document.getElementById('property-amount').value);
+  var downPayment = parseFloat(document.getElementById('down-payment').value);
+  var annualInterestRate = parseFloat(document.getElementById('annual-interest-rate').value) / 100;
+  var amortizationPeriod = parseFloat(document.getElementById('amortization-period').value);
+
+  var principal = propertyAmount - downPayment;
+
+  var monthlyInterestRate = annualInterestRate / 12;
+
+  var numberOfPayments = amortizationPeriod * 12;
+
+  var monthlyPayment = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+
+  var resultElement = document.getElementById('monthly-payment-result');
+  if(isFinite(monthlyPayment)){
+      resultElement.innerText = 'Monthly Payment: $' + monthlyPayment.toFixed(2);
+  } else {
+      resultElement.innerText = 'Please check the values entered.';
+  }
 }
 
 
