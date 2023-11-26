@@ -5,7 +5,7 @@
  */
 const user = JSON.parse(localStorage.getItem('user'));
 
-if (user.ROLE_ID !== "2") {
+if (!user || user.ROLE_ID !== "2") {
 
     alert("Not authorized.")
     window.location.href = "/LuckySeven/login";

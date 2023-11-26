@@ -1,50 +1,93 @@
-
 import {getBrokerOffers, getSentOffers, updateOffer} from './import_data.js';
-import { changeLoginInNav } from '../../login/loginNAV.js';
+import {changeLoginInNav} from '../../login/loginNAV.js';
 
 
 const user = JSON.parse(localStorage.getItem('user'));
-changeLoginInNav();
+
 const brokerOffers = getBrokerOffers(user.USER_ID);
 const sentOffers = getSentOffers(user.USER_ID);
 
-console.log(brokerOffers)
-console.log(sentOffers);
+// console.log(brokerOffers)
+// console.log(sentOffers);
 
 if (brokerOffers == null) {
     alert('No offers found.');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     populateOffersTable(brokerOffers);
     populateSentOffersTable(sentOffers);
 });
 
+function createOfferRow(offer) {
+
+    const row = document.createElement('row');
+
+    if (!offer) return row;
+
+    const tdAddress = document.createElement('td');
+    tdAddress.innerText = offer.ADDRESS;
+    row.appendChild(tdAddress);
+
+    const tdDescription = document.createElement('td');
+    tdDescription.innerText = offer.DESCRIPTION;
+    row.appendChild(tdDescription);
+
+    const tdFromBrokerName = document.createElement('td');
+    tdFromBrokerName.innerText = offer.FROM_BROKER_NAME;
+    row.appendChild(tdFromBrokerName);
+
+    const tdPostal = document.createElement('td');
+    tdPostal.innerText = offer.POSTAL;
+    row.appendChild(tdPostal);
+
+    const tdPrice = document.createElement('td');
+    tdPrice.innerText = offer.PRICE;
+    row.appendChild(tdPrice);
+
+    const tdNote = document.createElement('td');
+    tdNote.innerText = offer.NOTE;
+    row.appendChild(tdNote);
+
+    const tdSelect = document.createElement('td');
+    const select = document.createElement('select');
+    select.className = "offer-status";
+    select.setAttribute("data-offer-id", offer.OFFER_ID);
+    const options = [document.createElement('option'),
+        document.createElement('option'), document.createElement('option')];
+
+    for (let i = 0; i < options.length; i++) {
+
+        options[i].value = `${i+1}`;
+        options[i].innerText = convertStatusToText(offer.STATUS);
+        options[i].selected = i + 1 === offer.STATUS;
+        select.appendChild(options[i]);
+    }
+
+    options[0].innerText = "New";
+
+    row.appendChild(select);
+
+    return row;
+}
+
 function populateOffersTable(offers) {
+
+    if (!offers) return;
+
     const tableBody = document.getElementById('offers-tbody');
-    tableBody.innerHTML = ''; 
-    
+    tableBody.innerHTML = '';
+
+
     offers.forEach(offer => {
-        const row = tableBody.insertRow();
-        row.innerHTML = `
-            <td>${offer.ADDRESS}</td>
-            <td>${offer.DESCRIPTION}</td>
-            <td>${offer.FROM_BROKER_NAME}</td>
-            <td>${offer.POSTAL}</td>
-            <td>$${offer.PRICE}</td>
-            <td>${offer.NOTE}</td>
-            <td>
-                <select class="offer-status" data-offer-id="${offer.OFFER_ID}">
-                    <option value="1" ${offer.STATUS === "1" ? 'selected' : ''}>New</option>
-                    <option value="2" ${offer.STATUS === "2" ? 'selected' : ''}>Accepted</option>
-                    <option value="3" ${offer.STATUS === "3" ? 'selected' : ''}>Declined</option>
-                </select>
-            </td>
-        `;
+
+        if (!offer) return;
+        tableBody.appendChild(createOfferRow(offer));
     });
 
+
     document.querySelectorAll('.offer-status').forEach(selectElement => {
-        selectElement.addEventListener('change', function() {
+        selectElement.addEventListener('change', function () {
             updateOfferStatus(this);
         });
     });
@@ -59,12 +102,13 @@ function updateOfferStatus(selectElement) {
 }
 
 
-
-// let sentOffers = getSentOffers(user.USER_ID); --> sql function needed 
+// let sentOffers = getSentOffers(user.USER_ID); --> sql function needed
 function populateSentOffersTable(sentOffers) {
 
+    if (!sentOffers) return;
+
     const tableBody = document.getElementById('offerSent-tbody');
-    tableBody.innerHTML = ''; 
+    tableBody.innerHTML = '';
     sentOffers.forEach(sentOffer => {
         console.log(sentOffer)
         const row = document.createElement('tr');
@@ -84,10 +128,10 @@ function populateSentOffersTable(sentOffers) {
 
 function convertStatusToText(status) {
 
-    if(status == 1){
+    if (status == 1) {
 
         return 'Pending approval';
-    } else if(status == 2){
+    } else if (status == 2) {
 
         return 'Accepted';
     } else {
