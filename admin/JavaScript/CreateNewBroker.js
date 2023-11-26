@@ -1,4 +1,4 @@
-import {addNewBroker} from "./import_data.js";
+import addNewBroker from "./import_data.js";
 
 // Function works
 
