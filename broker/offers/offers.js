@@ -1,6 +1,4 @@
 import {getBrokerOffers, getSentOffers, updateOffer} from './import_data.js';
-import {changeLoginInNav} from '../../login/loginNAV.js';
-
 
 const user = JSON.parse(localStorage.getItem('user'));
 
@@ -110,7 +108,6 @@ function populateSentOffersTable(sentOffers) {
     const tableBody = document.getElementById('offerSent-tbody');
     tableBody.innerHTML = '';
     sentOffers.forEach(sentOffer => {
-        console.log(sentOffer)
         const row = document.createElement('tr');
         row.innerHTML = '';
         row.innerHTML = `

@@ -55,36 +55,6 @@ function getTableRow(listing, locations, propertyTypes) {
     row.appendChild(td_PROPERTY_TYPE);
 
 
-    // const td_PROPERTY_TYPE = document.createElement("td");
-    // td_PROPERTY_TYPE.id = `PROPERTY_TYPE-${id}`;
-    // td_PROPERTY_TYPE.textContent = `${listing.PROPERTY_TYPE}`;
-    // td_PROPERTY_TYPE.className = "dashboard-td";
-    // td_PROPERTY_TYPE.contentEditable = true;
-    // row.appendChild(td_PROPERTY_TYPE);
-
-
-    // Will add editing to images later
-    const td_COVER_IMG_ID = document.createElement("td");
-    td_COVER_IMG_ID.id = `COVER_IMG_ID-${id}`;
-    td_COVER_IMG_ID.className = "dashboard-td";
-    const img = document.createElement("img");
-    img.className = "cover-img"
-    img.id = `img-${id}`
-    const images = getPropertyImages(id) ?? [{"IMG": `${listing.COVER_IMG_ID}`}];
-    // console.log(id, images)
-    img.src = images[images.length - 1].IMG;
-    img.alt = `Image-${listing.COVER_IMG_ID}`
-    const img_input = document.createElement('input');
-    img_input.type = 'text';
-    img_input.id = `img_input-${id}`;
-
-    // const img_select = getImgSelect(id);
-    // td_COVER_IMG_ID.appendChild(img_select);
-    td_COVER_IMG_ID.appendChild(img);
-    td_COVER_IMG_ID.appendChild(img_input)
-    row.appendChild(td_COVER_IMG_ID);
-
-
     const td_DESCRIPTION = document.createElement("td");
     td_DESCRIPTION.id = `DESCRIPTION-${id}`;
     td_DESCRIPTION.textContent = `${listing.DESCRIPTION}`;

@@ -69,7 +69,7 @@ function displayProperties(properties) {
             let propertyImage = getPropertyImages(property.PROPERTY_ID);
 
             let imageUrl = propertyImage && propertyImage.length > 0 ? propertyImage[0].IMG : 'COVER_IMAGE';
-
+            console.log(imageUrl);
             let propertyDiv = document.createElement('section');
 
             propertyDiv.className = 'featured-listings';

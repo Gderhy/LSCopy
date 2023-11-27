@@ -1,8 +1,5 @@
 import {getLocations, insertNewProperty} from './import_data.js';
-import {changeLoginInNav} from '../../login/loginNAV.js';
 
-
-changeLoginInNav();
 document.addEventListener('DOMContentLoaded', function () {
     const user = JSON.parse(localStorage.getItem('user'));
 

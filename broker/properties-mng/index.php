@@ -3,11 +3,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="/LuckySeven/Navbar/Css/navStyle.css">
-    <link rel="stylesheet" href="/LuckySeven/broker/Css/Table.css">
-    <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-listings.css">
-    <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-create-new.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/Table.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-listings.css">
     <link rel="stylesheet" href="/LuckySeven/broker/Css/dashboard-create-new.css">
@@ -48,7 +43,6 @@
             <tr class="dashboard-row">
                 <th class="dashboard-th">Property ID</th>
                 <th class="dashboard-th">Property type</th>
-                <th class="dashboard-th">Cover Image</th>
                 <th class="dashboard-th">Description</th>
                 <th class="dashboard-th">Address</th>
                 <th class="dashboard-th">Postal</th>

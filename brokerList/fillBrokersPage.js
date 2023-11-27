@@ -1,8 +1,5 @@
 import {getAllBrokers} from "./import_data.js";
-import {changeLoginInNav} from "../login/loginNAV.js";
 
-
-changeLoginInNav();
 const searchInput = document.getElementById('search-input');
 searchInput.addEventListener('keyup', function (){
 
