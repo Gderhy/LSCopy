@@ -47,7 +47,6 @@
             </tr>
             </thead>
             <tbody id="offers-tbody">
-
             </tbody>
         </table>
     </section>

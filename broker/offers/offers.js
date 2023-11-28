@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function createOfferRow(offer) {
 
-    const row = document.createElement('row');
+    console.log(offer)
+    const row = document.createElement('tr');
 
     if (!offer) return row;
 
@@ -39,13 +40,16 @@ function createOfferRow(offer) {
     tdPostal.innerText = offer.POSTAL;
     row.appendChild(tdPostal);
 
-    const tdPrice = document.createElement('td');
-    tdPrice.innerText = offer.PRICE;
-    row.appendChild(tdPrice);
 
     const tdNote = document.createElement('td');
     tdNote.innerText = offer.NOTE;
     row.appendChild(tdNote);
+
+
+    const tdPrice = document.createElement('td');
+    tdPrice.innerText = offer.PRICE;
+    row.appendChild(tdPrice);
+
 
     const tdSelect = document.createElement('td');
     const select = document.createElement('select');
@@ -56,25 +60,24 @@ function createOfferRow(offer) {
 
     for (let i = 0; i < options.length; i++) {
 
-        options[i].value = `${i+1}`;
-        options[i].innerText = convertStatusToText(offer.STATUS);
+        options[i].value = `${i + 1}`;
         options[i].selected = i + 1 === offer.STATUS;
         select.appendChild(options[i]);
     }
-
-    options[0].innerText = "New";
-
-    row.appendChild(select);
+    options[0].innerText = "New offer";
+    options[1].innerText = "Accepted offer";
+    options[2].innerText = "Declined offer";
+    tdSelect.appendChild(select)
+    row.appendChild(tdSelect);
 
     return row;
 }
 
 function populateOffersTable(offers) {
-
+    console.log(offers)
     if (!offers) return;
 
     const tableBody = document.getElementById('offers-tbody');
-    tableBody.innerHTML = '';
 
 
     offers.forEach(offer => {
@@ -126,7 +129,6 @@ function populateSentOffersTable(sentOffers) {
 function convertStatusToText(status) {
 
     if (status == 1) {
-
         return 'Pending approval';
     } else if (status == 2) {
 
