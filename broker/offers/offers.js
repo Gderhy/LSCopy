@@ -67,6 +67,7 @@ function createOfferRow(offer) {
     options[0].innerText = "New offer";
     options[1].innerText = "Accepted offer";
     options[2].innerText = "Declined offer";
+
     tdSelect.appendChild(select)
     row.appendChild(tdSelect);
 
