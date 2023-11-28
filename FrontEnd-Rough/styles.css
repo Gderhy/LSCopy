@@ -847,3 +847,41 @@ button:hover {
             font-size: 20px;
             cursor: pointer;
         }
+
+   
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0; 
+    background-color: #292b2c;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-top: 20px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:first-child {
+    padding-top: 32px;
+}
+
+
+
+
+.dropdown:hover .dropdown-content,
+.dropdown .dropdown-content:hover {
+    display: block;
+}

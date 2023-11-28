@@ -89,13 +89,24 @@ function getAdminLi() {
 }
 
 function getLoggedInUserLi(firstName, lastName) {
-
     const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = '/LuckySeven/login/index.php';
-    a.innerText = `${firstName}`;
+    li.className = 'dropdown';
 
+    const a = document.createElement('a');
+    a.href = '#';
+    a.innerText = `${firstName + " " + lastName}`;
+    a.className = 'dropbtn';
+
+    const divDropdownContent = document.createElement('div');
+    divDropdownContent.className = 'dropdown-content';
+
+    const aLogout = document.createElement('a');
+    aLogout.href = '/LuckySeven/login/index.php'; 
+    aLogout.innerText = 'Logout';
+
+    divDropdownContent.appendChild(aLogout);
     li.appendChild(a);
+    li.appendChild(divDropdownContent);
 
     return li;
 }
