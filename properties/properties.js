@@ -69,7 +69,7 @@ function displayProperties(properties) {
             let propertyImage = getPropertyImages(property.PROPERTY_ID);
 
             let imageUrl = propertyImage && propertyImage.length > 0 ? propertyImage[0].IMG : 'COVER_IMAGE';
-            console.log(imageUrl);
+
             let propertyDiv = document.createElement('section');
 
             propertyDiv.className = 'featured-listings';
@@ -91,12 +91,6 @@ function displayProperties(properties) {
             submitRequest.textContent = 'Request Visit';
             document.getElementById('property_' + property.PROPERTY_ID).appendChild(submitRequest);
             submitRequest.addEventListener('click', function () {
-
-                if(!user){
-
-                    alert("You must be logged in to submit a visit request");
-                    return;
-                }
                 submitVisitRequest(property.PROPERTY_ID);
             });
 
@@ -145,7 +139,7 @@ function removeElementsByClassName(className) {
 
 function submitVisitRequest(propertyId) {
     let requestDate = getCurrentDateTime();
-    // let user = JSON.parse(localStorage.getItem('user'));
+    let user = JSON.parse(localStorage.getItem('user'));
     requestVisitToProperty(requestDate, user.USER_ID, propertyId);
     alert('Your request has been sent successfully!');
 }

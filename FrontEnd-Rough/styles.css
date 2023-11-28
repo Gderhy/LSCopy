@@ -650,10 +650,11 @@ button[type="submit"]:hover {
 }
 
 .close-button {
-    color: #aaa;
+    color: #474747;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    display: relative;
 }
 
 .close-button:hover,

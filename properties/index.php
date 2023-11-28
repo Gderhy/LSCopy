@@ -66,7 +66,7 @@
 
 <div class="mortgage-calculator-popup" id="mortgage-calculator-popup" style="display: none">
         <div class="calculator-content">
-            <span class="close-button" id="close-button">&times;</span>
+            <button class="close-button" id="close-button" style="width: 60px">&times;</button>
             <h2>Mortgage Calculator</h2>
             <label for="property-amount">Property Amount:</label>
             <input type="number" id="property-amount" placeholder="$">
