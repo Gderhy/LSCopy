@@ -71,7 +71,8 @@
         </table>
     </div>
 
-    <div class="add-listing">
+    <button id="addNewButton">Add New Listing</button>
+    <div class="add-listing" id="addListingForm">
         <h3>Add a listing</h3>
 
         <form class="form-create-new" id="form-create-new-listing">
@@ -80,7 +81,7 @@
 
 
             <label for="description">Description:</label>
-            <input type="text" id="description" name="description" required><br><br>
+            <input type="text" id="description" name="description"  required><br><br>
 
             <label for="select_area_id">Area ID:</label>
             <select id="select_area_id"></select>
@@ -112,8 +113,9 @@
             <label for="cover_img">Cover Image:</label>
             <input type="text" id="cover_img" name="cover_img">
 
-            <button type="submit" id='addProperty'">Create new listing</button>
+            <button type="submit" id="addProperty">Create new listing</button>
         </form>
+        
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

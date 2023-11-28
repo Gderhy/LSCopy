@@ -41,3 +41,6 @@ document.getElementById('addProperty').addEventListener('submit', function (even
 
 });
   
+document.getElementById('addNewButton').addEventListener('click', function() {
+    document.getElementById('addListingForm').style.display = 'block';
+});
