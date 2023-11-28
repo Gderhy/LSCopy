@@ -68,6 +68,16 @@ function createOfferRow(offer) {
     options[1].innerText = "Accepted offer";
     options[2].innerText = "Declined offer";
 
+    select.addEventListener('change', ()=>{
+
+        const status = select.value;
+        const offerId = offer.OFFER_ID;
+
+        // console.log(status, offerId);
+
+        updateOffer(status, offerId);
+    })
+
     tdSelect.appendChild(select)
     row.appendChild(tdSelect);
 
@@ -88,16 +98,16 @@ function populateOffersTable(offers) {
     });
 
 
-    document.querySelectorAll('.offer-status').forEach(selectElement => {
-        selectElement.addEventListener('change', function () {
-            updateOfferStatus(this);
-        });
-    });
+    // document.querySelectorAll('.offer-status').forEach(selectElement => {
+    //     selectElement.addEventListener('change', function () {
+    //         updateOfferStatus(this);
+    //     });
+    // });
 }
 
 
-function updateOfferStatus(selectElement) {
-    const offerId = selectElement.getAttribute('data-offer-id');
+function updateOfferStatus(selectElement, offerId) {
+
     const newStatus = selectElement.value;
     console.log(`Offer ID: ${offerId}, New Status: ${newStatus}`);
     updateOffer(newStatus, offerId);
