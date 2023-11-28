@@ -225,7 +225,8 @@ $RECIPES = [
         FROM luckyseven.tbl_property_offer OFFER
         LEFT JOIN luckyseven.tbl_property PROPERTY ON OFFER.PROPERTY_ID = PROPERTY.PROPERTY_ID
         LEFT JOIN luckyseven.tbl_user FROM_USER ON OFFER.FROM_BROKER_ID = FROM_USER.USER_ID
-        WHERE PROPERTY.BROKER_ID = '?-?'",
+        WHERE PROPERTY.BROKER_ID = '?-?' AND OFFER.STATUS = 1",
+    
         'getBrokerSentOffers' => "SELECT OFFER_ID,
 		FROM_BROKER_ID,
 		OFFER.PROPERTY_ID,
@@ -240,6 +241,7 @@ $RECIPES = [
         LEFT JOIN luckyseven.tbl_property PROPERTY ON OFFER.PROPERTY_ID = PROPERTY.PROPERTY_ID
         LEFT JOIN luckyseven.tbl_user FROM_USER ON OFFER.FROM_BROKER_ID = FROM_USER.USER_ID
         WHERE OFFER.FROM_BROKER_ID = '?-?'",
+    
     'updateOffer' => "UPDATE luckyseven.tbl_property_offer
                       SET STATUS = '?-?'
                       WHERE OFFER_ID = '?-?';",
