@@ -20,6 +20,20 @@ export function getUserInfo(USER_NAME, PASSWORD) {
     }
 }
 
+export function userExists(USER_NAME) {
+    let recipe = 'userExists';
+    let values = [USER_NAME];
+
+    let jsonUserInfo = sqlHandler(recipe, values);
+
+    let evaluatedData = eval(jsonUserInfo);
+    if (evaluatedData && Array.isArray(evaluatedData) && evaluatedData.length > 0) {
+        return evaluatedData[0];
+    } else {
+        return null;
+    }
+}
+
 // Function to add a new user
 export function addNewUser(FIRST_NAME, LAST_NAME, PHONE_NUM, EMAIL, USER_NAME, PASSWORD) {
     let recipe = 'insertNewUser';

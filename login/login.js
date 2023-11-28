@@ -1,4 +1,4 @@
-import {getUserInfo, addNewUser} from './import_data.js';
+import {getUserInfo, addNewUser, userExists} from './import_data.js';
 
 // Log out by default
 localStorage.removeItem('user')
@@ -50,8 +50,8 @@ document.getElementById('register-form').addEventListener('submit', function (ev
         return;
     }
 
-    addNewUser(firstName, lastName, phoneNum, email, username, password);
-    if(!getUserInfo(username, password)) {
+    if(!userExists(username)) {
+        addNewUser(firstName, lastName, phoneNum, email, username, password);
         alert('User added successfully');
         window.location.href = '../properties/';
     }

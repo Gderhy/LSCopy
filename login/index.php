@@ -76,13 +76,13 @@
                     </div>
                     <div class="form-group">
                         <label for="new-username">Username:</label>
-                        <input type="text" id="newUser" name="newUser" pattern="^(?=.*[A-Z])(?=.*\d).{6,}$" title="At least 6 characters, 1 uppercase letter, and 1 number" required>
+                        <input type="text" id="newUser" name="newUser" title="At least 6 characters, 1 uppercase letter, and 1 number" required>
 
                     </div>
 
                     <div class="form-group">
                         <label for="new-password">Password:</label>
-                        <input type="password" id="new-password" name="new-password" required>
+                        <input type="password" pattern="^(?=.*[A-Z])(?=.*\d).{6,}$" id="new-password" name="new-password" required>
                     </div>
                     <div class="form-group">
                         <label for="confirm-password">Confirm Password:</label>
