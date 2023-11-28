@@ -3,7 +3,6 @@
  * page
  * @type js
  */
-
 const user = JSON.parse(localStorage.getItem('user'));
 
 if (user?.ROLE_ID !== "2") {
@@ -79,13 +78,16 @@ export function getPropertyImages(PROPERTY_ID) {
  * @returns void
  */
 export function insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
-                                  PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE) {
+                                  PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, IMG_LINK) {
 
     let recipe = 'insertNewProperty';
     let values = [BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE];
-
+    
     sqlHandler(recipe, values);
+    
+    linkImageToProperty(IMG_LINK);
+    setCoverImage();
 }
 
 /**
@@ -123,9 +125,21 @@ export function updateProperty(COVER_IMG_ID, DESCRIPTION, AREA_ID, ADDRESS, POST
  * @param {int} PROPERTY_ID
  * @returns {undefined}
  */
-export function linkImageToProperty(IMG_LINK, PROPERTY_ID) {
+export function linkImageToProperty(IMG_LINK) {
     let recipe = 'linkImageToProperty';
-    let values = [IMG_LINK, PROPERTY_ID];
+    let values = [IMG_LINK];
+
+    sqlHandler(recipe, values);
+    
+}
+/**
+ * Setting a property cover image to the latest image
+ * @param {int} PROPERTY_ID
+ * @returns {undefined}
+ */
+export function setCoverImage(PROPERTY_ID) {
+    let recipe = 'setCoverImage';
+    let values = null;
 
     sqlHandler(recipe, values);
 }

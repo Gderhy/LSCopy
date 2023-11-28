@@ -78,7 +78,7 @@ $RECIPES = [
 		luckyseven.tbl_location L ON P.AREA_ID = L.AREA_ID
 	LEFT JOIN
 		luckyseven.tbl_property_img PI ON P.COVER_IMG_ID = PI.IMG_ID
-	WHERE BROKER_ID = '?-?';",
+	WHERE BROKER_ID = '?-?' AND P.STATUS != 3",
     /*
      * Properties Search
      */
@@ -142,8 +142,21 @@ $RECIPES = [
                                 STATUS = '?-?'
                             WHERE
                                 PROPERTY_ID = '?-?';",
+    'setCoverImage' => "UPDATE luckyseven.tbl_property
+                            SET COVER_IMG_ID = (
+                                    SELECT IFNULL(MAX(IMG_ID), 0)
+                                    FROM luckyseven.tbl_property_img
+                            )
+                            WHERE PROPERTY_ID = (
+                                    SELECT IFNULL(MAX(PROPERTY_ID), 0)
+                                    FROM (
+                                            SELECT PROPERTY_ID
+                                            FROM luckyseven.tbl_property
+                                    ) AS temp_table
+                            );",
     'linkImageToProperty' => "INSERT INTO luckyseven.tbl_property_img (IMG_ID, IMG, PROPERTY_ID)
-                                SELECT IFNULL(MAX(IMG_ID), 0) + 1, '?-?', '?-?'
+                                SELECT IFNULL(MAX(IMG_ID), 0) + 1, '?-?',  (SELECT IFNULL(MAX(PROPERTY_ID), 0)
+                                                                            FROM luckyseven.tbl_property)
                                 FROM luckyseven.tbl_property_img;",
     'getPropertyImages' => "SELECT IMG_ID, IMG
                             FROM tbl_property_img
