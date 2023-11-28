@@ -313,7 +313,7 @@ form_create_new_listing.addEventListener("submit",
         const IS_FOR_SALE = document.getElementById("isForSale").checked ? 1 : 0;
         const COVER_IMG = document.getElementById('cover_img').value;
 
-        insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE);
+        insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR, PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE, COVER_IMG);
         location.reload();
     });
 

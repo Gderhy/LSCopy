@@ -36,10 +36,6 @@ document.getElementById('addProperty').addEventListener('submit', function (even
     let PRICE = document.getElementById('PRICE').value;
     let IS_FOR_SALE = document.getElementById('IS_FOR_SALE').value;
 
-
-    console.log(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
-        PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE);
-
     insertNewProperty(BROKER_ID, DESCRIPTION, AREA_ID, ADDRESS, POSTAL, YEAR,
         PARKING_COUNT, BATH_COUNT, ROOMS_COUNT, TYPE_ID, PRICE, IS_FOR_SALE);
 
