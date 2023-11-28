@@ -140,6 +140,10 @@ function removeElementsByClassName(className) {
 function submitVisitRequest(propertyId) {
     let requestDate = getCurrentDateTime();
     let user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+        alert('Please login to submit a visit request');
+        window.location.href = '../login/';
+    }
     requestVisitToProperty(requestDate, user.USER_ID, propertyId);
     alert('Your request has been sent successfully!');
 }
