@@ -51,9 +51,13 @@ document.getElementById('register-form').addEventListener('submit', function (ev
     }
 
     addNewUser(firstName, lastName, phoneNum, email, username, password);
-    alert('User added successfully');
-    window.location.href = '../properties/';
-
+    if(!getUserInfo(username, password)) {
+        alert('User added successfully');
+        window.location.href = '../properties/';
+    }
+    else {
+        alert('The user name or email already exists!');
+    }
 
 });
 
