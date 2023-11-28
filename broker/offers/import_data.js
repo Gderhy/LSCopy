@@ -43,6 +43,7 @@ export function getSentOffers(BROKER_ID) {
  *      ACCEPTED STATUS is 2
  *      DELETED/DENIED STATUS is 3
  * @param {str} offerStatus a string with the status of the offer
+ * @param offerId
  * @returns {undefined}
  */
 export function updateOffer(offerStatus, offerId) {
